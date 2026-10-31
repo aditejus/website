@@ -5607,6 +5607,47 @@
        "publishAt": null,
        "premiere": null,
        "course": "llamaindex-builder"
+      },
+      {
+       "id": "rag-eval-components",
+       "title": "Component RAG Evals: Retriever, Reranker, Generator",
+       "level": "advanced",
+       "outcome": "Find which RAG stage causes each wrong answer",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "rag-eval-metrics",
+        "ev-metrics"
+       ],
+       "tools": [
+        {
+         "name": "RAGAS",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "TruLens",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
       }
      ]
     },
@@ -7434,6 +7475,344 @@
        "publishAt": null,
        "premiere": null,
        "course": "computer-agents"
+      }
+     ]
+    },
+    {
+     "id": "t06-m11-agent-harness-engineering",
+     "title": "Agent Harness Engineering",
+     "course": "agent-harness",
+     "lessons": [
+      {
+       "id": "ag-hx-parts",
+       "title": "The Eight Parts of an Agent Harness",
+       "level": "beginner",
+       "outcome": "Name the loop, tools, context, memory, permissions, sandbox, subagents and hooks in any agent product",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ag-harness-what"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-coding-agents",
+       "title": "How Coding-Agent Harnesses Are Built (Claude Code, Codex)",
+       "level": "intermediate",
+       "outcome": "Compare coding-agent harness designs from their public docs",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ag-hx-parts",
+        "ag-coding-agents-intro"
+       ],
+       "tools": [
+        {
+         "name": "Claude Code",
+         "tags": [
+          "paid"
+         ]
+        },
+        {
+         "name": "OpenAI Codex",
+         "tags": [
+          "paid"
+         ]
+        },
+        {
+         "name": "Gemini CLI",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-skills",
+       "title": "Skills and Plugins: Package Know-How for Agents",
+       "level": "intermediate",
+       "outcome": "Write a skill an agent loads only when it needs it",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ag-hx-parts"
+       ],
+       "tools": [
+        {
+         "name": "Claude Code",
+         "tags": [
+          "paid"
+         ]
+        },
+        {
+         "name": "Claude Agent SDK",
+         "tags": [
+          "open-source"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-hooks",
+       "title": "Hooks: Run Your Own Code Before and After Every Tool Call",
+       "level": "intermediate",
+       "outcome": "Block, log or fix tool calls with hooks",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ag-hx-parts",
+        "ag-tools-permissions"
+       ],
+       "tools": [
+        {
+         "name": "Claude Agent SDK",
+         "tags": [
+          "open-source"
+         ]
+        },
+        {
+         "name": "Python",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-approvals",
+       "title": "Human Approvals: Permission Modes and Allow/Deny Rules",
+       "level": "intermediate",
+       "outcome": "Design an approval policy that is safe without nagging",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ag-hx-hooks"
+       ],
+       "tools": [
+        {
+         "name": "Claude Agent SDK",
+         "tags": [
+          "open-source"
+         ]
+        },
+        {
+         "name": "Python",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-context-long",
+       "title": "Context Engineering for Long Tasks: Compaction and Notes",
+       "level": "advanced",
+       "outcome": "Keep a multi-hour task on track across context resets",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "ag-context-memory",
+        "ag-mem-compaction"
+       ],
+       "tools": [
+        {
+         "name": "Python",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Claude Agent SDK",
+         "tags": [
+          "open-source"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-sandbox",
+       "title": "Sandboxing Agents: Containers, Files, Network, Secrets",
+       "level": "advanced",
+       "outcome": "Run an agent with least privilege in a container",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ag-hx-approvals"
+       ],
+       "tools": [
+        {
+         "name": "Docker",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Python",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-mini-coding",
+       "title": "Project: Build a Mini Coding-Agent Harness",
+       "level": "advanced",
+       "outcome": "Ship a small harness that fixes a failing test in a sandbox",
+       "format": "project",
+       "minutes": 75,
+       "prerequisites": [
+        "ag-loop-50",
+        "ag-hx-sandbox"
+       ],
+       "tools": [
+        {
+         "name": "Python",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Ollama",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Docker",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Git + GitHub",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-evaluate",
+       "title": "Evaluate a Harness: Same Model, Different Harness",
+       "level": "advanced",
+       "outcome": "Measure task success, pass^k and cost per solved task across harness changes",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "ag-hx-mini-coding",
+        "ev-agent-task-success"
+       ],
+       "tools": [
+        {
+         "name": "Inspect (UK AI Security Institute)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Docker",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
+      },
+      {
+       "id": "ag-hx-budgets",
+       "title": "Cost and Latency Budgets for Agents",
+       "level": "advanced",
+       "outcome": "Set and enforce per-task cost and time budgets",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ag-hx-evaluate",
+        "pr-cost-caching"
+       ],
+       "tools": [
+        {
+         "name": "LiteLLM",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-harness"
       }
      ]
     }
@@ -9655,6 +10034,886 @@
        "publishAt": null,
        "premiere": null,
        "course": "llm-apis"
+      }
+     ]
+    },
+    {
+     "id": "t09-m07-evals-in-depth",
+     "title": "Evals in Depth",
+     "course": "agent-testing-v2",
+     "lessons": [
+      {
+       "id": "ev-eval-driven-dev",
+       "title": "Eval-Driven Development: Write the Test Before the Prompt",
+       "level": "beginner",
+       "outcome": "Turn a feature idea into pass/fail checks before changing a prompt",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "pr-eval-intro"
+       ],
+       "tools": [
+        {
+         "name": "promptfoo",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-error-analysis",
+       "title": "Error Analysis First: Read the Traces, Then Pick Metrics",
+       "level": "beginner",
+       "outcome": "Name your app's top failure modes from 50 real outputs",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ev-eval-driven-dev"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-golden-datasets",
+       "title": "Golden Datasets and Test Sets That Last",
+       "level": "intermediate",
+       "outcome": "Build a versioned golden set with dev/test splits and edge cases",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "pr-eval-datasets",
+        "ev-error-analysis"
+       ],
+       "tools": [
+        {
+         "name": "Hugging Face Datasets",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-metrics",
+       "title": "Metrics for LLM Apps: From Code Checks to Rubrics",
+       "level": "intermediate",
+       "outcome": "Choose the cheapest metric that catches each failure mode",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-golden-datasets"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "RAGAS",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-call-tests",
+       "title": "Tool-Call and MCP Contract Tests",
+       "level": "intermediate",
+       "outcome": "Assert the right tool, the right arguments and safe handling of tool errors",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-metrics",
+        "ag-mcp-how"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "pytest",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "MCP Inspector",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": "2027-01-23",
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-safety-evals",
+       "title": "Safety Evals: Jailbreaks, Refusals and Over-Refusal",
+       "level": "intermediate",
+       "outcome": "Measure unsafe-answer and over-refusal rates on a fixed test set",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-metrics",
+        "pr-sec-prompt-injection"
+       ],
+       "tools": [
+        {
+         "name": "promptfoo",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Inspect (UK AI Security Institute)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Llama Guard",
+         "tags": [
+          "open-source"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-human-review",
+       "title": "Human Review Loops: Annotation Queues and Rubrics",
+       "level": "intermediate",
+       "outcome": "Run a weekly review queue that grows the golden set",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ev-golden-datasets"
+       ],
+       "tools": [
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "LangSmith",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-judge-calibration",
+       "title": "Calibrate Your LLM Judge: Human Agreement and Bias",
+       "level": "advanced",
+       "outcome": "Measure judge-human agreement and fix the biases that skew scores",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "pr-eval-judge",
+        "ev-human-review"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "Arize Phoenix",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-agent-task-success",
+       "title": "Agent Task-Success Evals: End-State Checks and pass^k",
+       "level": "advanced",
+       "outcome": "Score agents on finished tasks, not nice-sounding answers",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "ag-agent-evals",
+        "ev-tool-call-tests"
+       ],
+       "tools": [
+        {
+         "name": "Inspect (UK AI Security Institute)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Docker",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-multi-agent-tests",
+       "title": "Test Multi-Agent Systems: Handoffs, Loops and Who Broke It",
+       "level": "advanced",
+       "outcome": "Catch bad handoffs and runaway loops between agents",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-agent-task-success",
+        "ag-ma-supervisor"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "LangGraph",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": "2027-01-23",
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-ci-statistics",
+       "title": "Flaky Evals in CI: Repeats, Thresholds, Baselines",
+       "level": "advanced",
+       "outcome": "Gate releases on real regressions, not random noise",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "pr-eval-ci"
+       ],
+       "tools": [
+        {
+         "name": "GitHub Actions",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "promptfoo",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": "2027-01-23",
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-online-ab",
+       "title": "Online Evals and A/B Tests on Live Traffic",
+       "level": "advanced",
+       "outcome": "Score sampled production traces and run a safe A/B rollout",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "ev-ci-statistics",
+        "pr-obs-langfuse"
+       ],
+       "tools": [
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "Arize Phoenix",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "OpenTelemetry (GenAI conventions)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": "2027-01-23",
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-benchmarks-limits",
+       "title": "Benchmarks and Their Limits: Contamination, Saturation",
+       "level": "advanced",
+       "outcome": "Read a leaderboard critically and build a private benchmark instead",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "tr-benchmarks",
+        "ev-metrics"
+       ],
+       "tools": [
+        {
+         "name": "lm-evaluation-harness",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Inspect (UK AI Security Institute)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-capstone",
+       "title": "Capstone: The Agent Quality Platform",
+       "level": "advanced",
+       "outcome": "Ship datasets, metrics, red-team tests, CI gates and live monitoring for one agent",
+       "format": "project",
+       "minutes": 90,
+       "prerequisites": [
+        "ev-online-ab",
+        "ev-multi-agent-tests",
+        "pr-sec-redteam"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "RAGAS",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "promptfoo",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "GitHub Actions",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": "2027-01-23",
+       "course": "agent-testing-v2"
+      }
+     ]
+    },
+    {
+     "id": "t09-m08-eval-tools",
+     "title": "Eval Tools (One Lesson Each)",
+     "course": "agent-testing-v2",
+     "lessons": [
+      {
+       "id": "ev-tool-promptfoo",
+       "title": "promptfoo: Your First Eval Suite in YAML",
+       "level": "beginner",
+       "outcome": "Compare prompts and models side by side from one config file",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-eval-driven-dev"
+       ],
+       "tools": [
+        {
+         "name": "promptfoo",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-inspect",
+       "title": "Inspect (UK AISI): Tasks, Solvers and Scorers",
+       "level": "intermediate",
+       "outcome": "Write an Inspect task and read its log viewer",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-metrics"
+       ],
+       "tools": [
+        {
+         "name": "Inspect (UK AI Security Institute)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-openai-evals",
+       "title": "OpenAI Evals: Open-Source Framework and Paid Evals API",
+       "level": "intermediate",
+       "outcome": "Run a graded eval on the framework and on the API (verify price)",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ev-metrics"
+       ],
+       "tools": [
+        {
+         "name": "OpenAI Evals (open-source framework + Evals API)",
+         "tags": [
+          "open-source",
+          "paid"
+         ]
+        },
+        {
+         "name": "OpenAI API",
+         "tags": [
+          "paid"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-langsmith",
+       "title": "LangSmith Evaluations: Datasets and Experiments",
+       "level": "intermediate",
+       "outcome": "Run and compare experiments in LangSmith (paid plans; free tier limits: verify price)",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-golden-datasets"
+       ],
+       "tools": [
+        {
+         "name": "LangSmith",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "LangChain",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-langfuse",
+       "title": "Langfuse Evals: Datasets, Experiments, LLM Judges",
+       "level": "intermediate",
+       "outcome": "Score traces and dataset runs in self-hosted Langfuse",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ev-golden-datasets",
+        "pr-obs-langfuse"
+       ],
+       "tools": [
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-braintrust",
+       "title": "Braintrust: Experiments, Scorers and autoevals",
+       "level": "intermediate",
+       "outcome": "Run experiments with autoevals scorers (paid platform; free tier: verify price)",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ev-golden-datasets"
+       ],
+       "tools": [
+        {
+         "name": "Braintrust",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "autoevals (Braintrust scorers library)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-phoenix",
+       "title": "Arize Phoenix Evals: Trace First, Then Evaluate",
+       "level": "intermediate",
+       "outcome": "Evaluate spans from a traced agent locally",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "ev-metrics",
+        "pr-obs-tracing"
+       ],
+       "tools": [
+        {
+         "name": "Arize Phoenix",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "OpenTelemetry (GenAI conventions)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-trulens",
+       "title": "TruLens: Feedback Functions and the RAG Triad",
+       "level": "intermediate",
+       "outcome": "Score context relevance, groundedness and answer relevance",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "rag-eval-metrics"
+       ],
+       "tools": [
+        {
+         "name": "TruLens",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-deepeval-adv",
+       "title": "DeepEval Advanced: Custom Metrics and Agent Tracing",
+       "level": "advanced",
+       "outcome": "Write custom metrics and trace-level agent evals in DeepEval",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "pr-eval-deepeval",
+        "ev-judge-calibration"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "pytest",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-ragas-adv",
+       "title": "RAGAS Advanced: Agent, Tool-Call and Multi-Turn Metrics",
+       "level": "advanced",
+       "outcome": "Evaluate agent workflows and conversations with RAGAS",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "rag-eval-ragas",
+        "ev-tool-call-tests"
+       ],
+       "tools": [
+        {
+         "name": "RAGAS",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
+      },
+      {
+       "id": "ev-tool-shootout",
+       "title": "One Eval, Six Tools: Pick Your Eval Stack (Free vs Paid)",
+       "level": "advanced",
+       "outcome": "Choose a stack by cost, hosting, CI fit and team size",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "ev-tool-promptfoo",
+        "ev-tool-langfuse",
+        "ev-tool-braintrust"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "RAGAS",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "promptfoo",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Inspect (UK AI Security Institute)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "Braintrust",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-testing-v2"
       }
      ]
     }
@@ -12970,6 +14229,1073 @@
        "publishAt": null,
        "premiere": null,
        "course": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t15-frontier-advanced",
+   "n": 15,
+   "title": "Frontier and Advanced",
+   "description": "For builders who have shipped an agent: memory systems, agent red teaming and MCP security, the 2026 MCP spec and A2A, reasoning models and inference optimisation, reliability, RL for agents, knowledge graphs and AI governance (India DPDP basics).",
+   "modules": [
+    {
+     "id": "t15-m01-agent-memory-systems",
+     "title": "Agent Memory Systems",
+     "course": "agent-frameworks",
+     "lessons": [
+      {
+       "id": "fr-mem-why",
+       "title": "Why Agents Forget: Memory as a System, Not a Prompt",
+       "level": "beginner",
+       "outcome": "Explain write, store, retrieve and forget for agent memory",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "ag-mem-types"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-mem-scratch",
+       "title": "Build Episodic and Semantic Memory From Scratch",
+       "level": "intermediate",
+       "outcome": "Store events and facts, retrieve them by relevance and recency",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "fr-mem-why",
+        "rag-ret-dense"
+       ],
+       "tools": [
+        {
+         "name": "Python",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Chroma",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-mem-mem0",
+       "title": "Mem0 Hands-On: Extract, Update and Scope Memories per User",
+       "level": "intermediate",
+       "outcome": "Add per-user long-term memory to an agent",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-mem-scratch",
+        "ag-mem-tools"
+       ],
+       "tools": [
+        {
+         "name": "Mem0",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-mem-letta",
+       "title": "Letta (MemGPT-Style) Agents: Self-Editing Memory",
+       "level": "advanced",
+       "outcome": "Build an agent that manages its own memory",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-mem-mem0"
+       ],
+       "tools": [
+        {
+         "name": "Letta",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-mem-eval-govern",
+       "title": "Test and Govern Agent Memory: Recall, Staleness, Deletion",
+       "level": "advanced",
+       "outcome": "Prove memory helps, and delete it on request",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-mem-letta",
+        "ev-metrics"
+       ],
+       "tools": [
+        {
+         "name": "DeepEval",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "Mem0",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      }
+     ]
+    },
+    {
+     "id": "t15-m02-agent-security-red-team",
+     "title": "Agent Security and Red Teaming",
+     "course": "ai-security",
+     "lessons": [
+      {
+       "id": "fr-sec-threats",
+       "title": "How Agents Get Attacked: The Risky Combination",
+       "level": "beginner",
+       "outcome": "Spot the risky combination in any agent design",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "pr-sec-basics",
+        "ag-what-is"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
+      },
+      {
+       "id": "fr-sec-defences",
+       "title": "Agent Defences That Hold Against Prompt Injection",
+       "level": "intermediate",
+       "outcome": "Apply design patterns that limit what an injected prompt can do",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-sec-threats",
+        "pr-sec-prompt-injection"
+       ],
+       "tools": [
+        {
+         "name": "NeMo Guardrails",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Guardrails AI",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
+      },
+      {
+       "id": "fr-mcp-security-lab",
+       "title": "MCP Security Lab: Tool Poisoning, Tokens, OAuth Scopes",
+       "level": "advanced",
+       "outcome": "Attack and then harden a test MCP setup",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "pr-sec-agent",
+        "fr-sec-defences"
+       ],
+       "tools": [
+        {
+         "name": "Model Context Protocol (MCP) SDKs",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "MCP Inspector",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
+      },
+      {
+       "id": "fr-redteam-agents",
+       "title": "Red-Team Agents With PyRIT, garak and promptfoo",
+       "level": "advanced",
+       "outcome": "Run an automated red-team campaign against a tool-using agent",
+       "format": "video",
+       "minutes": 15,
+       "prerequisites": [
+        "pr-sec-redteam",
+        "fr-sec-defences"
+       ],
+       "tools": [
+        {
+         "name": "PyRIT",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "garak",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "promptfoo",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": "2027-01-23",
+       "course": "agent-testing-v2"
+      }
+     ]
+    },
+    {
+     "id": "t15-m03-protocols-advanced",
+     "title": "MCP and A2A, Advanced",
+     "course": "mcp-builder",
+     "lessons": [
+      {
+       "id": "fr-mcp-remote-intro",
+       "title": "Local vs Remote MCP Servers, Explained",
+       "level": "beginner",
+       "outcome": "Choose stdio or a remote server and know what changes",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "ag-mcp-explained"
+       ],
+       "tools": [
+        {
+         "name": "Model Context Protocol (MCP) SDKs",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "mcp-builder"
+      },
+      {
+       "id": "fr-mcp-spec-2026",
+       "title": "MCP 2026-07-28 Spec: Stateless, Discover, Apps, Tasks",
+       "level": "intermediate",
+       "outcome": "Explain what the new spec changes and migrate a server",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-mcp-remote-intro",
+        "ag-mcp-test-share"
+       ],
+       "tools": [
+        {
+         "name": "Model Context Protocol (MCP) SDKs",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "MCP Inspector",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "mcp-builder"
+      },
+      {
+       "id": "fr-mcp-oauth",
+       "title": "Remote MCP Servers With OAuth, Step by Step",
+       "level": "intermediate",
+       "outcome": "Protect a remote MCP server with OAuth",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "fr-mcp-spec-2026"
+       ],
+       "tools": [
+        {
+         "name": "Model Context Protocol (MCP) SDKs",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "mcp-builder"
+      },
+      {
+       "id": "fr-mcp-apps-tasks",
+       "title": "Build With MCP Apps and Tasks",
+       "level": "advanced",
+       "outcome": "Ship a tool with a UI and a long-running task",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "fr-mcp-oauth"
+       ],
+       "tools": [
+        {
+         "name": "Model Context Protocol (MCP) SDKs",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "mcp-builder"
+      },
+      {
+       "id": "fr-a2a-advanced",
+       "title": "A2A Advanced: Agent Cards, Tasks, Streaming, Auth",
+       "level": "advanced",
+       "outcome": "Expose an agent over A2A with auth and streaming",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "ag-a2a",
+        "fr-mcp-oauth"
+       ],
+       "tools": [
+        {
+         "name": "Agent2Agent (A2A) protocol",
+         "tags": [
+          "open-source"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-a2a-project",
+       "title": "Project: Two Agents, Two Frameworks, One A2A Link",
+       "level": "advanced",
+       "outcome": "Connect agents built in two frameworks through A2A",
+       "format": "project",
+       "minutes": 60,
+       "prerequisites": [
+        "fr-a2a-advanced"
+       ],
+       "tools": [
+        {
+         "name": "Agent2Agent (A2A) protocol",
+         "tags": [
+          "open-source"
+         ]
+        },
+        {
+         "name": "Google Agent Development Kit (ADK)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "LangGraph",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      }
+     ]
+    },
+    {
+     "id": "t15-m04-reasoning-inference",
+     "title": "Reasoning Models and Inference",
+     "course": "open-models",
+     "lessons": [
+      {
+       "id": "fr-reasoning-when",
+       "title": "Reasoning Models in Production: When They Pay Off",
+       "level": "beginner",
+       "outcome": "Decide per task whether a reasoning model is worth it",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-reasoning-models"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-apis"
+      },
+      {
+       "id": "fr-reasoning-budgets",
+       "title": "Thinking Budgets: Cost, Latency and Quality",
+       "level": "intermediate",
+       "outcome": "Tune reasoning effort against an eval set (verify price)",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-reasoning-when",
+        "ev-metrics"
+       ],
+       "tools": [
+        {
+         "name": "OpenAI API",
+         "tags": [
+          "paid"
+         ]
+        },
+        {
+         "name": "Anthropic API",
+         "tags": [
+          "paid"
+         ]
+        },
+        {
+         "name": "Gemini API",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-apis"
+      },
+      {
+       "id": "fr-long-context-vs-rag",
+       "title": "Long Context vs RAG: Measure Cost and Accuracy",
+       "level": "intermediate",
+       "outcome": "Measure when to stuff the context and when to retrieve",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "rag-vs-finetune",
+        "fr-reasoning-when"
+       ],
+       "tools": [
+        {
+         "name": "Gemini API",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Chroma",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "advanced-rag"
+      },
+      {
+       "id": "fr-small-models",
+       "title": "Small and On-Device Models: Laptops, Phones and Browsers",
+       "level": "intermediate",
+       "outcome": "Pick and run a small model that fits your device",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "llm-ollama",
+        "llm-llamacpp"
+       ],
+       "tools": [
+        {
+         "name": "Ollama",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "llama.cpp",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Open-weight models (Llama, Qwen, Gemma, Mistral, DeepSeek)",
+         "tags": [
+          "open-source"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "open-models"
+      },
+      {
+       "id": "fr-inference-kv",
+       "title": "Inference Optimisation: KV Cache and Prefix Caching",
+       "level": "advanced",
+       "outcome": "Explain and measure what each optimisation saves",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "ml-kv-cache",
+        "llm-vllm"
+       ],
+       "tools": [
+        {
+         "name": "vLLM",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "SGLang",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "open-models"
+      },
+      {
+       "id": "fr-spec-decoding",
+       "title": "Speculative Decoding and Continuous Batching",
+       "level": "advanced",
+       "outcome": "Turn on speculative decoding and batching and measure the speed-up",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-inference-kv"
+       ],
+       "tools": [
+        {
+         "name": "vLLM",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "SGLang",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "open-models"
+      },
+      {
+       "id": "fr-serving-bench",
+       "title": "Project: Benchmark Your Model Serving Stack",
+       "level": "advanced",
+       "outcome": "Compare two serving setups on your own GPU budget (verify price)",
+       "format": "project",
+       "minutes": 60,
+       "prerequisites": [
+        "fr-spec-decoding"
+       ],
+       "tools": [
+        {
+         "name": "vLLM",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "SGLang",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "GPU clouds (RunPod, Lambda, Vast.ai, E2E Networks)",
+         "tags": [
+          "paid"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "open-models"
+      }
+     ]
+    },
+    {
+     "id": "t15-m05-frontier-agent-engineering",
+     "title": "Frontier Agent Engineering",
+     "course": "agent-frameworks",
+     "lessons": [
+      {
+       "id": "fr-rel-failures",
+       "title": "Why Agents Fail in Production, and Service Levels",
+       "level": "beginner",
+       "outcome": "List the failure modes and set targets for an agent",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "pr-running-reliably"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-rel-engineering",
+       "title": "Agent Reliability: Retries, Idempotency, Checkpoints",
+       "level": "intermediate",
+       "outcome": "Make tool calls safe to retry and agent runs resumable",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "fr-rel-failures",
+        "ag-lg-memory-approval"
+       ],
+       "tools": [
+        {
+         "name": "LangGraph",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Temporal (durable execution)",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-multimodal-agents",
+       "title": "Multimodal Agents: Screens, Documents and Voice in One Loop",
+       "level": "intermediate",
+       "outcome": "Build an agent that reads images and documents and acts on them",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "mm-vision-apis",
+        "ag-loop-50"
+       ],
+       "tools": [
+        {
+         "name": "Gemini API",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Qwen-VL",
+         "tags": [
+          "open-source"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "computer-agents"
+      },
+      {
+       "id": "fr-kg-agents",
+       "title": "Knowledge Graphs for Agents: Query and Update Tools",
+       "level": "intermediate",
+       "outcome": "Give an agent a graph it can query and update",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "rag-type-graph"
+       ],
+       "tools": [
+        {
+         "name": "Neo4j",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Microsoft GraphRAG",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "advanced-rag"
+      },
+      {
+       "id": "fr-durable-agents",
+       "title": "Durable Long-Running Agents: Resume After a Crash",
+       "level": "advanced",
+       "outcome": "Run an agent for hours and survive restarts",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-rel-engineering"
+       ],
+       "tools": [
+        {
+         "name": "Temporal (durable execution)",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "LangGraph",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "agent-frameworks"
+      },
+      {
+       "id": "fr-rl-agents",
+       "title": "RL Fine-Tuning for Agents: GRPO on Tool Use",
+       "level": "advanced",
+       "outcome": "Train a small model to call tools better with GRPO",
+       "format": "video",
+       "minutes": 15,
+       "prerequisites": [
+        "tr-grpo",
+        "fr-rel-engineering"
+       ],
+       "tools": [
+        {
+         "name": "Hugging Face TRL",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Unsloth",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Google Colab",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-training-advanced"
+      },
+      {
+       "id": "fr-kg-memory-project",
+       "title": "Project: Agent With Knowledge-Graph Memory",
+       "level": "advanced",
+       "outcome": "Ship an agent that builds and queries its own graph",
+       "format": "project",
+       "minutes": 75,
+       "prerequisites": [
+        "fr-kg-agents",
+        "fr-mem-scratch"
+       ],
+       "tools": [
+        {
+         "name": "Neo4j",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "LangGraph",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "advanced-rag"
+      }
+     ]
+    },
+    {
+     "id": "t15-m06-ai-governance",
+     "title": "AI Governance at Work",
+     "course": "ai-security",
+     "lessons": [
+      {
+       "id": "fr-gov-policy",
+       "title": "Write an AI Use Policy for Your Team",
+       "level": "beginner",
+       "outcome": "Draft a one-page policy: approved tools, data rules, review steps",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-using-ai-safely"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
+      },
+      {
+       "id": "fr-gov-dpdp",
+       "title": "India DPDP Act Basics for AI Teams",
+       "level": "intermediate",
+       "outcome": "Map an AI feature to DPDP Act duties and the phased DPDP Rules 2025 timeline",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-gov-policy",
+        "f-ai-law-policy"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
+      },
+      {
+       "id": "fr-gov-privacy-eng",
+       "title": "Privacy Engineering for AI Apps: PII and Retention",
+       "level": "intermediate",
+       "outcome": "Redact PII and set retention before data reaches a model",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-gov-dpdp",
+        "pr-sec-basics"
+       ],
+       "tools": [
+        {
+         "name": "Microsoft Presidio",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
+      },
+      {
+       "id": "fr-gov-risk",
+       "title": "AI Risk Management: NIST AI RMF and ISO/IEC 42001",
+       "level": "advanced",
+       "outcome": "Run a lightweight risk review for a new AI feature",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "fr-gov-privacy-eng"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
+      },
+      {
+       "id": "fr-gov-audit",
+       "title": "Audit Trails for AI Agents",
+       "level": "advanced",
+       "outcome": "Keep the records you need when an agent gets something wrong",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "fr-gov-risk",
+        "ag-hx-approvals"
+       ],
+       "tools": [
+        {
+         "name": "Langfuse",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "OpenTelemetry (GenAI conventions)",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-security"
       }
      ]
     }
