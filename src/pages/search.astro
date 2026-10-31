@@ -65,7 +65,7 @@ const tries = ['RAG', 'n8n', 'MCP', 'fine-tune', 'Excel', 'prompt', 'students', 
   run();if(!q.value)q.focus();
 })();
 </script>
-<style>
+<style is:global>
   .sph { padding-bottom: 24px; }
   .sf { position: relative; display: flex; gap: 10px; margin-top: 24px; max-width: 760px; }
   .sf svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--faint); pointer-events: none; }
@@ -78,6 +78,7 @@ const tries = ['RAG', 'n8n', 'MCP', 'fine-tune', 'Excel', 'prompt', 'students', 
   .sfl select { height: 36px; font-size: 14px; border-radius: 99px; }
   #sstat { margin-bottom: 8px; min-height: 20px; }
   .res { list-style: none; padding: 0; max-width: 860px; }
+  .res { margin: 0; }
   .res .r { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
   .r-top { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
   .r-ty { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-right: 4px; }

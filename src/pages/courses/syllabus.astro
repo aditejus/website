@@ -46,7 +46,7 @@ const byTrack = new Map(tracks.map((t) => [t.id, lessons.filter((l) => l.track =
   function run(){var q=f.q.value.trim().toLowerCase(),v={},n=0,any=false;K.forEach(function(k){v[k]=f[k].value;if(v[k])any=true});
     rows.forEach(function(r){var d=r.dataset,ok=(!q||r._t.indexOf(q)>-1)&&(!v.track||d.track===v.track)&&(!v.level||d.level===v.level)&&(!v.format||d.format===v.format)&&(!v.tools||d.tools===v.tools)&&(!v.status||(v.status==='udemy'?d.udemy==='1':d.status===v.status));r.hidden=!ok;if(ok)n++});
     document.querySelectorAll('.mod').forEach(function(m){m.hidden=!m.querySelector('.lr:not([hidden])')});
-    document.querySelectorAll('.trk').forEach(function(t){t.hidden=!t.querySelector('.mod:not([hidden])')});
+    document.querySelectorAll('.trk').forEach(function(t){t.hidden=!t.querySelector('.mod:not([hidden])');var a=document.querySelector('.toc a[href="#'+t.id+'"]');if(a)a.hidden=t.hidden});
     sc.textContent=n+(n===1?' lesson':' lessons')+(any?' match':'');se.hidden=n>0;document.getElementById('sr').hidden=!any;
     var o=new URLSearchParams();K.forEach(function(k){if(v[k])o.set(k,v[k])});history.replaceState(null,'',(o.toString()?'?'+o:location.pathname)+location.hash)}
   f.addEventListener('input',run);f.addEventListener('change',run);f.addEventListener('reset',function(){setTimeout(run,0)});f.addEventListener('submit',function(e){e.preventDefault()});run();

@@ -74,6 +74,7 @@ const H = hl === 1 ? 'h1' : 'h2';
   .chips input:checked + span { color: var(--text); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: 0 0 0 1px var(--accent) inset; }
   .chips input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
   .sp-go { justify-self: start; }
+  .sp-go[hidden] { display: none; }
   .sp-r { padding: clamp(24px, 3.4vw, 40px); border-left: 1px solid var(--line); background: color-mix(in srgb, var(--surface-2) 60%, transparent); display: flex; flex-direction: column; gap: 10px; }
   .sp-r h3 { font-size: clamp(24px, 2.4vw, 30px); letter-spacing: -.025em; }
   .sp-r h3 a { text-decoration: none; }
