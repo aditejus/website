@@ -1,0 +1,76 @@
+---
+// The lesson map: every lesson in the syllabus as one cell, live lessons bright,
+// with a scripted route-planner demo lighting a beginner path to "chat with my files".
+import { tracks, lessons, lessonById, lessonPath, stats } from '../lib/data';
+const ROUTE = ['f-what-is-llm', 'f-tokens-context', 'f-hallucination', 'p-prompting-basics', 'p-better-prompts', 'py-install',
+  'llm-ollama', 'rag-one-picture', 'rag-chunks-embeddings', 'rag-tutorial-python'].filter((id) => lessonById.has(id));
+const routeTitles = ROUTE.map((id) => lessonById.get(id)!.title);
+---
+<section class="atlas" aria-labelledby="atlas-h">
+  <div>
+    <h2 id="atlas-h" class="sr">Map of all {stats.lessons} lessons</h2>
+    <div class="grid">
+      {tracks.map((t) => (
+        <div class="tr">
+          <a class="nm" href={`/courses/syllabus/#${t.id}`}>{t.n}. {t.title}</a>
+          <div class="cells" aria-hidden="true">
+            {lessons.filter((l) => l.track === t.id).map((l) => (
+              <a class={`c ${l.level[0]}${l.live ? ' live' : ''}`} href={lessonPath(l.id)} tabindex="-1"
+                 data-id={l.id} title={`${l.title} (${l.live ? 'live' : 'coming soon'})`}></a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="legend">
+      <span><i class="k live"></i>Live on YouTube</span><span><i class="k"></i>Coming soon</span><span><i class="k path"></i>Route the planner picked</span>
+    </div>
+    <p class="weekly">Lighting up every week. Live lessons are bright.</p>
+  </div>
+  <div class="log" aria-hidden="true">
+    <p class="lh">Route planner</p>
+    <p class="sub">Scripted demo of planning a route through the syllabus.</p>
+    <div id="log" data-route={JSON.stringify(ROUTE)} data-titles={JSON.stringify(routeTitles)} data-total={stats.lessons}></div>
+  </div>
+</section>
+<script is:inline>
+(function(){
+  var log=document.getElementById('log');if(!log)return;
+  var route=JSON.parse(log.dataset.route),titles=JSON.parse(log.dataset.titles),total=log.dataset.total;
+  var L=['<span class="q">goal</span> "Build a chatbot that answers from my files"','<span class="f">search_syllabus</span>(goal, level=beginner)','<span class="r">'+total+' lessons scanned, '+route.length+' picked</span>','<span class="f">order_by_prerequisites</span>()']
+    .concat(titles.map(function(t){return '<span class="r">+</span> '+t.replace(/</g,'&lt;')}))
+    .concat(['<span class="f">save_checklist</span>("my-route")  <span class="r">done</span>']);
+  var ps=L.map(function(h){var p=document.createElement('p');p.innerHTML=h;log.appendChild(p);return p});
+  var cells=route.map(function(id){return document.querySelector('.c[data-id="'+id+'"]')});
+  function show(n){ps.forEach(function(p,i){p.classList.toggle('on',i<n)});cells.forEach(function(c,i){if(!c)return;c.classList.toggle('path',i<n-4);c.classList.toggle('cur',i===n-5)})}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){show(L.length);cells.forEach(function(c){c&&c.classList.remove('cur')});return}
+  var n=0;function tick(){n++;show(n);if(n<L.length)setTimeout(tick,n<4?650:480);else setTimeout(function(){cells.forEach(function(c){c&&c.classList.remove('cur')});setTimeout(function(){n=0;show(0);setTimeout(tick,600)},4200)},300)}
+  setTimeout(tick,500);
+})();
+</script>
+<style>
+  .atlas { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 32px; padding: 40px 0 72px; border-top: 1px solid var(--line); }
+  .grid { display: grid; gap: 6px; }
+  .tr { display: grid; grid-template-columns: 230px 1fr; gap: 16px; align-items: center; }
+  .nm { font: 500 13px/1.25 var(--disp); color: var(--muted); text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-decoration: none; }
+  .nm:hover { color: var(--text); text-decoration: underline; }
+  .cells { display: flex; flex-wrap: wrap; gap: 3px; }
+  .c { width: 11px; height: 11px; border-radius: 2px; background: var(--cell); transition: background .25s, box-shadow .25s; display: block; }
+  .c.i { opacity: .82; } .c.a { opacity: .64; }
+  .c.live { background: var(--text); opacity: 1; }
+  .c.path { background: var(--a2); box-shadow: 0 0 0 2px color-mix(in srgb, var(--a2) 35%, transparent); opacity: 1; }
+  .c.cur { background: var(--a1); box-shadow: 0 0 14px var(--a1); }
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; font: 400 13px var(--disp); color: var(--muted); margin-top: 18px; padding-left: 246px; }
+  .k { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--cell); }
+  .k.live { background: var(--text); } .k.path { background: var(--a2); }
+  .weekly { font: 700 17px var(--disp); margin-top: 14px; padding-left: 246px; }
+  .log { font: 400 13px/1.7 var(--mono); background: var(--ink2); border-radius: var(--r); padding: 18px; align-self: start; border: 1px solid var(--line); min-height: 380px; }
+  .log .lh { font: 700 15px var(--disp); margin-bottom: 4px; }
+  .log .sub { color: var(--faint); font: 400 12px var(--disp); margin-bottom: 12px; }
+  .log :global(#log p) { opacity: 0; transition: opacity .3s; }
+  .log :global(#log p.on) { opacity: 1; }
+  .log :global(.f) { color: var(--a1); } .log :global(.q) { color: var(--muted); } .log :global(.r) { color: var(--a2); }
+  @media (max-width: 1060px) { .atlas { grid-template-columns: 1fr; } .log { order: -1; min-height: 0; } }
+  @media (max-width: 640px) { .tr { grid-template-columns: 1fr; gap: 4px; } .nm { text-align: left; } .legend, .weekly { padding-left: 0; } .c { width: 9px; height: 9px; } }
+  @media (prefers-reduced-motion: reduce) { .log :global(#log p) { opacity: 1; } }
+</style>

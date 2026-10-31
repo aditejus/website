@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import VideoCard from '../../components/VideoCard.astro';
+import { lessons, lessonById, courseByKey, trackById, levelLabel, ytUrl, thumbFor, udemyFor, lessonPath, fmtDate, SITE, type Lesson } from '../../lib/data';
+
+export function getStaticPaths() {
+  return lessons.map((l) => ({ params: { id: l.id }, props: { l } }));
+}
+const { l } = Astro.props as { l: Lesson };
+const t = trackById.get(l.track)!;
+const c = l.course ? courseByKey.get(l.course) : null;
+const udemy = udemyFor(l);
+const before = l.prerequisites.map((p) => lessonById.get(p)).filter(Boolean) as Lesson[];
+const after = lessons.filter((x) => x.prerequisites.includes(l.id)).slice(0, 6);
+const sameModule = lessons.filter((x) => x.track === l.track && x.module === l.module);
+const idx = sameModule.findIndex((x) => x.id === l.id);
+const fmt = l.format === 'video' ? 'Video lesson' : l.format[0].toUpperCase() + l.format.slice(1);
+const live = l.live && l.youtubeId;
+const thumb = live ? thumbFor(l.youtubeId) : null;
+const desc = `${l.outcome}. ${levelLabel(l.level)} ${l.format === 'video' ? 'lesson' : l.format}, about ${l.minutes} minutes${live ? ', free on YouTube' : ''}. Part of ${t.title}.`;
+const crumbs: [string, string][] = c
+  ? [['Courses', '/courses/'], [c.title, `/courses/${c.key}/`], [l.title, lessonPath(l.id)]]
+  : [['Full syllabus', '/courses/syllabus/'], [t.title, `/courses/syllabus/#${t.id}`], [l.title, lessonPath(l.id)]];
+const url = `${SITE}${lessonPath(l.id)}`;
+const jsonld: object[] = [{
+  '@context': 'https://schema.org', '@type': 'LearningResource', name: l.title, description: l.outcome, url,
+  learningResourceType: fmt, educationalLevel: levelLabel(l.level), timeRequired: `PT${l.minutes}M`, inLanguage: 'en',
+  provider: { '@type': 'Organization', name: 'ADITEJUS', url: SITE },
+  ...(c ? { isPartOf: { '@type': 'Course', name: c.title, url: `${SITE}/courses/${c.key}/` } } : {}),
+}];
+if (live && l.publishAt) jsonld.push({
+  '@context': 'https://schema.org', '@type': 'VideoObject', name: l.title, description: l.outcome,
+  uploadDate: `${l.publishAt}T00:00:00+05:30`, duration: `PT${l.minutes}M`,
+  thumbnailUrl: thumb ? `${SITE}${thumb}` : `https://i.ytimg.com/vi/${l.youtubeId}/hqdefault.jpg`,
+  contentUrl: ytUrl(l.youtubeId!), embedUrl: `https://www.youtube-nocookie.com/embed/${l.youtubeId}`,
+});
+---
+<Base title={l.title} description={desc} jsonld={jsonld} crumbs={crumbs} ogImage={thumb || undefined} ogType={live ? 'video.other' : 'article'}>
+  <div class="wrap">
+    <header class="ph">
+      <p class="faint">Track {t.n}: {t.title}, {l.module}</p>
+      <h1 class="lt">{l.title}</h1>
+      <p class="lede">{l.outcome}.</p>
+      <div class="tags">
+        {live ? <span class="badge live">Live on YouTube</span> : <span class="badge">{l.youtubeVisibility === 'scheduled' && l.publishAt ? `Coming ${fmtDate(l.publishAt)}` : 'Coming soon'}</span>}
+        <span class="badge">{levelLabel(l.level)}</span><span class="badge">{fmt}</span><span class="badge">About {l.minutes} min</span>
+      </div>
+    </header>
+
+    {live ? <VideoCard l={l} /> : (
+      <div class="ctas soon">
+        <a class="btn fill" href="https://www.youtube.com/@aditejus?sub_confirmation=1">Get notified on YouTube</a>
+        {c && (udemy ? <a class="btn" href={udemy.href}>Get the Udemy certificate</a> : <span class="btn" aria-disabled="true">Udemy certificate: coming soon</span>)}
+      </div>
+    )}
+
+    <div class="cols">
+      <section>
+        <h2>Course</h2>
+        {c ? <p><a href={`/courses/${c.key}/`}>{c.title}</a></p> : <p class="muted">Part of the free syllabus, not yet in a certificate course.</p>}
+        <p class="muted" style="margin-top:6px">Udemy: {udemy ? <a href={udemy.href}>open the course on Udemy</a> : 'coming soon'}</p>
+        {l.tools.length > 0 && (<>
+          <h2>Tools</h2>
+          <ul class="tools">{l.tools.map((x) => <li>{x.name}{x.tags.length > 0 && <span class="faint"> ({x.tags.join(', ')})</span>}</li>)}</ul>
+        </>)}
+      </section>
+      <section>
+        {before.length > 0 && (<><h2>Watch first</h2><ul class="rel">{before.map((x) => <li><a href={lessonPath(x.id)}>{x.title}</a></li>)}</ul></>)}
+        {after.length > 0 && (<><h2>Then try</h2><ul class="rel">{after.map((x) => <li><a href={lessonPath(x.id)}>{x.title}</a></li>)}</ul></>)}
+        <h2>In this module</h2>
+        <ol class="rel">{sameModule.map((x, i) => <li>{i === idx ? <strong aria-current="page">{x.title}</strong> : <a href={lessonPath(x.id)}>{x.title}</a>}</li>)}</ol>
+      </section>
+    </div>
+  </div>
+</Base>
+<style>
+  .lt { font-size: clamp(36px, 5.6vw, 84px); max-width: 16ch; margin-top: 12px; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 24px; }
+  .soon { margin-top: 0; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 64px; border-top: 2px solid var(--text); padding-top: 8px; }
+  .cols h2 { font-size: 24px; margin: 28px 0 10px; letter-spacing: -.02em; }
+  .tools, .rel { padding-left: 20px; display: grid; gap: 6px; }
+  @media (max-width: 860px) { .cols { grid-template-columns: 1fr; gap: 0; } }
+</style>

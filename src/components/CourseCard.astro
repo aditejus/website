@@ -1,0 +1,17 @@
+---
+import { type Course, trackById, levelLabel } from '../lib/data';
+const { c } = Astro.props as { c: Course };
+const t = c.primaryTrack ? trackById.get(c.primaryTrack) : null;
+---
+<a class="card cc" href={`/courses/${c.key}/`}
+   data-tracks={c.tracks.join(' ')} data-levels={c.levels.join(' ')} data-formats={c.formats.join(' ')}>
+  <span class="faint">{t ? `Track ${t.n}: ${t.title}` : 'Udemy course'}</span>
+  <h3>{c.title}</h3>
+  <p>{c.lessons.length ? `${c.lessons.length} lessons` : 'Full syllabus on Udemy'}{c.live ? `, ${c.live} free on YouTube now` : ''}</p>
+  <div class="meta">
+    {c.formats.includes('udemy') && <span class="badge udemy">Udemy certificate</span>}
+    {c.formats.includes('youtube') && <span class="badge live">Free on YouTube</span>}
+    {c.formats.includes('soon') && <span class="badge">{c.availability}</span>}
+    {c.levels.length > 0 && <span class="badge">{c.levels.length === 3 ? 'All levels' : c.levels.map(levelLabel).join(', ')}</span>}
+  </div>
+</a>

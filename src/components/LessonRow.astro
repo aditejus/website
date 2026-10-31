@@ -1,0 +1,28 @@
+---
+import { type Lesson, levelLabel, ytUrl, fmtDate, udemyFor, lessonPath } from '../lib/data';
+const { l } = Astro.props as { l: Lesson };
+const udemy = udemyFor(l);
+const fmt = l.format === 'video' ? '' : l.format[0].toUpperCase() + l.format.slice(1);
+---
+<li class="lr" id={l.id} data-level={l.level} data-live={l.live ? '1' : '0'}>
+  <div class="lr-main">
+    <a class="lr-t" href={lessonPath(l.id)}>{l.title}</a>
+    <span class="lr-o">{l.outcome}</span>
+  </div>
+  <div class="lr-meta">
+    <span class="faint">{levelLabel(l.level)}{fmt && `, ${fmt}`}, {l.minutes} min</span>
+    {l.live && l.youtubeId
+      ? <a class="badge live" href={ytUrl(l.youtubeId)}>Watch free</a>
+      : <span class="badge">{l.publishAt && l.youtubeVisibility === 'scheduled' ? `Coming ${fmtDate(l.publishAt)}` : 'Coming soon'}</span>}
+    {l.course && (udemy ? <a class="badge udemy" href={udemy.href}>Udemy</a> : <span class="badge">Udemy: coming soon</span>)}
+  </div>
+</li>
+<style>
+  .lr { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .lr-main { display: grid; gap: 2px; }
+  .lr-t { font: 700 18px/1.3 var(--disp); text-decoration: none; }
+  .lr-t:hover { color: var(--a2); text-decoration: underline; }
+  .lr-o { color: var(--muted); font-size: 16px; }
+  .lr-meta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+  @media (max-width: 760px) { .lr { grid-template-columns: 1fr; } .lr-meta { justify-content: flex-start; } }
+</style>

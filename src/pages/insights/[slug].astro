@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { fmtDate, SITE } from '../../lib/data';
+export function getStaticPaths() {
+  return Object.values(import.meta.glob<any>('../../content/insights/[!_]*.md', { eager: true })).map((p) => ({
+    params: { slug: p.file.split('/').pop().replace(/\.md$/, '') }, props: { p },
+  }));
+}
+const { p } = Astro.props as any;
+const fm = p.frontmatter;
+const Content = p.Content;
+const date = String(fm.date).slice(0, 10);
+const ld = { '@context': 'https://schema.org', '@type': 'Article', headline: fm.title, description: fm.description, datePublished: date,
+  author: { '@type': 'Organization', name: 'ADITEJUS', url: SITE }, mainEntityOfPage: `${SITE}/insights/${Astro.params.slug}/` };
+---
+<Base crumbs={[['Insights','/insights/'],[fm.title,`/insights/${Astro.params.slug}/`]]} title={fm.title} description={fm.description} jsonld={ld}>
+  <article class="wrap">
+    <header class="ph"><p class="faint"><a href="/insights/">Insights</a>, {fmtDate(date)}</p><h1 style="margin-top:12px;max-width:22ch">{fm.title}</h1><p class="lede">{fm.description}</p></header>
+    <div class="prose"><Content /></div>
+    {fm.sources?.length > 0 && (
+      <section class="prose"><h2>Sources</h2><ol>{fm.sources.map((s: any) => <li><a href={s.url}>{s.title}</a>{s.date && `, ${fmtDate(String(s.date).slice(0, 10))}`}</li>)}</ol></section>
+    )}
+  </article>
+</Base>

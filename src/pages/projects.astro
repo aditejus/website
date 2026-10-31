@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { lessons, trackById, levelLabel, ytUrl, courseByKey } from '../lib/data';
+const projects = lessons.filter((l) => l.format === 'project');
+const tracksUsed = [...new Set(projects.map((p) => p.track))];
+---
+<Base crumbs={[['Projects','/projects/']]} title="Projects" description={`${projects.length} build-along AI projects: what you build, the stack and the time it takes.`}>
+  <div class="wrap">
+    <header class="ph">
+      <h1>Build-along projects</h1>
+      <p class="lede">{projects.length} projects across the syllabus. Each one is something you build and run yourself, with the stack and time listed up front.</p>
+    </header>
+    <form class="filters" id="pf" onsubmit="return false" aria-label="Filter projects">
+      <label>Track<select name="track"><option value="">All tracks</option>{tracksUsed.map((t) => <option value={t}>{trackById.get(t)!.title}</option>)}</select></label>
+    </form>
+    <div class="cards">
+      {projects.map((p) => {
+        const c = p.course ? courseByKey.get(p.course) : null;
+        return (
+          <article class="card pj" data-track={p.track}>
+            <span class="faint">{trackById.get(p.track)!.title}</span>
+            <h3>{p.title}</h3>
+            <p>{p.outcome}.</p>
+            <dl class="pd">
+              <dt>Stack</dt><dd>{p.tools.length ? p.tools.map((t) => t.name).join(', ') : 'Listed in the lesson'}</dd>
+              <dt>Time</dt><dd>About {p.minutes} min</dd>
+              <dt>Level</dt><dd>{levelLabel(p.level)}</dd>
+              <dt>Code</dt><dd>Repo link when the lesson goes live</dd>
+            </dl>
+            <div class="meta">
+              {p.live && p.youtubeId ? <a class="badge live" href={ytUrl(p.youtubeId)}>Watch free</a> : <span class="badge">Coming soon</span>}
+              {c && <a class="badge" href={`/courses/${c.key}/`}>{c.title}</a>}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</Base>
+<script is:inline>
+(function(){var f=document.getElementById('pf'),c=[].slice.call(document.querySelectorAll('.pj'));f.addEventListener('change',function(){c.forEach(function(x){x.hidden=!!f.track.value&&x.dataset.track!==f.track.value})})})();
+</script>
+<style>
+  .pj[hidden] { display: none; }
+  .pd { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 14px; }
+  .pd dt { color: var(--faint); }
+  .card .meta .badge { white-space: normal; }
+</style>

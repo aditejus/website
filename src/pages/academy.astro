@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import { YT_CHANNEL } from '../lib/data';
+const pillars = [
+  ['Build-along project', 'A members-only video, 45 to 60 minutes, step by step, with the code in the members repo. Topics rotate through agents, RAG and automation.'],
+  ['Industry insight', 'How a real company runs AI in production, from public case studies and engineering blogs. Every claim is sourced and dated.'],
+  ['Resource drop', 'A template, a roadmap and a checklist you can reuse at work, added to the members repo.'],
+  ['Live workshop, 60 minutes', 'One practical build and open Q&A, hosted live by the creator.'],
+];
+const faq = [
+  ['Is the free content going away?', 'No. Full courses, tutorials and the Friday Wrap stay free on YouTube. The Academy adds depth and live sessions; it never locks the basics.'],
+  ['How do I join?', 'Through YouTube channel memberships on the ADITEJUS channel. YouTube handles payment. The join button appears here when memberships open.'],
+  ['What does it cost?', 'One tier at launch, priced for India. The price will be shown here and on YouTube when memberships open.'],
+  ['Do I get a certificate?', 'Certificates come from the Udemy courses. Members get a monthly Udemy coupon.'],
+  ['Will this get me a job?', 'We do not promise jobs or income. We help you build real projects you can show and explain.'],
+];
+---
+<Base crumbs={[['Academy','/academy/']]} title="Academy" description="The ADITEJUS Academy: monthly build-along projects, a live workshop, resources, industry insights and a learning community. Opening soon via YouTube memberships.">
+  <div class="wrap">
+    <header class="ph">
+      <span class="badge accent">Opening soon</span>
+      <h1 style="margin-top:20px">The Academy</h1>
+      <p class="lede">For learners who want to build alongside us every month: projects, a live workshop and a community, on top of everything that stays free.</p>
+      <div class="ctas">
+        <span class="btn fill" aria-disabled="true">Join: opens soon</span>
+        <a class="btn" href={`${YT_CHANNEL}?sub_confirmation=1`}>Subscribe on YouTube to hear first</a>
+      </div>
+    </header>
+
+    <section class="blk">
+      <div class="sh"><h2>Every month</h2><p>One rhythm, four weeks. The community runs all month on Discord.</p></div>
+      <ol class="month">
+        {pillars.map(([t, d], i) => <li><span class="faint">Week {i + 1}</span><h3>{t}</h3><p class="muted">{d}</p></li>)}
+      </ol>
+      <p class="muted" style="margin-top:24px;max-width:70ch">Plus the learning community: share your build, ask for help and post weekly progress. A monthly shout-out goes to the best build.</p>
+    </section>
+
+    <section class="blk">
+      <div class="sh"><h2>Workshop calendar</h2><p>Dates are announced to members first and listed here.</p></div>
+      <p class="muted">The first workshop date will be announced when the Academy opens. See <a href="/workshops/">Workshops</a>.</p>
+    </section>
+
+    <section class="blk">
+      <div class="sh"><h2>Questions</h2></div>
+      <div class="faq">{faq.map(([q, a]) => <details><summary>{q}</summary><div><p class="muted">{a}</p></div></details>)}</div>
+    </section>
+  </div>
+</Base>
+<style>
+  .month { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .month li { padding: 24px 20px 0 0; }
+  .month li + li { padding-left: 20px; border-left: 1px solid var(--line); }
+  .month h3 { margin: 8px 0; }
+  .faq { max-width: 820px; }
+  @media (max-width: 860px) { .month { grid-template-columns: 1fr; } .month li, .month li + li { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); } }
+</style>

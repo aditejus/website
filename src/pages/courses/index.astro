@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import CourseCard from '../../components/CourseCard.astro';
+import { courses, tracks, stats } from '../../lib/data';
+const withLessons = courses;
+---
+<Base crumbs={[['Courses','/courses/']]} title="Courses" description={`Every ADITEJUS course: free on YouTube, with Udemy certificate versions. Filter ${courses.length} courses by track, level and format.`}>
+  <div class="wrap">
+    <header class="ph">
+      <h1>Courses</h1>
+      <p class="lede">{courses.length} courses built from a {stats.lessons}-lesson syllabus. Every lesson is planned for YouTube (free) and for a Udemy certificate course. Lessons not out yet say Coming soon.</p>
+      <div class="ctas"><a class="btn" href="/courses/syllabus/">See the full syllabus</a></div>
+    </header>
+
+    <form class="filters" id="cf" aria-label="Filter courses" onsubmit="return false">
+      <label>Track
+        <select name="track"><option value="">All tracks</option>{tracks.map((t) => <option value={t.id}>{t.n}. {t.title}</option>)}</select>
+      </label>
+      <label>Level
+        <select name="level"><option value="">All levels</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select>
+      </label>
+      <label>Format
+        <select name="format"><option value="">All formats</option><option value="youtube">Free on YouTube now</option><option value="udemy">Udemy certificate available</option><option value="soon">Coming soon</option></select>
+      </label>
+      <p class="faint" id="count" role="status" aria-live="polite">{withLessons.length} courses</p>
+    </form>
+
+    <div class="cards" id="grid">{withLessons.map((c) => <CourseCard c={c} />)}</div>
+    <p class="empty muted" id="empty" hidden>No course matches these filters yet. Try another level or format, or <a href="/courses/syllabus/">search the full syllabus</a>.</p>
+  </div>
+</Base>
+<script is:inline>
+(function(){
+  var f=document.getElementById('cf'),cards=[].slice.call(document.querySelectorAll('#grid .cc')),cnt=document.getElementById('count'),em=document.getElementById('empty');
+  var q=new URLSearchParams(location.search);['track','level','format'].forEach(function(k){if(q.get(k))f[k].value=q.get(k)});
+  function has(el,attr,v){return !v||(' '+el.dataset[attr]+' ').indexOf(' '+v+' ')>-1}
+  function run(){var n=0;cards.forEach(function(c){var ok=has(c,'tracks',f.track.value)&&has(c,'levels',f.level.value)&&has(c,'formats',f.format.value);c.hidden=!ok;if(ok)n++});cnt.textContent=n+(n===1?' course':' courses');em.hidden=n>0;
+    var p=new URLSearchParams();['track','level','format'].forEach(function(k){if(f[k].value)p.set(k,f[k].value)});history.replaceState(null,'',p.toString()?'?'+p:location.pathname)}
+  f.addEventListener('change',run);run();
+})();
+</script>
+<style>
+  .cc[hidden] { display: none; }
+  #count { margin-left: auto; align-self: center; }
+  @media (max-width: 700px) { .filters label, .filters select { width: 100%; } #count { margin-left: 0; } }
+</style>

@@ -1,0 +1,125 @@
+---
+import '@fontsource-variable/red-hat-display';
+import '@fontsource-variable/source-serif-4';
+import '@fontsource/red-hat-mono/400.css';
+import '../styles/global.css';
+import { SITE } from '../lib/data';
+
+interface Props {
+  title: string; description: string; jsonld?: object | object[]; noindex?: boolean;
+  crumbs?: [string, string][]; // [name, path] after Home; last item is the current page
+  ogImage?: string; ogType?: string;
+}
+const { title, description, jsonld, noindex, crumbs, ogImage, ogType = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), SITE).href.replace(/\/404\/$/, '/404');
+const fullTitle = title === 'ADITEJUS' ? 'ADITEJUS: learn to build real AI' : `${title} | ADITEJUS`;
+const desc = description.length > 160 ? description.slice(0, 157).replace(/\s+\S*$/, '') + '…' : description;
+const image = new URL(ogImage || '/og.jpg', SITE).href;
+const nav = [
+  ['/courses/', 'Courses'], ['/roadmaps/', 'Roadmaps'], ['/academy/', 'Academy'], ['/projects/', 'Projects'],
+  ['/workshops/', 'Workshops'], ['/insights/', 'Insights'],
+];
+const path = Astro.url.pathname;
+const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'ADITEJUS', url: SITE, logo: `${SITE}/favicon.svg`, sameAs: ['https://www.youtube.com/@aditejus'] };
+const trail = crumbs ? [['Home', '/'] as [string, string], ...crumbs] : null;
+const bc = trail && {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: trail.map(([name, p], i) => ({ '@type': 'ListItem', position: i + 1, name, item: new URL(p, SITE).href })),
+};
+const ld = [org, ...(bc ? [bc] : []), ...(jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [])];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{fullTitle}</title>
+  <meta name="description" content={desc}>
+  <link rel="canonical" href={canonical}>
+  {noindex && <meta name="robots" content="noindex">}
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0B1020" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F7F4" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="sitemap" href="/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="ADITEJUS Insights" href="/insights/rss.xml">
+  <meta property="og:type" content={ogType}>
+  <meta property="og:site_name" content="ADITEJUS">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={desc}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={image}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={fullTitle}>
+  <meta name="twitter:description" content={desc}>
+  <meta name="twitter:image" content={image}>
+  <script is:inline>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  {ld.map((x) => <script type="application/ld+json" set:html={JSON.stringify(x)} />)}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap">
+    <nav class="top" aria-label="Main">
+      <a class="logo" href="/" aria-label="ADITEJUS home">ADITE<span>JUS</span></a>
+      <ul id="menu">
+        {nav.map(([href, label]) => <li><a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a></li>)}
+      </ul>
+      <button class="tt" id="tt" type="button" aria-label="Switch between light and dark theme">Light / dark</button>
+      <button class="mb" id="mb" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    </nav>
+  </header>
+  <main id="main">
+    {trail && (
+      <div class="wrap"><nav aria-label="Breadcrumb"><ol class="crumbs">
+        {trail.map(([name, p], i) => <li>{i === trail.length - 1 ? <span aria-current="page">{name}</span> : <a href={p}>{name}</a>}</li>)}
+      </ol></nav></div>
+    )}
+    <slot />
+  </main>
+  <footer>
+    <div class="wrap fgrid">
+      <div>
+        <a class="logo" href="/">ADITE<span>JUS</span></a>
+        <p class="faint" style="margin-top:12px;max-width:34ch">Learn to build real AI: agents, RAG, automation. Free to start on YouTube.</p>
+      </div>
+      <ul><li><a href="/courses/">Courses</a></li><li><a href="/courses/syllabus/">Full syllabus</a></li><li><a href="/roadmaps/">Roadmaps</a></li><li><a href="/academy/">Academy</a></li></ul>
+      <ul><li><a href="/projects/">Projects</a></li><li><a href="/workshops/">Workshops</a></li><li><a href="/insights/">Insights</a></li><li><a href="/about/">About</a></li></ul>
+      <ul><li><a href="https://www.youtube.com/@aditejus">YouTube</a></li><li><a href="/legal/privacy/">Privacy</a></li><li><a href="/legal/terms/">Terms</a></li><li><a href="/legal/ai-disclosure/">AI disclosure</a></li></ul>
+    </div>
+    <div class="wrap faint" style="margin-top:32px">This site sets no cookies and uses no trackers.</div>
+  </footer>
+  <script is:inline>
+  (function(){
+    var r=document.documentElement;
+    document.getElementById('tt').onclick=function(){var c=r.dataset.theme||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');var n=c==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+    var mb=document.getElementById('mb'),m=document.getElementById('menu');
+    mb.onclick=function(){var o=m.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+  })();
+  </script>
+</body>
+</html>
+<style is:global>
+  .top { display: flex; align-items: baseline; gap: 28px; padding: 28px 0 8px; font-family: var(--disp); position: relative; }
+  .logo { font: 900 20px/1 var(--disp); text-decoration: none; letter-spacing: -.01em; }
+  .logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .top ul { display: flex; gap: 22px; list-style: none; padding: 0; margin-left: auto; font-weight: 500; font-size: 15px; }
+  .top ul a { text-decoration: none; color: var(--muted); }
+  .top ul a:hover, .top ul a[aria-current] { color: var(--text); }
+  .top ul a[aria-current] { text-decoration: underline; text-decoration-color: var(--a2); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+  .tt, .mb { font: 500 14px var(--disp); background: none; border: 0; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; padding: 4px 0; }
+  .mb { display: none; }
+  @media (max-width: 900px) {
+    .tt { margin-left: auto; }
+    .mb { display: inline-block; }
+    .top ul { display: none; position: absolute; top: 60px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--ink2); border: 1px solid var(--line); border-radius: var(--r); padding: 8px; z-index: 5; }
+    .top ul.open { display: flex; }
+    .top ul a { display: block; padding: 12px; }
+  }
+  footer { border-top: 1px solid var(--line); padding: 48px 0 56px; margin-top: 88px; }
+  .fgrid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+  footer ul { list-style: none; padding: 0; display: grid; gap: 8px; font: 500 15px var(--disp); }
+  footer ul a { color: var(--muted); text-decoration: none; }
+  footer ul a:hover { color: var(--text); }
+  @media (max-width: 760px) { .fgrid { grid-template-columns: 1fr 1fr; } .fgrid > div:first-child { grid-column: 1 / -1; } }
+</style>

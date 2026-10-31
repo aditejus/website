@@ -1,0 +1,5 @@
+{
+  "_about": "Per-course Udemy link overrides, merged at build time over site-data.json. udemy_referral (instructor referral link) wins over url when set. Only courses with udemy_status 'live' show a link.",
+  "agents-rag-z2p": { "url": "", "udemy_referral": "" },
+  "deepeval-testing": { "url": "", "udemy_referral": "" }
+}

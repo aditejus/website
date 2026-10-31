@@ -1,0 +1,59 @@
+---
+// "New this week": a visual preview of the latest live lesson. Uses the self-hosted YouTube
+// thumbnail when present (public/thumbs), otherwise a drawn poster with the lesson's track map.
+import { type Lesson, ytUrl, thumbFor, levelLabel, trackById, udemyFor, lessonPath, fmtDate, lessons } from '../lib/data';
+const { l } = Astro.props as { l: Lesson };
+const thumb = thumbFor(l.youtubeId);
+const track = trackById.get(l.track)!;
+const udemy = udemyFor(l);
+const trackLessons = lessons.filter((x) => x.track === l.track);
+---
+<div class="vc">
+  <a class="pv" href={ytUrl(l.youtubeId!)} aria-label={`Watch ${l.title} free on YouTube`}>
+    {thumb
+      ? <img src={thumb} alt="" width="480" height="360" loading="lazy" decoding="async">
+      : (
+        <div class="poster" aria-hidden="true">
+          <span class="pt">{l.title}</span>
+          <span class="mini">{trackLessons.map((x) => <i class={x.id === l.id ? 'me' : x.live ? 'lv' : ''}></i>)}</span>
+        </div>
+      )}
+    <span class="play" aria-hidden="true"></span>
+    <span class="dur">{l.minutes} min</span>
+  </a>
+  <div class="info">
+    <p class="faint">Published {fmtDate(l.publishAt!)} in {track.title}</p>
+    <h3><a href={lessonPath(l.id)}>{l.title}</a></h3>
+    <p class="out">{l.outcome}.</p>
+    <div class="tags">
+      <span class="badge">{levelLabel(l.level)}</span>
+      {l.tools.map((t) => <span class="badge">{t.name}</span>)}
+    </div>
+    <div class="ctas">
+      <a class="btn fill" href={ytUrl(l.youtubeId!)}>Watch free on YouTube</a>
+      {udemy ? <a class="btn" href={udemy.href}>Get the Udemy certificate</a> : <span class="btn" aria-disabled="true">Udemy certificate: coming soon</span>}
+    </div>
+  </div>
+</div>
+<style>
+  .vc { display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: center; }
+  .pv { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--r); overflow: hidden; background: var(--ink2); border: 1px solid var(--line); }
+  .pv img { width: 100%; height: 100%; object-fit: cover; }
+  .poster { position: absolute; inset: 0; padding: 28px; display: flex; flex-direction: column; justify-content: space-between;
+    background: radial-gradient(110% 90% at 90% 0%, color-mix(in srgb, var(--a1) 40%, transparent), transparent 60%), radial-gradient(90% 80% at 0% 100%, color-mix(in srgb, var(--a2) 28%, transparent), transparent 60%), var(--ink2); }
+  .pt { font: 900 clamp(24px, 3.2vw, 44px)/.98 var(--disp); letter-spacing: -.035em; max-width: 14ch; color: var(--text); }
+  .mini { display: flex; flex-wrap: wrap; gap: 3px; max-width: 60%; }
+  .mini i { width: 9px; height: 9px; border-radius: 2px; background: color-mix(in srgb, var(--text) 18%, transparent); }
+  .mini i.lv { background: var(--text); }
+  .mini i.me { background: var(--a2); box-shadow: 0 0 10px var(--a2); }
+  .play { position: absolute; right: 24px; bottom: 24px; width: 72px; height: 72px; border-radius: 50%; background: var(--text); display: grid; place-items: center; transition: transform .2s; }
+  .play::after { content: ""; border-left: 20px solid var(--bg); border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+  .pv:hover .play { transform: scale(1.06); background: var(--a2); }
+  .dur { position: absolute; left: 16px; top: 16px; font: 700 13px var(--disp); background: color-mix(in srgb, var(--bg) 80%, transparent); color: var(--text); padding: 3px 8px; border-radius: 3px; }
+  .info h3 { font: 900 clamp(26px, 2.8vw, 38px)/1.02 var(--disp); letter-spacing: -.03em; margin: 10px 0 12px; }
+  .info h3 a { text-decoration: none; }
+  .info h3 a:hover { text-decoration: underline; }
+  .out { max-width: 40ch; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px; }
+  @media (max-width: 860px) { .vc { grid-template-columns: 1fr; gap: 24px; } .play { width: 56px; height: 56px; right: 16px; bottom: 16px; } }
+</style>

@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import LessonRow from '../../components/LessonRow.astro';
+import { courses, courseByKey, lessonById, trackById, levelLabel, fmtMinutes, fmtDate, SITE, ytUrl, YT_CHANNEL, type Course } from '../../lib/data';
+
+export function getStaticPaths() {
+  return courses.map((c) => ({ params: { key: c.key }, props: { c } }));
+}
+const { c } = Astro.props as { c: Course };
+
+// Group lessons by track/module, in syllabus order.
+const groups: { title: string; lessons: typeof c.lessons }[] = [];
+for (const l of c.lessons) {
+  const g = `${trackById.get(l.track)!.title}: ${l.module}`;
+  const last = groups[groups.length - 1];
+  if (last && last.title === g) last.lessons.push(l); else groups.push({ title: g, lessons: [l] });
+}
+const projects = c.lessons.filter((l) => l.format === 'project');
+const outcomes = c.lessons.slice(0, 6).map((l) => l.outcome);
+
+// Before / after on the ladder: courses whose lessons this course's lessons depend on, and vice versa.
+const ids = new Set(c.lessons.map((l) => l.id));
+const beforeKeys = new Set<string>(), afterKeys = new Set<string>();
+for (const l of c.lessons) for (const p of l.prerequisites) { const pl = lessonById.get(p); if (pl?.course && !ids.has(p) && pl.course !== c.key) beforeKeys.add(pl.course); }
+for (const o of courses) if (o.key !== c.key) for (const l of o.lessons) if (l.prerequisites.some((p) => ids.has(p))) afterKeys.add(o.key);
+const before = [...beforeKeys].map((k) => courseByKey.get(k)!).filter(Boolean).slice(0, 4);
+const after = [...afterKeys].filter((k) => !beforeKeys.has(k)).map((k) => courseByKey.get(k)!).slice(0, 4);
+
+const udemyLive = !!c.udemyLink;
+const firstLive = c.lessons.find((l) => l.live && l.youtubeId);
+const url = `${SITE}/courses/${c.key}/`;
+const desc = c.lessons.length
+  ? `${c.lessons.length} lessons. ${outcomes.slice(0, 3).join('. ')}. Free on YouTube, with a Udemy certificate.`
+  : `${c.title}: a Udemy certificate course by ADITEJUS.`;
+const jsonld: object[] = [{
+  '@context': 'https://schema.org', '@type': 'Course', name: c.title, description: desc, url,
+  provider: { '@type': 'Organization', name: 'ADITEJUS', sameAs: SITE },
+  ...(c.levels.length ? { educationalLevel: c.levels.map(levelLabel).join(', ') } : {}),
+  ...(c.lessons.length ? { teaches: outcomes } : {}),
+  ...(udemyLive ? { hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: c.minutes ? `PT${c.minutes}M` : undefined, url: c.udemyUrl || c.udemyLink } } : {}),
+}];
+// VideoObject markup lives on each lesson's own page (/lessons/<id>/).
+---
+<Base title={c.title} description={desc} jsonld={jsonld} crumbs={[['Courses', '/courses/'], [c.title, `/courses/${c.key}/`]]}>
+  <div class="wrap">
+    <header class="ph cgrid">
+      <div>
+        <h1 class="ct">{c.title}</h1>
+        <div class="badges">
+          {udemyLive ? <span class="badge udemy">Udemy certificate available</span> : <span class="badge">{c.availability}{c.premiere && c.udemyStatus === 'in_production' ? `, premiere planned ${fmtDate(c.premiere)}` : ''}</span>}
+          {c.live > 0 && <span class="badge live">{c.live} free on YouTube</span>}
+          {c.levels.map((lv) => <span class="badge">{levelLabel(lv)}</span>)}
+        </div>
+        <div class="ctas">
+          {firstLive ? <a class="btn fill" href={ytUrl(firstLive.youtubeId!)}>Watch free on YouTube</a> : <a class="btn fill" href={`${YT_CHANNEL}?sub_confirmation=1`}>Get notified on YouTube</a>}
+          {udemyLive ? <a class="btn" href={`/udemy/${c.key}`}>Get the certificate on Udemy</a> : <span class="btn" aria-disabled="true">Udemy certificate: coming soon</span>}
+        </div>
+      </div>
+      <dl class="facts">
+        <dt>Udemy</dt><dd>{udemyLive ? <a href={`/udemy/${c.key}`}>Open the course on Udemy</a> : 'Coming soon'}</dd>
+        <dt>Lessons</dt><dd>{c.lessons.length || 'See Udemy'}</dd>
+        {c.minutes > 0 && <><dt>Planned length</dt><dd>About {fmtMinutes(c.minutes)}</dd></>}
+        {projects.length > 0 && <><dt>Projects</dt><dd>{projects.length}</dd></>}
+        {['in_production', 'planned', 'proposed', 'conditional'].includes(c.udemyStatus) && <><dt>Practicals</dt><dd>Planned: a hands-on practical and a Udemy assignment in every section, plus a capstone</dd></>}
+      </dl>
+    </header>
+
+    {outcomes.length > 0 && (
+      <section class="sec">
+        <h2>What you will be able to do</h2>
+        <ul class="out">{outcomes.map((o) => <li>{o}</li>)}</ul>
+      </section>
+    )}
+
+    {groups.length > 0 && (
+      <section class="sec">
+        <h2>Syllabus</h2>
+        {groups.map((g) => (<><h3 class="gh">{g.title}</h3><ul class="ll">{g.lessons.map((l) => <LessonRow l={l} />)}</ul></>))}
+      </section>
+    )}
+
+    {(before.length > 0 || after.length > 0) && (
+      <section class="sec ba">
+        {before.length > 0 && <div><h2>Take before</h2><ul>{before.map((b) => <li><a href={`/courses/${b.key}/`}>{b.title}</a></li>)}</ul></div>}
+        {after.length > 0 && <div><h2>Take next</h2><ul>{after.map((b) => <li><a href={`/courses/${b.key}/`}>{b.title}</a></li>)}</ul></div>}
+      </section>
+    )}
+    <p class="faint" style="margin-top:40px">Lesson list from the ADITEJUS curriculum. Planned lengths are estimates per lesson; Udemy shows the final length.</p>
+  </div>
+</Base>
+<style>
+  .cgrid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start; padding-top: 32px; }
+  .ct { font-size: clamp(36px, 5.4vw, 80px); max-width: 16ch; }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 12px 20px; font-size: 16px; border-top: 2px solid var(--text); padding-top: 18px; }
+  .facts dt { color: var(--faint); font: 500 14px/1.6 var(--disp); }
+  .sec { padding: 56px 0 0; display: block; border: 0; }
+  .sec h2 { margin-bottom: 20px; font-size: clamp(28px, 3.2vw, 44px); }
+  .out { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; padding-left: 20px; max-width: 980px; }
+  .gh { font: 500 15px var(--disp); color: var(--faint); margin: 32px 0 4px; }
+  .ll { list-style: none; padding: 0; }
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .ba ul { padding-left: 20px; display: grid; gap: 8px; }
+  @media (max-width: 860px) { .cgrid, .out, .ba { grid-template-columns: 1fr; gap: 24px; } }
+</style>

@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import LessonRow from '../../components/LessonRow.astro';
+import { tracks, lessons, stats, fmtDate, courseByKey } from '../../lib/data';
+const byTrack = new Map(tracks.map((t) => [t.id, lessons.filter((l) => l.track === t.id)]));
+---
+<Base crumbs={[['Courses','/courses/'],['Full syllabus','/courses/syllabus/']]} title="Full syllabus" description={`All ${stats.lessons} lessons of the ADITEJUS AI curriculum across ${stats.tracks} tracks. Live lessons link to YouTube and Udemy; the rest are coming soon.`}>
+  <div class="wrap">
+    <header class="ph">
+      <h1>The full syllabus</h1>
+      <p class="lede">{stats.lessons} lessons in {stats.tracks} tracks, from “what is AI” to training your own model. {stats.live} are free on YouTube today; the rest say Coming soon until they go live.</p>
+      <p class="faint" style="margin-top:12px">Curriculum v{stats.version}, {fmtDate(stats.curriculumDate)}.</p>
+    </header>
+    <form class="filters" id="sf" onsubmit="return false" aria-label="Filter lessons">
+      <label>Search<input type="search" name="q" placeholder="Lesson, tool or topic"></label>
+      <label>Level<select name="level"><option value="">All levels</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label>
+      <label>Status<select name="live"><option value="">All lessons</option><option value="1">Live now</option></select></label>
+      <p class="faint" id="sc" role="status" aria-live="polite"></p>
+    </form>
+    <nav class="toc" aria-label="Tracks">{tracks.map((t) => <a href={`#${t.id}`}>{t.n}. {t.title}</a>)}</nav>
+    {tracks.map((t) => (
+      <section class="trk" id={t.id}>
+        <h2><span class="faint">Track {t.n}</span> {t.title}</h2>
+        <p class="muted">{t.description}</p>
+        {t.modules.map((m) => (
+          <div class="mod" id={m.id}>
+            <h3>{m.title}{m.course && courseByKey.get(m.course) && <a class="faint" href={`/courses/${m.course}/`}>Part of {courseByKey.get(m.course)!.title}</a>}</h3>
+            <ul class="ll">{byTrack.get(t.id)!.filter((l) => l.module === m.title).map((l) => <LessonRow l={l} />)}</ul>
+          </div>
+        ))}
+      </section>
+    ))}
+  </div>
+</Base>
+<script is:inline>
+(function(){
+  var f=document.getElementById('sf'),rows=[].slice.call(document.querySelectorAll('.lr')),sc=document.getElementById('sc');
+  rows.forEach(function(r){r._t=r.textContent.toLowerCase()});
+  function run(){var q=f.q.value.trim().toLowerCase(),lv=f.level.value,lv2=f.live.value,n=0;
+    rows.forEach(function(r){var ok=(!q||r._t.indexOf(q)>-1)&&(!lv||r.dataset.level===lv)&&(!lv2||r.dataset.live===lv2);r.hidden=!ok;if(ok)n++});
+    document.querySelectorAll('.mod').forEach(function(m){m.hidden=!m.querySelector('.lr:not([hidden])')});
+    document.querySelectorAll('.trk').forEach(function(t){t.hidden=!t.querySelector('.mod:not([hidden])')});
+    sc.textContent=n+' lessons'}
+  f.addEventListener('input',run);run();
+})();
+</script>
+<style>
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .toc a { font-size: 13.5px; text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; color: var(--muted); }
+  .toc a:hover { color: var(--text); border-color: var(--a2); }
+  .trk { padding: 48px 0 8px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+  .trk h2 { font-size: clamp(24px, 2.8vw, 34px); }
+  .trk h2 .faint { display: block; font-size: 14px; font-family: var(--disp); letter-spacing: 0; font-weight: 400; margin-bottom: 4px; }
+  .trk > p { margin-top: 10px; max-width: 70ch; }
+  .mod { margin-top: 28px; }
+  .mod h3 { font-size: 17px; }
+  .mod h3 a { display: block; font: 400 14px var(--disp); letter-spacing: 0; margin-top: 2px; }
+  .ll { list-style: none; padding: 0; }
+  [hidden] { display: none !important; }
+  #sc { margin-left: auto; align-self: center; }
+  @media (max-width: 700px) { .filters label, .filters input, .filters select { width: 100%; } }
+</style>

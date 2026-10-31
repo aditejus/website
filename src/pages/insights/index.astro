@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { fmtDate } from '../../lib/data';
+// Articles live in src/content/insights/*.md (files starting with "_" are ignored).
+const posts = Object.values(import.meta.glob<any>('../../content/insights/[!_]*.md', { eager: true }))
+  .map((p) => ({ ...p.frontmatter, slug: p.file.split('/').pop().replace(/\.md$/, '') }))
+  .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+const kinds = [['insight', 'Industry insights'], ['friday-wrap', 'Friday Wrap archive']];
+---
+<Base crumbs={[['Insights','/insights/']]} title="Insights" description="Industry insights on how companies run AI in production, and the Friday Wrap archive. Every article cites its sources.">
+  <div class="wrap">
+    <header class="ph">
+      <h1>Insights</h1>
+      <p class="lede">How real companies run AI in production, and the weekly Friday Wrap in text. Every claim is sourced and dated.</p>
+    </header>
+    {kinds.map(([k, label]) => {
+      const list = posts.filter((p) => (p.kind || 'insight') === k);
+      return (
+        <section class="blk">
+          <div class="sh"><h2>{label}</h2></div>
+          {list.length ? (
+            <div class="cards">{list.map((p) => <a class="card" href={`/insights/${p.slug}/`}><span class="faint">{fmtDate(String(p.date).slice(0, 10))}</span><h3>{p.title}</h3><p>{p.description}</p></a>)}</div>
+          ) : (
+            <div class="card"><h3>The first {k === 'insight' ? 'insight' : 'Friday Wrap'} article is on its way</h3><p>Join the newsletter on the home page to get it on Friday, or watch the video versions on <a href="https://www.youtube.com/@aditejus">YouTube</a>.</p></div>
+          )}
+        </section>
+      );
+    })}
+  </div>
+</Base>

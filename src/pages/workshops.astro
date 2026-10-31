@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { lessons, trackById, levelLabel } from '../lib/data';
+const ws = lessons.filter((l) => l.format === 'workshop');
+---
+<Base crumbs={[['Workshops','/workshops/']]} title="Workshops" description="Live ADITEJUS workshops: one practical AI build and open Q&A each month, plus recordings for Academy members.">
+  <div class="wrap">
+    <header class="ph">
+      <h1>Workshops</h1>
+      <p class="lede">A 60-minute live build with open Q&amp;A, once a month for Academy members.</p>
+    </header>
+    <section class="blk">
+      <div class="sh"><h2>Next live workshop</h2><p>Date to be announced when the Academy opens.</p></div>
+      <div class="card empty"><h3>No workshop scheduled yet</h3><p>Subscribe on YouTube or join the newsletter to hear when the first date is set.</p><div class="ctas" style="margin-top:8px"><a class="btn" href="/academy/">About the Academy</a></div></div>
+    </section>
+    <section class="blk">
+      <div class="sh"><h2>Workshops in the syllabus</h2><p>Longer hands-on sessions planned in the curriculum.</p></div>
+      <div class="cards">
+        {ws.map((w) => <article class="card"><span class="faint">{trackById.get(w.track)!.title}</span><h3>{w.title}</h3><p>{w.outcome}.</p><div class="meta"><span class="badge">{levelLabel(w.level)}</span><span class="badge">About {w.minutes} min</span><span class="badge">Coming soon</span></div></article>)}
+      </div>
+    </section>
+    <section class="blk">
+      <div class="sh"><h2>Past recordings</h2><p>Recordings are for Academy members and will be listed here after each workshop.</p></div>
+      <p class="muted">None yet.</p>
+    </section>
+  </div>
+</Base>
