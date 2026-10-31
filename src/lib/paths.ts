@@ -109,3 +109,24 @@ export function pick(who: string, goal: string): string {
   return { student: 'students', developer: 'build-agents', business: 'business-owner', leader: 'leaders' }[who] || 'ai-at-work';
 }
 export const pickTable = Object.fromEntries(WHO.flatMap(([w]) => GOALS.map(([g]) => [`${w}|${g}`, pick(w, g)])));
+
+// "More professions": one t16 module per profession (added 2026-10-31, produced last). Listed on /paths/professions/.
+const PROFESSION_MODS: [string, string, string][] = [
+  ['t16-m08-engineers', 'Engineers', 'Civil, mechanical and electrical'], ['t16-m09-it-pros', 'IT professionals', 'Non-AI developers and admins'],
+  ['t16-m10-doctors', 'Doctors', 'Admin, learning and patient education'], ['t16-m11-nurses', 'Nurses and healthcare staff', 'Training, rosters and communication'],
+  ['t16-m12-pharmacists', 'Pharmacists', 'Stock, expiry and counselling notes'], ['t16-m13-lawyers', 'Lawyers', 'Research aid, never legal advice'],
+  ['t16-m14-ca-tax', 'CAs and tax professionals', 'GST, income tax and client queries'], ['t16-m15-architects', 'Architects', 'Concepts, briefs and presentations'],
+  ['t16-m16-interior', 'Interior designers', 'Mood boards, materials and quotes'], ['t16-m17-real-estate', 'Real estate agents', 'Listings, leads and follow-ups'],
+  ['t16-m18-sales', 'Sales professionals', 'Prospect research and pitches'], ['t16-m19-support', 'Customer support teams', 'Replies, tagging and help articles'],
+  ['t16-m20-journalists', 'Journalists and writers', 'Research, transcripts and fact-checks'], ['t16-m21-designers', 'Graphic and UI designers', 'Ideas, layouts and brand kits'],
+  ['t16-m22-creators', 'Content creators and YouTubers', 'Scripts, thumbnails and calendars'], ['t16-m23-freelancers', 'Freelancers', 'Proposals, invoices and onboarding'],
+  ['t16-m24-shopkeepers', 'Shop and retail owners', 'Offers, stock and WhatsApp'], ['t16-m25-manufacturing', 'Manufacturing and factory managers', 'SOPs, downtime and shift reports'],
+  ['t16-m26-hospitality', 'Restaurant and hospitality owners', 'Menus, reviews and rosters'], ['t16-m27-farmers', 'Farmers and agri-business', 'Records, mandi prices and schemes'],
+  ['t16-m28-govt-exams', 'Government exam aspirants', 'Study maps, notes and mock tests'],
+];
+export const SENSITIVE_PROFESSIONS = new Set(['t16-m10-doctors', 't16-m11-nurses', 't16-m12-pharmacists', 't16-m13-lawyers', 't16-m14-ca-tax']);
+export const professions = PROFESSION_MODS.map(([id, name, focus]) => {
+  const m = mods.get(id);
+  if (!m) throw new Error(`profession module ${id} not in curriculum`);
+  return { id, name, focus, title: m.title, lessons: m.lessons.map((l) => byId.get(l.id)!) };
+});

@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import { professions, SENSITIVE_PROFESSIONS } from '../../lib/paths';
+import { lessonPath, levelLabel, SITE } from '../../lib/data';
+const jsonld = { '@context': 'https://schema.org', '@type': 'ItemList', name: 'AI for your profession',
+  itemListElement: professions.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: `${SITE}/paths/professions/#${p.id}` })) };
+---
+<Base crumbs={[['Paths', '/paths/'], ['More professions', '/paths/professions/']]} title="AI for your profession: more professions" jsonld={jsonld}
+  description={`AI lessons for ${professions.length} professions, from engineers and doctors to farmers and exam aspirants. Three lessons each: safe uses, a hands-on workflow and a mini project, free tools first.`}>
+  <div class="wrap">
+    <header class="ph">
+      <p class="eyebrow">More professions</p>
+      <h1>Pick your profession</h1>
+      <p class="lede">Three short lessons for each: what AI can do for you safely, a hands-on workflow with free tools, and a mini project. These lessons are coming soon and will be produced after the main paths.</p>
+      <p class="faint">Healthcare, legal and tax lessons: AI does not replace professional judgment, keep patient and client data private (India's DPDP Act) and check every output yourself. Nothing here is medical or legal advice.</p>
+    </header>
+    <nav class="stoc" aria-label="Professions" data-pagefind-ignore>
+      {professions.map((p) => <a href={`#${p.id}`}>{p.name}</a>)}
+    </nav>
+    <div class="pf">
+      {professions.map((p) => (
+        <section class="panel pfc" id={p.id}>
+          <h2>{p.name}</h2>
+          <p class="faint">{p.focus}{SENSITIVE_PROFESSIONS.has(p.id) ? '. Professional judgment and privacy come first' : ''}</p>
+          <ol>
+            {p.lessons.map((l) => (
+              <li><a href={lessonPath(l.id)}>{l.title}</a><span class="faint">{levelLabel(l.level)}, {l.minutes} min</span></li>
+            ))}
+          </ol>
+        </section>
+      ))}
+    </div>
+    <p class="faint" style="margin-top:32px"><a href="/paths/">Back to all goal paths</a></p>
+  </div>
+</Base>
+<style>
+  .pf { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 16px; margin-top: 28px; }
+  .pfc { padding: 20px 22px; display: grid; gap: 6px; align-content: start; scroll-margin-top: 80px; }
+  .pfc h2 { font-size: 21px; }
+  .pfc ol { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 10px; }
+  .pfc li { display: grid; gap: 2px; }
+  .pfc li a { font: 600 15.5px/1.35 var(--sans); text-decoration: none; }
+  .pfc li a:hover { color: var(--accent); text-decoration: underline; }
+  .stoc { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stoc a { font-size: 13.5px; text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; color: var(--muted); }
+  .stoc a:hover { color: var(--text); border-color: var(--accent); }
+</style>

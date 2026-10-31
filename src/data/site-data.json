@@ -16781,6 +16781,2384 @@
        "course": null
       }
      ]
+    },
+    {
+     "id": "t16-m08-engineers",
+     "title": "AI for Engineers (Civil, Mechanical, Electrical)",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-eng-safe",
+       "title": "What AI Can Do for Engineers, and What It Must Not",
+       "level": "beginner",
+       "outcome": "Sort engineering tasks into safe AI help and calculations you must verify yourself",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-eng-workflow",
+       "title": "Specs, Calcs and Reports With AI, Then Verify",
+       "level": "intermediate",
+       "outcome": "Summarise a spec, draft a calc sheet and check every number against codes and hand calculations",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-eng-safe"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-eng-project",
+       "title": "Project: Inspection Report and Checklist Pack",
+       "level": "intermediate",
+       "outcome": "Build a site or plant inspection checklist and report template with a verification step",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-eng-safe",
+        "r-eng-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m09-it-pros",
+     "title": "AI for IT Professionals (Non-AI Developers)",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-itp-safe",
+       "title": "AI for IT Pros: Safe Uses Without Building Models",
+       "level": "beginner",
+       "outcome": "Use AI for scripts, queries and docs while keeping secrets and client code out of public tools",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-itp-workflow",
+       "title": "Debug, Script and Document With Free AI Coding Help",
+       "level": "intermediate",
+       "outcome": "Debug an error, write a SQL or shell script and document it, testing before you trust it",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-itp-safe"
+       ],
+       "tools": [
+        {
+         "name": "GitHub Copilot",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "VS Code",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-itp-project",
+       "title": "Project: Automate One Boring IT Task Safely",
+       "level": "intermediate",
+       "outcome": "Automate one repetitive task with AI-written code, tested on dummy data first",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-itp-safe",
+        "r-itp-workflow"
+       ],
+       "tools": [
+        {
+         "name": "VS Code",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m10-doctors",
+     "title": "AI for Doctors: Admin, Learning and Patient Education",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-doc-safe",
+       "title": "AI for Doctors: What Is Safe, and What Never Is",
+       "level": "beginner",
+       "outcome": "Know where AI helps with admin and learning, and why it never diagnoses or replaces clinical judgment; patient privacy under DPDP comes first",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-doc-workflow",
+       "title": "Journal Digests and Patient Handouts With AI (No Data)",
+       "level": "intermediate",
+       "outcome": "Summarise papers and draft plain-language handouts using no patient identifiers, then verify against guidelines",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-doc-safe"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Perplexity",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-doc-project",
+       "title": "Project: A Verified Patient Handout and Journal Digest",
+       "level": "intermediate",
+       "outcome": "Produce one patient-education handout and one journal digest, each checked line by line by you",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-doc-safe",
+        "r-doc-workflow"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m11-nurses",
+     "title": "AI for Nurses and Healthcare Staff",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-nur-safe",
+       "title": "AI for Nurses and Hospital Staff: Safe Uses Only",
+       "level": "beginner",
+       "outcome": "Use AI for training, rosters and communication, never for clinical decisions, with patient data kept out under DPDP",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-nur-workflow",
+       "title": "Shift Handover Templates, Rosters and Training With AI",
+       "level": "intermediate",
+       "outcome": "Draft handover templates, duty rosters and training quizzes using no patient identifiers, then have them checked by your seniors",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-nur-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-nur-project",
+       "title": "Project: A Ward Training Kit and Duty Roster",
+       "level": "intermediate",
+       "outcome": "Build a training quiz set and a fair duty roster, reviewed against your hospital protocols",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-nur-safe",
+        "r-nur-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Google Forms",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m12-pharmacists",
+     "title": "AI for Pharmacists and Medical Stores",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-pha-safe",
+       "title": "AI for Pharmacists: Safe Uses and Hard Limits",
+       "level": "beginner",
+       "outcome": "Use AI for stock and learning tasks while dosage, interaction and dispensing decisions stay with you; customer data stays private under DPDP",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-pha-workflow",
+       "title": "Stock, Expiry Tracking and Counselling Notes With AI",
+       "level": "intermediate",
+       "outcome": "Build an expiry tracker and draft plain counselling notes, verified against official drug references",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-pha-safe"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-pha-project",
+       "title": "Project: Expiry Tracker and Reorder Sheet",
+       "level": "intermediate",
+       "outcome": "Set up a stock sheet with expiry alerts and reorder suggestions that you verify weekly",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-pha-safe",
+        "r-pha-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Looker Studio",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m13-lawyers",
+     "title": "AI for Lawyers: Research Aid, Not Legal Advice",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-law-safe",
+       "title": "AI for Lawyers: What It Can Do and Where It Fails",
+       "level": "beginner",
+       "outcome": "Use AI for drafting aids and summaries, understand fake-citation risk, and protect client confidentiality under DPDP",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-law-workflow",
+       "title": "Summarise Judgments and Draft Notices, Then Verify",
+       "level": "intermediate",
+       "outcome": "Summarise a judgment and draft a first-pass notice, then verify every citation and clause yourself",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "r-law-safe"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-law-project",
+       "title": "Project: A Verified Case Brief and Client Checklist",
+       "level": "intermediate",
+       "outcome": "Build a case brief and client intake checklist where every cited source is checked by you",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-law-safe",
+        "r-law-workflow"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m14-ca-tax",
+     "title": "AI for CAs and Tax Professionals",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-ca-safe",
+       "title": "AI for CAs and Tax Pros: Safe Uses and Limits",
+       "level": "beginner",
+       "outcome": "Use AI for explanation and drafting while rates, sections and filings are verified against official sources; client data stays private under DPDP",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-ca-workflow",
+       "title": "GST and Tax Notes, Reminders and Client Queries With AI",
+       "level": "intermediate",
+       "outcome": "Draft client reminders and plain-language notes on GST and income tax, then verify every rule on official portals",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-ca-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-ca-project",
+       "title": "Project: A Client Compliance Calendar and Query Bank",
+       "level": "intermediate",
+       "outcome": "Build a compliance calendar and FAQ bank with each rule checked against the latest official source",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-ca-safe",
+        "r-ca-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Google Calendar",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m15-architects",
+     "title": "AI for Architects",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-arc-safe",
+       "title": "AI for Architects: Ideas, Not Approvals",
+       "level": "beginner",
+       "outcome": "Use AI for concepts, research and client notes while codes, structure and approvals stay with licensed professionals",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-arc-workflow",
+       "title": "Mood Boards, Briefs and Code Summaries With AI",
+       "level": "intermediate",
+       "outcome": "Create a concept brief and mood board and summarise bylaws, verified against the official text",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-arc-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-arc-project",
+       "title": "Project: A Client Concept Presentation",
+       "level": "intermediate",
+       "outcome": "Build a client-ready concept deck with AI visuals clearly labelled as concept only",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-arc-safe",
+        "r-arc-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Slides",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m16-interior",
+     "title": "AI for Interior Designers",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-int-safe",
+       "title": "AI for Interior Designers: Where It Helps and Misleads",
+       "level": "beginner",
+       "outcome": "Use AI for ideas and client communication while checking real dimensions, materials and costs yourself",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-int-workflow",
+       "title": "Mood Boards, Material Lists and Quotes With AI",
+       "level": "intermediate",
+       "outcome": "Generate mood boards and a material list with a quote sheet, checked against real vendor rates",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-int-safe"
+       ],
+       "tools": [
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-int-project",
+       "title": "Project: A Room Design Pitch for a Client",
+       "level": "intermediate",
+       "outcome": "Create a room concept board, material list and quote ready to present",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-int-safe",
+        "r-int-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m17-real-estate",
+     "title": "AI for Real Estate Agents",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-re-safe",
+       "title": "AI for Real Estate Agents: Safe and Honest Marketing",
+       "level": "beginner",
+       "outcome": "Use AI for listings and follow-ups without false claims, and keep buyer data private under DPDP",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-re-workflow",
+       "title": "Listings, Lead Follow-Ups and Area Guides With AI",
+       "level": "intermediate",
+       "outcome": "Write accurate listings and follow-up messages and an area guide, with every fact checked",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-re-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "WhatsApp Business",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-re-project",
+       "title": "Project: A Listing Kit and Lead Tracker",
+       "level": "intermediate",
+       "outcome": "Build a listing description set and a lead tracker with follow-up reminders",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-re-safe",
+        "r-re-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m18-sales",
+     "title": "AI for Sales Professionals",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-sal-safe",
+       "title": "AI for Sales: Faster Prep Without Spammy Outreach",
+       "level": "beginner",
+       "outcome": "Use AI to prepare for calls and personalise messages without spam or invented claims",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-sal-workflow",
+       "title": "Prospect Research, Pitch Notes and Follow-Ups With AI",
+       "level": "intermediate",
+       "outcome": "Research a prospect, draft a pitch and write follow-ups, with facts checked",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-sal-safe"
+       ],
+       "tools": [
+        {
+         "name": "Perplexity",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-sal-project",
+       "title": "Project: A Pitch Pack and Follow-Up Sequence",
+       "level": "intermediate",
+       "outcome": "Build a pitch one-pager, objection answers and a three-step follow-up sequence",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-sal-safe",
+        "r-sal-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m19-support",
+     "title": "AI for Customer Support Teams",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-sup-safe",
+       "title": "AI for Support Teams: Faster Replies, Human Judgment",
+       "level": "beginner",
+       "outcome": "Use AI to draft replies and tag issues while escalations and customer data stay with people",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-sup-workflow",
+       "title": "Reply Templates, Tagging and Help Articles With AI",
+       "level": "intermediate",
+       "outcome": "Turn past tickets into reply templates and help articles, with customer details removed first",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-sup-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-sup-project",
+       "title": "Project: A Support Reply Library and FAQ Page",
+       "level": "intermediate",
+       "outcome": "Build a tested reply library and FAQ that your team reviews before use",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-sup-safe",
+        "r-sup-workflow"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m20-journalists",
+     "title": "AI for Journalists and Writers",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-jou-safe",
+       "title": "AI for Journalists and Writers: Ethics, Facts and Voice",
+       "level": "beginner",
+       "outcome": "Use AI for research aid and editing without inventing facts, quotes or sources, and disclose its use honestly",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Perplexity",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-jou-workflow",
+       "title": "Interview Transcripts, Fact-Checks and Edits With AI",
+       "level": "intermediate",
+       "outcome": "Transcribe an interview, pull key quotes and fact-check claims against primary sources",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-jou-safe"
+       ],
+       "tools": [
+        {
+         "name": "Whisper",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Perplexity",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-jou-project",
+       "title": "Project: A Researched Article With a Source Log",
+       "level": "intermediate",
+       "outcome": "Write a short researched piece with a source log proving each fact",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-jou-safe",
+        "r-jou-workflow"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Perplexity",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m21-designers",
+     "title": "AI for Graphic and UI Designers",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-des-safe",
+       "title": "AI for Designers: Ideas, Rights and Originality",
+       "level": "beginner",
+       "outcome": "Use AI for ideation while understanding licence, copyright and originality limits",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-des-workflow",
+       "title": "Moodboards, Layout Ideas and Copy With Free Design Tools",
+       "level": "intermediate",
+       "outcome": "Explore layouts and copy with AI, then refine by hand in Figma or Penpot",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-des-safe"
+       ],
+       "tools": [
+        {
+         "name": "Figma",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Penpot",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-des-project",
+       "title": "Project: A Brand Kit and Landing Page Mockup",
+       "level": "intermediate",
+       "outcome": "Create a small brand kit and landing page mockup, with every asset licence-checked",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-des-safe",
+        "r-des-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Figma",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Penpot",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m22-creators",
+     "title": "AI for Content Creators and YouTubers",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-cre-safe",
+       "title": "AI for Creators: Speed Without Losing Your Voice",
+       "level": "beginner",
+       "outcome": "Use AI for ideas and drafts while keeping your voice, facts and platform rules intact",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-cre-workflow",
+       "title": "Scripts, Titles, Thumbnails and Captions With Free Tools",
+       "level": "intermediate",
+       "outcome": "Plan a video from idea to script, title, thumbnail brief and captions with free tools",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-cre-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "CapCut",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-cre-project",
+       "title": "Project: A 30-Day Content Calendar",
+       "level": "intermediate",
+       "outcome": "Build a content calendar with scripts for the first week and a review checklist",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-cre-safe",
+        "r-cre-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m23-freelancers",
+     "title": "AI for Freelancers",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-fre-safe",
+       "title": "AI for Freelancers: Do More Without Overpromising",
+       "level": "beginner",
+       "outcome": "Use AI to speed up client work while staying honest about its use and protecting client data",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-fre-workflow",
+       "title": "Proposals, Invoices and Client Updates With AI",
+       "level": "intermediate",
+       "outcome": "Draft a proposal, invoice and weekly update, with scope and numbers checked by you",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-fre-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-fre-project",
+       "title": "Project: A Client Onboarding Kit",
+       "level": "intermediate",
+       "outcome": "Build a proposal template, scope checklist and invoice tracker for new clients",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-fre-safe",
+        "r-fre-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Docs",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m24-shopkeepers",
+     "title": "AI for Shop and Retail Owners",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-shop-safe",
+       "title": "AI for Shop Owners: Simple Wins and Safe Habits",
+       "level": "beginner",
+       "outcome": "Use AI for offers, messages and stock thinking while keeping customer details private",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-shop-workflow",
+       "title": "Offers, Stock Sheets and WhatsApp Messages With AI",
+       "level": "intermediate",
+       "outcome": "Make a stock sheet, festival offers and WhatsApp replies for your shop",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-shop-safe"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "WhatsApp Business",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-shop-project",
+       "title": "Project: A Festival Sale Plan for Your Shop",
+       "level": "intermediate",
+       "outcome": "Plan a festival sale with an offer list, poster and message set",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-shop-safe",
+        "r-shop-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m25-manufacturing",
+     "title": "AI for Manufacturing and Factory Managers",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-mfg-safe",
+       "title": "AI for Factory Managers: Safe Uses on the Shop Floor",
+       "level": "beginner",
+       "outcome": "Use AI for reports and planning while safety-critical decisions stay with qualified people",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-mfg-workflow",
+       "title": "SOPs, Downtime Logs and Shift Reports With AI",
+       "level": "intermediate",
+       "outcome": "Draft SOPs and analyse downtime logs and shift reports, verified on the floor",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-mfg-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-mfg-project",
+       "title": "Project: A Downtime Tracker and Weekly Plant Report",
+       "level": "intermediate",
+       "outcome": "Build a downtime tracker and weekly report that highlights the top three losses",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-mfg-safe",
+        "r-mfg-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Looker Studio",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m26-hospitality",
+     "title": "AI for Restaurant and Hospitality Owners",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-hos-safe",
+       "title": "AI for Restaurant Owners: Safe Uses and Food Safety Limits",
+       "level": "beginner",
+       "outcome": "Use AI for menus, reviews and rosters while food safety and allergen facts are checked by you",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-hos-workflow",
+       "title": "Menus, Review Replies and Staff Rosters With AI",
+       "level": "intermediate",
+       "outcome": "Write menu descriptions, reply to reviews and build a staff roster",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-hos-safe"
+       ],
+       "tools": [
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-hos-project",
+       "title": "Project: A Weekly Menu, Cost Sheet and Review Reply Kit",
+       "level": "intermediate",
+       "outcome": "Build a weekly menu with a cost sheet and review reply templates",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-hos-safe",
+        "r-hos-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Canva",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m27-farmers",
+     "title": "AI for Farmers and Agri-Business",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-agri-safe",
+       "title": "AI for Farmers: Helpful Advice, Not Final Advice",
+       "level": "beginner",
+       "outcome": "Use AI for learning and planning while confirming crop, pesticide and market advice with local experts and official sources",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-agri-workflow",
+       "title": "Crop Records, Mandi Prices and Scheme Info With AI",
+       "level": "intermediate",
+       "outcome": "Keep crop records, track mandi prices and understand scheme forms, verified on official portals",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-agri-safe"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Earth",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-agri-project",
+       "title": "Project: A Season Plan and Farm Record Sheet",
+       "level": "intermediate",
+       "outcome": "Build a season plan and cost record sheet checked with your local agri office",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-agri-safe",
+        "r-agri-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Calendar",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    },
+    {
+     "id": "t16-m28-govt-exams",
+     "title": "AI for Government Exam Aspirants",
+     "course": null,
+     "lessons": [
+      {
+       "id": "r-exam-safe",
+       "title": "AI for Exam Aspirants: Study Smarter, Not Shortcuts",
+       "level": "beginner",
+       "outcome": "Use AI as a tutor and planner and stay careful about facts, current affairs and exam rules",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-exam-workflow",
+       "title": "Syllabus Maps, Notes and Daily Practice With AI",
+       "level": "intermediate",
+       "outcome": "Turn a syllabus into a study map, notes and daily MCQ practice with answers checked against standard books",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-exam-safe"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "r-exam-project",
+       "title": "Project: A 90-Day Study Plan and Mock Test Bank",
+       "level": "intermediate",
+       "outcome": "Build a 90-day plan and a mock test bank with a weekly review loop",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-exam-safe",
+        "r-exam-workflow"
+       ],
+       "tools": [
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
     }
    ]
   }

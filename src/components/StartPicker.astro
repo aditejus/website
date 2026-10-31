@@ -41,7 +41,7 @@ const H = hl === 1 ? 'h1' : 'h2';
     <div class="ctas"><a class="btn fill" id="spr-go" href="/paths/">See all paths</a></div>
   </div>
 </div>
-<nav class="sp-all" aria-label="All goal paths"><span class="faint">Or jump straight to a path:</span>{paths.map((p) => <a href={`/paths/${p.id}/`}>{p.short}</a>)}</nav>
+<nav class="sp-all" aria-label="All goal paths"><span class="faint">Or jump straight to a path:</span>{paths.map((p) => <a href={`/paths/${p.id}/`}>{p.short}</a>)}<a href="/paths/professions/">More professions</a></nav>
 <script is:inline>
 (function(){
   var f=document.getElementById('spf'),r=document.getElementById('spr');if(!f||!r)return;
