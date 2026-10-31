@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import StartPicker from '../../components/StartPicker.astro';
+import { paths } from '../../lib/paths';
+import { fmtMinutes, SITE } from '../../lib/data';
+const jsonld = { '@context': 'https://schema.org', '@type': 'ItemList', name: 'ADITEJUS goal paths',
+  itemListElement: paths.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: `${SITE}/paths/${p.id}/` })) };
+---
+<Base crumbs={[['Paths', '/paths/']]} title="Goal paths: what to learn, in order" jsonld={jsonld}
+  description={`${paths.length} goal paths for students, professionals, developers, business owners and leaders. Each is an ordered lesson list with a clear next lesson.`}>
+  <div class="wrap">
+    <header class="ph">
+      <h1>Goal paths</h1>
+      <p class="lede">Pick the goal, follow the list. Each path puts the right lessons in order and remembers where you are, in this browser only.</p>
+    </header>
+    <StartPicker heading="Find your path" />
+    <section class="blk" style="padding-top:64px">
+      <div class="sh"><h2>All {paths.length} paths</h2><p>Lesson counts and hours are recounted from the syllabus every build. Lessons not out yet say Coming soon.</p></div>
+      <div class="cards">
+        {paths.map((p) => (
+          <a class="card pc" href={`/paths/${p.id}/`}>
+            <span class="faint">{p.who}</span>
+            <h3>{p.title}</h3>
+            <p>{p.blurb}</p>
+            <div class="meta"><span class="badge">{p.steps.length} steps</span><span class="badge">{p.lessons.length} lessons</span><span class="badge">About {fmtMinutes(p.minutes)}</span>{p.live > 0 && <span class="badge live">{p.live} free now</span>}</div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
+<style>
+  .pc h3 { font-size: 21px; }
+</style>

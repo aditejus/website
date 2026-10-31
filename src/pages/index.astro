@@ -10,9 +10,11 @@ import { stats, latestLive, fmtDate, levelLabel, lessonPath, courses } from '../
 const live = latestLive();
 const feat = live.find((l) => l.youtubeId);
 const recent = live.filter((l) => l !== feat).slice(0, 4);
-const featured = courses.filter((c) => c.lessons.length > 0 || c.udemyLink).slice(0, 6);
+const onUdemy = courses.filter((c) => c.udemyLink);
+const more = courses.filter((c) => !c.udemyLink && c.lessons.length > 0);
+const featured = [...onUdemy, ...more].slice(0, Math.max(6, Math.ceil(onUdemy.length / 3) * 3));
 ---
-<Base title="ADITEJUS" description={`Learn to build real AI: agents, RAG and automation. ${stats.lessons} lessons across ${stats.tracks} tracks, free to start on YouTube, with Udemy certificate courses.`}
+<Base search={false} title="ADITEJUS" description={`Learn to build real AI: agents, RAG and automation. ${stats.lessons} lessons across ${stats.tracks} tracks, free to start on YouTube, with Udemy certificate courses.`}
   jsonld={{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'ADITEJUS', url: 'https://aditejus.com/' }}>
   <div class="wrap">
     <section class="hero">
@@ -77,7 +79,7 @@ const featured = courses.filter((c) => c.lessons.length > 0 || c.udemyLink).slic
         <div><b>{stats.lessons}</b><span>lessons in the syllabus</span></div>
         <div><b>{stats.live}</b><span>live free on YouTube</span></div>
         <div><b>{stats.udemyLive}</b><span>Udemy courses live</span></div>
-        <div><b>{stats.udemyReview}</b><span>Udemy courses in review</span></div>
+        <div><b>{stats.projects}</b><span>build-along projects</span></div>
       </div>
       <p class="faint" style="margin-top:14px">Curriculum v{stats.version}, {fmtDate(stats.curriculumDate)}.</p>
     </section>

@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import { stats, tools } from '../lib/data';
+import { paths } from '../lib/paths';
+const TYPES = ['Lesson', 'Course', 'Path', 'Tool'];
+const tries = ['RAG', 'n8n', 'MCP', 'fine-tune', 'Excel', 'prompt', 'students', 'SQL'];
+---
+<Base search={false} crumbs={[['Search', '/search/']]} title="Search lessons, tools and courses"
+  description={`Search all ${stats.lessons} ADITEJUS lessons, ${tools.length} tools, every course and goal path. Runs in your browser; nothing you type is sent anywhere.`}>
+  <div class="wrap">
+    <header class="ph sph">
+      <h1>Search</h1>
+      <form class="sf" id="sform" action="/search/" method="get" role="search">
+        <label class="sr" for="sq">Search lessons, tools, courses and paths</label>
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+        <input id="sq" type="search" name="q" placeholder={`Search ${stats.lessons} lessons, tools and courses`} autocomplete="off" enterkeyhint="search">
+        <button class="btn fill" type="submit">Search</button>
+      </form>
+      <div class="sfl" id="sfl" role="group" aria-label="Show only">
+        <button type="button" class="chip" aria-pressed="true" data-type="">All</button>
+        {TYPES.map((t) => <button type="button" class="chip" aria-pressed="false" data-type={t}>{t === 'Path' ? 'Paths' : t + 's'}</button>)}
+        <label class="lvl"><span class="sr">Level</span><select id="slv"><option value="">Any level</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
+      </div>
+    </header>
+    <p class="faint" id="sstat" role="status" aria-live="polite"></p>
+    <ol class="res" id="sres"></ol>
+    <div class="ctas" id="smore-w" hidden><button class="btn" id="smore" type="button">Show more results</button></div>
+    <div id="shint">
+      <p class="muted">Try: {tries.map((t, i) => <>{i > 0 && ' · '}<a href={`/search/?q=${encodeURIComponent(t)}`}>{t}</a></>)}</p>
+      <h2 class="h2s">Or start from a goal</h2>
+      <nav class="sp-all" aria-label="Goal paths">{paths.map((p) => <a href={`/paths/${p.id}/`}>{p.title}</a>)}</nav>
+      <noscript><p class="todo">Search runs in your browser and needs JavaScript. Without it, use the <a href="/courses/syllabus/">full syllabus</a> filters or the <a href="/tools/">tools directory</a>.</p></noscript>
+    </div>
+  </div>
+</Base>
+<script is:inline>
+(function(){
+  var form=document.getElementById('sform'),q=document.getElementById('sq'),res=document.getElementById('sres'),stat=document.getElementById('sstat'),hint=document.getElementById('shint'),
+      moreW=document.getElementById('smore-w'),more=document.getElementById('smore'),lv=document.getElementById('slv'),chips=[].slice.call(document.querySelectorAll('#sfl .chip'));
+  var type='',pf=null,all=[],shown=0,seq=0,PAGE=12;
+  var u=new URLSearchParams(location.search);q.value=u.get('q')||'';if(u.get('type'))type=u.get('type');if(u.get('level'))lv.value=u.get('level');
+  chips.forEach(function(c){c.setAttribute('aria-pressed',String(c.dataset.type===type))});
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function load(){if(pf)return Promise.resolve(pf);var p='/pagefind/pagefind.js';return import(p).then(function(m){pf=m;return pf.options({excerptLength:22}).then(function(){pf.init();return pf})})}
+  function sync(){var o=new URLSearchParams();if(q.value.trim())o.set('q',q.value.trim());if(type)o.set('type',type);if(lv.value)o.set('level',lv.value);history.replaceState(null,'',o.toString()?'?'+o:location.pathname)}
+  function card(d,t){var m=d.meta||{},st=m.status?'<span class="badge'+(m.status==='Live'?' live':'')+'">'+esc(m.status)+'</span>':'',lvb=m.level?'<span class="badge">'+esc(m.level)+'</span>':'';
+    return '<li class="r"><div class="r-top"><span class="r-ty">'+esc(t||'Page')+'</span>'+st+lvb+'</div><a class="r-t" href="'+esc(d.url)+'">'+esc(d.title||m.title||d.url)+'</a><p class="r-x">'+(d.excerpt||'')+'</p></li>'}
+  function expand(d){var t=(d.filters&&d.filters.type&&d.filters.type[0])||'Page';
+    if(t==='Tool'&&d.sub_results&&d.sub_results.length){return d.sub_results.filter(function(s){return s.url.indexOf('#')>-1}).slice(0,6).map(function(s){return card({url:s.url,title:s.title,excerpt:s.excerpt,meta:{}},'Tool')})}
+    return [card(d,t)]}
+  function render(){var slice=all.slice(shown,shown+PAGE);shown+=slice.length;
+    return Promise.all(slice.map(function(r){return r.data()})).then(function(ds){var html='';ds.forEach(function(d){html+=expand(d).join('')});res.insertAdjacentHTML('beforeend',html);moreW.hidden=shown>=all.length})}
+  function run(){var s=q.value.trim(),my=++seq;sync();
+    if(!s){res.innerHTML='';stat.textContent='';hint.hidden=false;moreW.hidden=true;return}
+    hint.hidden=true;stat.textContent='Searching…';
+    load().then(function(p){var f={};if(type)f.type=type;if(lv.value)f.level=lv.value;return p.search(s,{filters:f})}).then(function(r){if(my!==seq)return;
+      all=r.results;shown=0;res.innerHTML='';
+      stat.textContent=all.length?all.length+(all.length===1?' result':' results')+' for “'+s+'”':'No results for “'+s+'”. Try a shorter word, another filter, or browse the syllabus.';
+      if(!all.length){hint.hidden=false;moreW.hidden=true;return}
+      return render()}).catch(function(){stat.textContent='Search is not available in this preview. Use the full syllabus filters instead.'})}
+  var tm;q.addEventListener('input',function(){clearTimeout(tm);tm=setTimeout(run,180)});
+  form.addEventListener('submit',function(e){e.preventDefault();run()});
+  lv.addEventListener('change',run);more.addEventListener('click',render);
+  chips.forEach(function(c){c.addEventListener('click',function(){type=c.dataset.type;chips.forEach(function(x){x.setAttribute('aria-pressed',String(x===c))});run()})});
+  run();if(!q.value)q.focus();
+})();
+</script>
+<style>
+  .sph { padding-bottom: 24px; }
+  .sf { position: relative; display: flex; gap: 10px; margin-top: 24px; max-width: 760px; }
+  .sf svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--faint); pointer-events: none; }
+  .sf input { flex: 1; height: 54px; font-size: 17px; padding-left: 46px; border-radius: 12px; min-width: 0; }
+  .sf .btn { --h: 54px; }
+  .sfl { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+  .chip { font: 500 14px var(--sans); height: 36px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--line-2); background: transparent; color: var(--muted); cursor: pointer; }
+  .chip:hover { color: var(--text); border-color: color-mix(in srgb, var(--accent) 50%, var(--line-2)); }
+  .chip[aria-pressed="true"] { color: var(--text); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+  .sfl select { height: 36px; font-size: 14px; border-radius: 99px; }
+  #sstat { margin-bottom: 8px; min-height: 20px; }
+  .res { list-style: none; padding: 0; max-width: 860px; }
+  .res .r { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+  .r-top { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .r-ty { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-right: 4px; }
+  .r-t { font: 700 19px/1.3 var(--disp); text-decoration: none; }
+  .r-t:hover { color: var(--accent); text-decoration: underline; }
+  .r-x { color: var(--muted); font-size: 15px; }
+  .r-x mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--text); border-radius: 3px; padding: 0 2px; }
+  .h2s { font-size: 22px; margin: 32px 0 12px; }
+  .sp-all { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sp-all a { font-size: 14px; text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 5px 12px; color: var(--muted); }
+  .sp-all a:hover { color: var(--text); border-color: var(--accent); }
+  #shint a:not(.sp-all a) { color: var(--accent); }
+  @media (max-width: 600px) { .sf .btn { display: none; } }
+</style>

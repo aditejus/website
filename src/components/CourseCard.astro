@@ -3,23 +3,28 @@ import { type Course, trackById, levelLabel } from '../lib/data';
 const { c } = Astro.props as { c: Course };
 const t = c.primaryTrack ? trackById.get(c.primaryTrack) : null;
 ---
-<a class="card cc" href={`/courses/${c.key}/`}
-   data-tracks={c.tracks.join(' ')} data-levels={c.levels.join(' ')} data-formats={c.formats.join(' ')}>
+<article class="card cc" data-tracks={c.tracks.join(' ')} data-levels={c.levels.join(' ')} data-formats={c.formats.join(' ')}>
   <div class="cover"><img src={`/covers/${c.key}.svg`} alt="" width="640" height="360" loading="lazy" decoding="async"></div>
   <div class="body">
     <span class="faint">{t ? `Track ${t.n}: ${t.title}` : 'Udemy course'}</span>
-    <h3>{c.title}</h3>
+    <h3><a class="cc-l" href={`/courses/${c.key}/`}>{c.title}</a></h3>
     <p>{c.lessons.length ? `${c.lessons.length} lessons` : 'Full syllabus on Udemy'}{c.live ? `, ${c.live} free on YouTube now` : ''}</p>
     <div class="meta">
-      {c.formats.includes('udemy') && <span class="badge udemy">Udemy certificate</span>}
       {c.formats.includes('youtube') && <span class="badge live">Free on YouTube</span>}
       {c.formats.includes('soon') && <span class="badge">{c.availability}</span>}
       {c.levels.length > 0 && <span class="badge">{c.levels.length === 3 ? 'All levels' : c.levels.map(levelLabel).join(', ')}</span>}
     </div>
+    {c.udemyLink && <a class="btn sm fill cc-e" href={`/udemy/${c.key}`}>Enroll on Udemy<span class="sr">: {c.title}</span></a>}
   </div>
-</a>
+</article>
 <style>
   .cc { padding: 0; overflow: hidden; gap: 0; }
+  .cc:hover { border-color: var(--line-2); box-shadow: var(--shadow-2); transform: translateY(-2px); }
+  .cc-l { text-decoration: none; }
+  .cc-l::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+  .cc-l:focus-visible { outline: none; }
+  .cc:has(.cc-l:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cc-e { position: relative; z-index: 1; align-self: flex-start; margin-top: 8px; }
   .cover { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--line); overflow: hidden; background: #0A1022; }
   .cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
   .cc:hover .cover img { transform: scale(1.03); }

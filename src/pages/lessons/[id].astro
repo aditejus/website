@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import VideoCard from '../../components/VideoCard.astro';
-import { lessons, lessonById, courseByKey, trackById, levelLabel, ytUrl, thumbFor, udemyFor, lessonPath, fmtDate, SITE, type Lesson } from '../../lib/data';
+import CourseCard from '../../components/CourseCard.astro';
+import { lessons, lessonById, courseByKey, trackById, levelLabel, ytUrl, thumbFor, udemyFor, lessonPath, fmtDate, SITE, toolTier, lessonStatus, toolSlug, type Lesson } from '../../lib/data';
+import { pathsFor } from '../../lib/paths';
 
 export function getStaticPaths() {
   return lessons.map((l) => ({ params: { id: l.id }, props: { l } }));
@@ -16,6 +18,12 @@ const sameModule = lessons.filter((x) => x.track === l.track && x.module === l.m
 const idx = sameModule.findIndex((x) => x.id === l.id);
 const fmt = l.format === 'video' ? 'Video lesson' : l.format[0].toUpperCase() + l.format.slice(1);
 const live = l.live && l.youtubeId;
+const gi = lessons.indexOf(l);
+const prev = gi > 0 ? lessons[gi - 1] : null;
+const next = gi < lessons.length - 1 ? lessons[gi + 1] : null;
+const inPaths = pathsFor(l.id);
+const status = lessonStatus(l);
+const tier = toolTier(l);
 const thumb = live ? thumbFor(l.youtubeId) : null;
 const desc = `${l.outcome}. ${levelLabel(l.level)} ${l.format === 'video' ? 'lesson' : l.format}, about ${l.minutes} minutes${live ? ', free on YouTube' : ''}. Part of ${t.title}.`;
 const crumbs: [string, string][] = c
@@ -36,21 +44,29 @@ if (live && l.publishAt) jsonld.push({
 });
 ---
 <Base title={l.title} description={desc} jsonld={jsonld} crumbs={crumbs} ogImage={thumb || undefined} ogType={live ? 'video.other' : 'article'}>
+  <span data-pagefind-filter="type:Lesson" hidden></span><span data-pagefind-filter={`level:${levelLabel(l.level)}`} hidden></span>
+  <span data-pagefind-meta={`status:${status === 'live' ? 'Live' : status === 'udemy' ? 'On Udemy' : 'Coming soon'}`} hidden></span>
+  <span data-pagefind-meta={`level:${levelLabel(l.level)}`} hidden></span>
   <div class="wrap">
     <header class="ph">
       <p class="faint">Track {t.n}: {t.title}, {l.module}</p>
       <h1 class="lt">{l.title}</h1>
       <p class="lede">{l.outcome}.</p>
       <div class="tags">
-        {live ? <span class="badge live">Live on YouTube</span> : <span class="badge">{l.youtubeVisibility === 'scheduled' && l.publishAt ? `Coming ${fmtDate(l.publishAt)}` : 'Coming soon'}</span>}
+        <span class={`status st-${status}`}><span class="sr">Status: </span>{live ? 'Live on YouTube' : l.youtubeVisibility === 'scheduled' && l.publishAt ? `Coming ${fmtDate(l.publishAt)}` : 'Coming soon'}</span>
+        {udemy && <a class="status st-udemy" href={udemy.href}>Enroll on Udemy</a>}
         <span class="badge">{levelLabel(l.level)}</span><span class="badge">{fmt}</span><span class="badge">About {l.minutes} min</span>
+        {l.tools.length > 0 && <span class="badge">{tier === 'paid' ? 'Needs a paid tool' : 'Free tools'}</span>}
       </div>
+      {inPaths.length > 0 && (
+        <p class="inpath" data-pagefind-ignore>Part of {inPaths.map(({ p, i }, k) => <>{k > 0 && (k === inPaths.length - 1 ? ' and ' : ', ')}<a href={`/paths/${p.id}/#l-${l.id}`}>{p.title}</a> <span class="faint">({i + 1} of {p.lessons.length})</span></>)}</p>
+      )}
     </header>
 
     {live ? <VideoCard l={l} /> : (
       <div class="ctas soon">
         <a class="btn fill" href="https://www.youtube.com/@aditejus?sub_confirmation=1">Get notified on YouTube</a>
-        {c && (udemy ? <a class="btn" href={udemy.href}>Get the Udemy certificate</a> : <span class="btn" aria-disabled="true">Udemy certificate: coming soon</span>)}
+        {c && (udemy ? <a class="btn" href={udemy.href}>Enroll on Udemy</a> : <span class="btn" aria-disabled="true">Udemy certificate: coming soon</span>)}
       </div>
     )}
 
@@ -58,10 +74,10 @@ if (live && l.publishAt) jsonld.push({
       <section>
         <h2>Course</h2>
         {c ? <p><a href={`/courses/${c.key}/`}>{c.title}</a></p> : <p class="muted">Part of the free syllabus, not yet in a certificate course.</p>}
-        <p class="muted" style="margin-top:6px">Udemy: {udemy ? <a href={udemy.href}>open the course on Udemy</a> : 'coming soon'}</p>
+        <p class="muted" style="margin-top:6px">Udemy: {udemy ? <a href={udemy.href}>Enroll on Udemy</a> : 'coming soon'}</p>
         {l.tools.length > 0 && (<>
           <h2>Tools</h2>
-          <ul class="tools">{l.tools.map((x) => <li>{x.name}{x.tags.length > 0 && <span class="faint"> ({x.tags.join(', ')})</span>}</li>)}</ul>
+          <ul class="tools">{l.tools.map((x) => <li><a href={`/tools/#${toolSlug(x.name)}`}>{x.name}</a>{x.tags.length > 0 && <span class="faint"> ({x.tags.join(', ')})</span>}</li>)}</ul>
         </>)}
       </section>
       <section>
@@ -71,8 +87,21 @@ if (live && l.publishAt) jsonld.push({
         <ol class="rel">{sameModule.map((x, i) => <li>{i === idx ? <strong aria-current="page">{x.title}</strong> : <a href={lessonPath(x.id)}>{x.title}</a>}</li>)}</ol>
       </section>
     </div>
+
+    {c && (
+      <section class="ucard" data-pagefind-ignore>
+        <h2>{udemy ? 'Get the certificate course' : 'The course this lesson belongs to'}</h2>
+        <div class="ucard-g"><CourseCard c={c} /></div>
+      </section>
+    )}
+
+    <nav class="pn" aria-label="Previous and next lesson" data-pagefind-ignore>
+      {prev ? <a class="pn-a" href={lessonPath(prev.id)} rel="prev"><span class="faint">← Previous lesson</span><span>{prev.title}</span></a> : <span></span>}
+      {next && <a class="pn-a nx" href={lessonPath(next.id)} rel="next"><span class="faint">Next lesson →</span><span>{next.title}</span></a>}
+    </nav>
   </div>
 </Base>
+<script is:inline define:vars={{ id: l.id }}>try{localStorage.setItem('aditejus-last',id)}catch(e){}</script>
 <style>
   .lt { font-size: clamp(36px, 5.6vw, 84px); max-width: 16ch; margin-top: 12px; }
   .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 24px; }
@@ -80,5 +109,23 @@ if (live && l.publishAt) jsonld.push({
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 64px; border-top: 2px solid var(--text); padding-top: 8px; }
   .cols h2 { font-size: 24px; margin: 28px 0 10px; letter-spacing: -.02em; }
   .tools, .rel { padding-left: 20px; display: grid; gap: 6px; }
+  .status { display: inline-flex; align-items: center; gap: 7px; font: 600 13.5px/1 var(--sans); padding: 8px 12px; border-radius: 99px; border: 1px solid var(--line-2); color: var(--text); text-decoration: none; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--faint); }
+  .st-live { background: color-mix(in srgb, var(--live) 14%, transparent); border-color: color-mix(in srgb, var(--live) 40%, transparent); color: var(--accent); }
+  .st-live::before { background: var(--live); box-shadow: 0 0 8px var(--live); }
+  .st-soon { background: color-mix(in srgb, var(--cell) 70%, transparent); color: var(--muted); }
+  .st-udemy { background: var(--surface-2); }
+  .st-udemy::before { background: var(--accent); }
+  .inpath { margin-top: 18px; font-size: 15px; color: var(--muted); }
+  .inpath a { color: var(--accent); }
+  .tools a { color: inherit; }
+  .ucard { margin-top: 56px; }
+  .ucard h2 { font-size: 24px; margin-bottom: 16px; }
+  .ucard-g { max-width: 400px; }
+  .pn { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+  .pn-a { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); text-decoration: none; font: 650 16px/1.35 var(--sans); transition: border-color .15s; }
+  .pn-a:hover { border-color: var(--accent); }
+  .pn-a.nx { text-align: right; grid-column: 2; }
   @media (max-width: 860px) { .cols { grid-template-columns: 1fr; gap: 0; } }
+  @media (max-width: 600px) { .pn { grid-template-columns: 1fr; } .pn-a.nx { grid-column: 1; } }
 </style>

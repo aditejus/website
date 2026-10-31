@@ -92,3 +92,21 @@ export const udemyFor = (l: { course: string | null }) => {
   return c && c.udemyLink ? { href: `/udemy/${c.key}`, title: c.title } : null;
 };
 export const lessonPath = (id: string) => `/lessons/${id}/`;
+
+// Tools directory (from curriculum.yaml tools_directory) + how many lessons use each tool.
+export type Tool = { key: string; name: string; tags: string[]; pricing: string | null; lessons: Lesson[] };
+const toolNorm = (s: string) => s.toLowerCase().replace(/\s*\(.*?\)\s*/g, ' ').trim();
+export const tools: Tool[] = ((raw as any).tools || []).map((t: any) => ({
+  ...t, lessons: lessons.filter((l) => l.tools.some((x) => toolNorm(x.name) === toolNorm(t.name))),
+})).sort((a: Tool, b: Tool) => b.lessons.length - a.lessons.length || a.name.localeCompare(b.name));
+export const toolSlug = (name: string) => toolNorm(name).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// 'paid' when the lesson needs at least one paid-only tool; otherwise everything has a free option.
+export const toolTier = (l: { tools: { tags: string[] }[] }) =>
+  l.tools.some((t) => t.tags.includes('paid') && !t.tags.some((g) => g === 'free' || g === 'freemium' || g === 'open-source')) ? 'paid' : 'free';
+
+// One status per lesson for badges and filters: live on YouTube, its course is on Udemy, or coming soon.
+export const lessonStatus = (l: Lesson) => (l.live && l.youtubeId ? 'live' : udemyFor(l) ? 'udemy' : 'soon');
+export const statusLabel = { live: 'Live on YouTube', udemy: 'On Udemy', soon: 'Coming soon' } as const;
+export const formatLabel = (f: string) => (f === 'video' ? 'Video' : f[0].toUpperCase() + f.slice(1));
+export const FORMATS = [...new Set(lessons.map((l) => l.format))];

@@ -29,7 +29,8 @@ try {
   for (const m of sec1.matchAll(/\|\s*Udemy:\s*([^|]+?)\s*\|\s*(https:\/\/www\.udemy\.com\/course\/[^\s|]+)\s*\|/g)) {
     const label = m[1].toLowerCase();
     if (label.includes('deepeval')) udemyUrls['deepeval-testing'] = m[2];
-    else if (label.includes('agents') && label.includes('rag')) udemyUrls['agents-rag-z2p'] = m[2];
+    else if (label.includes('zero to production')) udemyUrls['agents-rag-z2p'] = m[2];
+    else udemyUrls['slug:' + m[2].split('/course/')[1].split('/')[0]] = m[2];
   }
 } catch { console.log('[sync] no CHANNEL_GUIDELINES.md, Udemy links stay empty'); }
 
@@ -47,11 +48,13 @@ const clean = (s) => String(s || '').replace(/\s*\((?:[^()]*:\s*)?verify[^()]*at
 const courses = {};
 for (const [key, c] of Object.entries(cur.udemy_courses)) {
   // Guideline links carry the instructor referral code; keep the plain course URL separately.
-  const ref = c.udemy_referral || udemyUrls[key] || null;
+  // A course whose public link is in guidelines section 1 is published, whatever the yaml status says.
+  const titleSlug = String(c.title || '').toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const ref = c.udemy_referral || udemyUrls[key] || udemyUrls['slug:' + titleSlug] || null;
   const plain = c.udemy_url || c.url || (ref ? ref.split('?')[0] : null);
-  const live = c.udemy_status === 'live';
+  const live = c.udemy_status === 'live' || !!ref;
   courses[key] = {
-    key, title: c.title, udemyStatus: c.udemy_status,
+    key, title: c.title, udemyStatus: live ? 'live' : c.udemy_status,
     udemyUrl: live ? plain : null,
     udemyReferral: live && ref && ref !== plain ? ref : null,
     premiere: c.premiere ? String(c.premiere) : null,
@@ -76,11 +79,17 @@ const tracks = cur.tracks.map((t) => ({
   })),
 }));
 
+// Tools directory: name, licence/pricing tags and the India pricing note (internal 'verify' notes dropped).
+const tools = Object.entries(cur.tools_directory || {}).map(([key, t]) => ({
+  key, name: clean(t.name), tags: t.tags || [],
+  pricing: /verify/i.test(String(t.india_pricing || '')) ? null : (t.india_pricing || null),
+}));
+
 const data = {
   generated: new Date().toISOString().slice(0, 10),
   curriculumVersion: String(cur.meta.version),
   curriculumGenerated: String(cur.meta.generated),
-  courses, tracks,
+  courses, tracks, tools,
 };
 fs.mkdirSync(new URL('.', OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(data, null, 1));

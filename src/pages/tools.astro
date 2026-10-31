@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import { tools, toolSlug, lessonPath } from '../lib/data';
+const TAGS = [['free', 'Free'], ['freemium', 'Free tier'], ['open-source', 'Open source'], ['paid', 'Paid']] as const;
+const label = (t: string) => (TAGS.find((x) => x[0] === t) || [t, t])[1];
+const used = tools.filter((t) => t.lessons.length > 0);
+const rest = tools.filter((t) => t.lessons.length === 0);
+const free = tools.filter((t) => t.tags.some((g) => g !== 'paid')).length;
+---
+<Base crumbs={[['Tools', '/tools/']]} title="AI tools directory: free, paid and open source"
+  description={`${tools.length} AI tools used in the ADITEJUS syllabus, tagged free, free tier, open source or paid, with the lessons that teach each one.`}>
+  <span data-pagefind-filter="type:Tool" hidden></span>
+  <div class="wrap">
+    <header class="ph">
+      <h1>Tools directory</h1>
+      <p class="lede">{tools.length} tools from the syllabus. {free} have a free or open-source option. Each one links to the lessons that use it. Prices change, so check the tool's own site before you pay.</p>
+    </header>
+    <form class="filters" id="tf" onsubmit="return false" aria-label="Filter tools" data-pagefind-ignore>
+      <label>Find<input type="search" name="q" placeholder="Tool name"></label>
+      <label>Cost<select name="tag"><option value="">All tools</option>{TAGS.map(([v, t]) => <option value={v}>{t}</option>)}</select></label>
+      <p class="faint" id="tc" role="status" aria-live="polite">{tools.length} tools</p>
+    </form>
+    <ul class="tl" id="tl">
+      {[...used, ...rest].map((t) => (
+        <li class="tr" id={toolSlug(t.name)} data-tags={t.tags.join(' ')}>
+          <div class="tr-h">
+            <h2 class="tn">{t.name}</h2>
+            <div class="tg">{t.tags.map((g) => <span class={`badge${g === 'paid' ? '' : ' fr'}`}>{label(g)}</span>)}</div>
+          </div>
+          {t.pricing && <p class="faint">{t.pricing}</p>}
+          {t.lessons.length > 0
+            ? <p class="tls"><span class="faint">{t.lessons.length} {t.lessons.length === 1 ? 'lesson' : 'lessons'}:</span> {t.lessons.slice(0, 4).map((l, i) => <>{i > 0 && ' · '}<a href={lessonPath(l.id)}>{l.title}</a></>)}{t.lessons.length > 4 && <span class="faint"> and {t.lessons.length - 4} more</span>}</p>
+            : <p class="faint">Covered in the tools directory lessons.</p>}
+        </li>
+      ))}
+    </ul>
+    <p class="empty muted" id="te" hidden>No tool matches. Try the <a href="/search/">site search</a>.</p>
+  </div>
+</Base>
+<script is:inline>
+(function(){
+  var f=document.getElementById('tf'),rows=[].slice.call(document.querySelectorAll('#tl .tr')),c=document.getElementById('tc'),e=document.getElementById('te');
+  var p=new URLSearchParams(location.search);if(p.get('tag'))f.tag.value=p.get('tag');
+  function run(){var q=f.q.value.trim().toLowerCase(),t=f.tag.value,n=0;
+    rows.forEach(function(r){var ok=(!q||r.querySelector('.tn').textContent.toLowerCase().indexOf(q)>-1)&&(!t||(' '+r.dataset.tags+' ').indexOf(' '+t+' ')>-1);r.hidden=!ok;if(ok)n++});
+    c.textContent=n+(n===1?' tool':' tools');e.hidden=n>0;history.replaceState(null,'',t?'?tag='+t+location.hash:location.pathname+location.hash)}
+  f.addEventListener('input',run);f.addEventListener('change',run);run();
+})();
+</script>
+<style>
+  #tc { margin-left: auto; align-self: center; }
+  .tl { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+  .tr { padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); display: grid; gap: 6px; align-content: start; scroll-margin-top: 90px; }
+  .tr:target { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent); }
+  .tr[hidden] { display: none; }
+  .tr-h { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+  .tn { font-size: 17px; letter-spacing: -.01em; }
+  .tg { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+  .badge.fr { color: var(--accent); }
+  .tls { font-size: 14.5px; color: var(--muted); }
+  .tls a { color: var(--text); text-decoration-color: var(--line-2); }
+  .tls a:hover { color: var(--accent); }
+  @media (max-width: 700px) { .tl { grid-template-columns: 1fr; } .filters label, .filters input, .filters select { width: 100%; } #tc { margin-left: 0; } }
+</style>

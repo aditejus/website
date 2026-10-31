@@ -42,6 +42,7 @@ const jsonld: object[] = [{
 // VideoObject markup lives on each lesson's own page (/lessons/<id>/).
 ---
 <Base title={c.title} description={desc} jsonld={jsonld} crumbs={[['Courses', '/courses/'], [c.title, `/courses/${c.key}/`]]}>
+  <span data-pagefind-filter="type:Course" hidden></span>
   <div class="wrap">
     <header class="ph cgrid">
       <div>
@@ -53,11 +54,11 @@ const jsonld: object[] = [{
         </div>
         <div class="ctas">
           {firstLive ? <a class="btn fill" href={ytUrl(firstLive.youtubeId!)}>Watch free on YouTube</a> : <a class="btn fill" href={`${YT_CHANNEL}?sub_confirmation=1`}>Get notified on YouTube</a>}
-          {udemyLive ? <a class="btn" href={`/udemy/${c.key}`}>Get the certificate on Udemy</a> : <span class="btn" aria-disabled="true">Udemy certificate: coming soon</span>}
+          {udemyLive ? <a class="btn fill" href={`/udemy/${c.key}`}>Enroll on Udemy</a> : <span class="btn" aria-disabled="true">Udemy certificate: coming soon</span>}
         </div>
       </div>
       <dl class="facts">
-        <dt>Udemy</dt><dd>{udemyLive ? <a href={`/udemy/${c.key}`}>Open the course on Udemy</a> : 'Coming soon'}</dd>
+        <dt>Udemy</dt><dd>{udemyLive ? <a href={`/udemy/${c.key}`}>Enroll on Udemy</a> : 'Coming soon'}</dd>
         <dt>Lessons</dt><dd>{c.lessons.length || 'See Udemy'}</dd>
         {c.minutes > 0 && <><dt>Planned length</dt><dd>About {fmtMinutes(c.minutes)}</dd></>}
         {projects.length > 0 && <><dt>Projects</dt><dd>{projects.length}</dd></>}

@@ -4,7 +4,7 @@ import CourseCard from '../../components/CourseCard.astro';
 import { courses, tracks, stats } from '../../lib/data';
 const withLessons = courses;
 ---
-<Base crumbs={[['Courses','/courses/']]} title="Courses" description={`Every ADITEJUS course: free on YouTube, with Udemy certificate versions. Filter ${courses.length} courses by track, level and format.`}>
+<Base search={false} crumbs={[['Courses','/courses/']]} title="Courses" description={`Every ADITEJUS course: free on YouTube, with Udemy certificate versions. Filter ${courses.length} courses by track, level and format.`}>
   <div class="wrap">
     <header class="ph">
       <h1>Courses</h1>

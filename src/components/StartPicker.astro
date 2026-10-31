@@ -1,0 +1,90 @@
+---
+// "Start here": three quick choices -> one recommended goal path. Pure static JS; with JS off the
+// form submits to /paths/ (all paths listed) and the path links below it still work.
+import { paths, WHO, GOALS, pickTable } from '../lib/paths';
+import { fmtMinutes, lessonPath } from '../lib/data';
+const { heading = 'Start here', level: hl = 2 } = Astro.props as { heading?: string; level?: 2 | 1 };
+const LEVELS = [['beginner', 'New to AI'], ['intermediate', 'Use AI already'], ['advanced', 'Build with AI']] as const;
+const info = Object.fromEntries(paths.map((p) => [p.id, {
+  t: p.title, b: p.blurb, n: p.lessons.length, h: fmtMinutes(p.minutes),
+  s: Object.fromEntries(Object.entries(p.startStep).map(([lv, mid]) => {
+    const st = p.steps.find((x) => x.id === mid)!;
+    const i = p.steps.indexOf(st);
+    return [lv, { m: st.title, i: i + 1, l: st.lessons[0].title, u: lessonPath(st.lessons[0].id) }];
+  })),
+}]));
+const H = hl === 1 ? 'h1' : 'h2';
+---
+<div class="sp panel" id="start">
+  <div class="sp-q">
+    <H class="sp-h">{heading}</H>
+    <p class="muted">Three taps and we'll show the one path to follow.</p>
+    <form id="spf" action="/paths/" method="get">
+      <fieldset><legend><span class="n">1</span>I am a</legend>
+        <div class="chips">{WHO.map(([v, t], i) => <label><input type="radio" name="who" value={v} checked={i === 1} /><span>{t}</span></label>)}</div>
+      </fieldset>
+      <fieldset><legend><span class="n">2</span>I want to</legend>
+        <div class="chips">{GOALS.map(([v, t], i) => <label><input type="radio" name="goal" value={v} checked={i === 0} /><span>{t}</span></label>)}</div>
+      </fieldset>
+      <fieldset><legend><span class="n">3</span>My level</legend>
+        <div class="chips">{LEVELS.map(([v, t], i) => <label><input type="radio" name="level" value={v} checked={i === 0} /><span>{t}</span></label>)}</div>
+      </fieldset>
+      <button class="btn fill sp-go" type="submit">Show my path</button>
+    </form>
+  </div>
+  <div class="sp-r" id="spr" aria-live="polite" data-table={JSON.stringify(pickTable)} data-info={JSON.stringify(info)}>
+    <p class="eyebrow">Your path</p>
+    <h3 id="spr-t"><a href="/paths/">Pick your answers</a></h3>
+    <p class="muted" id="spr-b">Every goal path is an ordered list of lessons with “you are here” and “next lesson” built in.</p>
+    <p class="faint" id="spr-m"></p>
+    <div class="sp-start" id="spr-s" hidden><span class="faint">Start with</span><a id="spr-l" href="/paths/"></a></div>
+    <div class="ctas"><a class="btn fill" id="spr-go" href="/paths/">See all paths</a></div>
+  </div>
+</div>
+<nav class="sp-all" aria-label="All goal paths"><span class="faint">Or jump straight to a path:</span>{paths.map((p) => <a href={`/paths/${p.id}/`}>{p.short}</a>)}</nav>
+<script is:inline>
+(function(){
+  var f=document.getElementById('spf'),r=document.getElementById('spr');if(!f||!r)return;
+  var T=JSON.parse(r.dataset.table),I=JSON.parse(r.dataset.info);
+  document.querySelector('.sp-go').hidden=true;
+  function v(n){var x=f.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
+  function run(){var id=T[v('who')+'|'+v('goal')],p=I[id];if(!p)return;var lv=v('level')||'beginner',s=p.s[lv],href='/paths/'+id+'/';
+    var a=document.querySelector('#spr-t a');a.textContent=p.t;a.href=href;
+    document.getElementById('spr-b').textContent=p.b;
+    document.getElementById('spr-m').textContent=p.n+' lessons, about '+p.h+(s.i>1?'. At your level, skip to step '+s.i+': '+s.m+'.':'.');
+    var l=document.getElementById('spr-l');l.textContent=s.l;l.href=s.u;document.getElementById('spr-s').hidden=false;
+    var g=document.getElementById('spr-go');g.textContent='Open the '+p.t+' path';g.href=href+(s.i>1?'#step-'+s.i:'')}
+  f.addEventListener('change',run);run();
+})();
+</script>
+<style>
+  .sp { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); overflow: hidden; position: relative; isolation: isolate; }
+  .sp::before { content: ""; position: absolute; right: -15%; top: -40%; width: 60%; height: 130%; z-index: -1; background: radial-gradient(closest-side, var(--glow), transparent); }
+  .sp-q { padding: clamp(24px, 3.4vw, 40px); display: grid; gap: 6px; align-content: start; }
+  .sp-h { font-size: clamp(28px, 3.1vw, 40px); max-width: none; }
+  form#spf { display: grid; gap: 18px; margin-top: 18px; }
+  fieldset { border: 0; padding: 0; min-width: 0; }
+  legend { font: 600 14px var(--sans); color: var(--text); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; padding: 0; }
+  legend .n { width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; font: 700 12px var(--mono); background: var(--grad); color: var(--btn-fg); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips label { position: relative; cursor: pointer; }
+  .chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .chips span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--line-2); font: 500 14.5px var(--sans); color: var(--muted); background: color-mix(in srgb, var(--surface-2) 70%, transparent); transition: border-color .15s, color .15s, background .15s; }
+  .chips label:hover span { color: var(--text); border-color: color-mix(in srgb, var(--accent) 50%, var(--line-2)); }
+  .chips input:checked + span { color: var(--text); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: 0 0 0 1px var(--accent) inset; }
+  .chips input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sp-go { justify-self: start; }
+  .sp-r { padding: clamp(24px, 3.4vw, 40px); border-left: 1px solid var(--line); background: color-mix(in srgb, var(--surface-2) 60%, transparent); display: flex; flex-direction: column; gap: 10px; }
+  .sp-r h3 { font-size: clamp(24px, 2.4vw, 30px); letter-spacing: -.025em; }
+  .sp-r h3 a { text-decoration: none; }
+  .sp-r h3 a:hover { color: var(--accent); }
+  .sp-start { display: grid; gap: 4px; margin-top: 8px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+  .sp-start a { font: 650 16px/1.35 var(--sans); color: var(--accent); text-decoration: none; }
+  .sp-start a:hover { text-decoration: underline; }
+  .sp-r .ctas { margin-top: auto; padding-top: 12px; }
+  .sp-r .btn { white-space: normal; height: auto; min-height: 46px; padding-top: 10px; padding-bottom: 10px; line-height: 1.25; }
+  .sp-all { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 16px; }
+  .sp-all a { font-size: 14px; text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 5px 12px; color: var(--muted); }
+  .sp-all a:hover { color: var(--text); border-color: var(--accent); }
+  @media (max-width: 900px) { .sp { grid-template-columns: 1fr; } .sp-r { border-left: 0; border-top: 1px solid var(--line); } }
+</style>

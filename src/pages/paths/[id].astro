@@ -1,0 +1,162 @@
+---
+import Base from '../../layouts/Base.astro';
+import { paths, type GoalPath } from '../../lib/paths';
+import { levelLabel, lessonPath, fmtMinutes, ytUrl, lessonStatus, statusLabel, SITE, formatLabel } from '../../lib/data';
+
+export function getStaticPaths() {
+  return paths.map((p) => ({ params: { id: p.id }, props: { p } }));
+}
+const { p } = Astro.props as { p: GoalPath };
+let n = 0;
+const others = paths.filter((x) => x.id !== p.id);
+const levelStart = (['beginner', 'intermediate', 'advanced'] as const).map((lv) => ({ lv, i: p.steps.findIndex((s) => s.id === p.startStep[lv]) + 1 }));
+const first = p.lessons[0];
+const jsonld = {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: p.title, description: p.blurb, numberOfItems: p.lessons.length,
+  itemListElement: p.lessons.map((l, i) => ({ '@type': 'ListItem', position: i + 1, name: l.title, url: `${SITE}${lessonPath(l.id)}` })),
+};
+---
+<Base crumbs={[['Paths', '/paths/'], [p.title, `/paths/${p.id}/`]]} title={`${p.title}: learning path`} jsonld={jsonld}
+  description={`${p.title}, for ${p.who.toLowerCase()}: ${p.lessons.length} lessons in ${p.steps.length} steps, in order. ${p.blurb}`}>
+  <span data-pagefind-filter="type:Path" hidden></span>
+  <div class="wrap">
+    <header class="ph pth">
+      <p class="eyebrow">Goal path for {p.who.toLowerCase()}</p>
+      <h1>{p.title}</h1>
+      <p class="lede">{p.blurb}</p>
+      <dl class="pstats">
+        <div><dt>Steps</dt><dd>{p.steps.length}</dd></div>
+        <div><dt>Lessons</dt><dd>{p.lessons.length}</dd></div>
+        <div><dt>Time</dt><dd>{fmtMinutes(p.minutes)}</dd></div>
+        <div><dt>Done</dt><dd><span id="pd">0</span><small> / {p.lessons.length}</small></dd></div>
+      </dl>
+      <div class="pbar" aria-hidden="true"><i id="pb"></i></div>
+      <div class="next panel" id="nx" data-pagefind-ignore>
+        <div>
+          <p class="faint" id="nx-k">Start here</p>
+          <a class="nx-t" id="nx-a" href={lessonPath(first.id)}>1. {first.title}</a>
+          <p class="faint" id="nx-h" hidden></p>
+        </div>
+        <a class="btn fill" id="nx-b" href={lessonPath(first.id)}>Open lesson</a>
+      </div>
+      <p class="lvl faint" data-pagefind-ignore>Already know some of this? Start at
+        {levelStart.map((x, i) => <>{i > 0 && ', '}<a href={`#step-${x.i}`}>step {x.i} ({levelLabel(x.lv).toLowerCase()})</a></>)}.
+      </p>
+    </header>
+
+    <nav class="stoc" aria-label="Steps in this path" data-pagefind-ignore>
+      {p.steps.map((s, i) => <a href={`#step-${i + 1}`}><span class="n">{i + 1}</span>{s.title}</a>)}
+    </nav>
+
+    <ol class="steps" id="pl" data-path={p.id}>
+      {p.steps.map((s, si) => (
+        <li class="step" id={`step-${si + 1}`}>
+          <div class="sh3">
+            <span class="sn" aria-hidden="true">{si + 1}</span>
+            <div><h2>{s.title}</h2><p class="faint">Track {s.trackN}: {s.track}, {s.lessons.length} lessons</p></div>
+          </div>
+          <ol class="pls">
+            {s.lessons.map((l) => {
+              n++;
+              const st = lessonStatus(l);
+              return (
+                <li class="pl" data-id={l.id} id={`l-${l.id}`}>
+                  <input type="checkbox" id={`d-${l.id}`} aria-label={`Mark lesson ${n} done: ${l.title}`} />
+                  <div class="pl-m">
+                    <span class="mk" aria-hidden="true"></span>
+                    <a href={lessonPath(l.id)}><span class="ix">{n}.</span> {l.title}</a>
+                    <span class="faint">{levelLabel(l.level)}{l.format !== 'video' ? `, ${formatLabel(l.format)}` : ''}, {l.minutes} min</span>
+                  </div>
+                  {st === 'live' ? <a class="badge live" href={ytUrl(l.youtubeId!)}>Watch free</a> : <span class={`badge${st === 'udemy' ? ' udemy' : ''}`}>{statusLabel[st]}</span>}
+                </li>
+              );
+            })}
+          </ol>
+        </li>
+      ))}
+    </ol>
+    <p class="faint" style="margin-top:24px" data-pagefind-ignore>Ticks and “you are here” are saved only in this browser. <button class="btn sm ghost" id="pr" type="button">Clear my progress</button></p>
+
+    <section class="blk" data-pagefind-ignore>
+      <div class="sh"><h2>Other paths</h2><p>Changing goals is fine. Lessons you finish count on every path that includes them.</p></div>
+      <nav class="oth" aria-label="Other paths">{others.map((o) => <a class="card" href={`/paths/${o.id}/`}><span class="faint">{o.who}</span><h3>{o.title}</h3><span class="faint">{o.lessons.length} lessons</span></a>)}</nav>
+    </section>
+  </div>
+</Base>
+<script is:inline>
+(function(){
+  var pl=document.getElementById('pl');if(!pl)return;
+  var KEY='aditejus-done-v1',done={},last=null;
+  try{done=JSON.parse(localStorage.getItem(KEY)||'{}')||{};last=localStorage.getItem('aditejus-last')}catch(e){}
+  var items=[].slice.call(pl.querySelectorAll('.pl')),ids=items.map(function(x){return x.dataset.id});
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
+  function paint(){
+    var hereI=ids.indexOf(last),n=0,nextI=-1;
+    items.forEach(function(x,i){var d=!!done[x.dataset.id];x.classList.toggle('done',d);x.querySelector('input').checked=d;if(d)n++;
+      x.classList.remove('here','nxt');x.removeAttribute('aria-current')});
+    for(var i=(hereI>-1?hereI+1:0);i<items.length;i++){if(!done[ids[i]]){nextI=i;break}}
+    if(nextI<0)for(i=0;i<items.length;i++){if(!done[ids[i]]){nextI=i;break}}
+    if(hereI>-1){items[hereI].classList.add('here');items[hereI].setAttribute('aria-current','step')}
+    document.getElementById('pd').textContent=n;document.getElementById('pb').style.width=(n/items.length*100)+'%';
+    var k=document.getElementById('nx-k'),a=document.getElementById('nx-a'),b=document.getElementById('nx-b'),h=document.getElementById('nx-h');
+    if(nextI>-1){var it=items[nextI],link=it.querySelector('.pl-m a');it.classList.add('nxt');
+      k.textContent=(n||hereI>-1)?'Next lesson':'Start here';a.textContent=link.textContent.trim();a.href=link.getAttribute('href');b.href=a.href;b.textContent='Open lesson';
+      if(hereI>-1){h.hidden=false;h.textContent='You are here: '+items[hereI].querySelector('.pl-m a').textContent.trim()}else h.hidden=true}
+    else{k.textContent='Path complete';a.textContent='You have finished every lesson. Pick another path below.';a.href='#';b.hidden=true;h.hidden=true}
+  }
+  items.forEach(function(x){x.querySelector('input').addEventListener('change',function(e){if(e.target.checked)done[x.dataset.id]=1;else delete done[x.dataset.id];save();paint()})});
+  document.getElementById('pr').onclick=function(){ids.forEach(function(i){delete done[i]});save();try{if(ids.indexOf(last)>-1){localStorage.removeItem('aditejus-last');last=null}}catch(e){}paint()};
+  paint();
+})();
+</script>
+<style>
+  .pth h1 { max-width: 20ch; }
+  .pstats { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 0; margin-top: 32px; }
+  .pstats div { padding-right: 28px; margin-right: 28px; border-right: 1px solid var(--line); }
+  .pstats div:last-child { border: 0; }
+  .pstats dt { font: 500 12.5px var(--sans); color: var(--faint); }
+  .pstats dd { font: 750 28px/1 var(--disp); letter-spacing: -.03em; margin-top: 6px; }
+  .pstats small { font: 500 14px var(--sans); color: var(--faint); }
+  .pbar { height: 4px; background: var(--line); border-radius: 99px; overflow: hidden; margin-top: 20px; max-width: 620px; }
+  .pbar i { display: block; height: 100%; width: 0; background: var(--grad); transition: width .3s; }
+  .next { display: flex; gap: 20px; align-items: center; justify-content: space-between; padding: 18px 22px; margin-top: 24px; max-width: 760px; border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+  .next > div { display: grid; gap: 4px; min-width: 0; }
+  .nx-t { font: 700 19px/1.3 var(--disp); text-decoration: none; }
+  .nx-t:hover { color: var(--accent); }
+  .lvl { margin-top: 16px; }
+  .lvl a { color: var(--muted); }
+  .stoc { display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 8px; }
+  .stoc a { display: inline-flex; gap: 8px; align-items: center; font-size: 13.5px; text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px 4px 5px; color: var(--muted); }
+  .stoc a:hover { color: var(--text); border-color: var(--accent); }
+  .stoc .n { width: 20px; height: 20px; border-radius: 50%; display: inline-grid; place-items: center; font: 600 11px var(--mono); background: var(--cell); color: var(--text); }
+  .steps { list-style: none; padding: 0; margin-top: 24px; }
+  .step { padding: 40px 0 8px; border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+  .sh3 { display: flex; gap: 16px; align-items: center; margin-bottom: 12px; }
+  .sh3 h2 { font-size: clamp(22px, 2.4vw, 28px); }
+  .sn { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font: 750 17px var(--disp); background: var(--grad); color: var(--btn-fg); box-shadow: 0 6px 20px -8px rgba(214, 160, 60, .6); }
+  .pls { list-style: none; padding: 0 0 0 56px; }
+  .pl { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 12px 12px; margin: 0 -12px; border-bottom: 1px solid var(--line); border-radius: 8px; }
+  .pl input { width: 20px; height: 20px; accent-color: var(--accent); cursor: pointer; }
+  .pl-m { display: grid; gap: 2px; min-width: 0; }
+  .pl-m a { font: 600 16.5px/1.35 var(--sans); text-decoration: none; }
+  .pl-m a:hover { color: var(--accent); text-decoration: underline; }
+  .ix { color: var(--faint); font-weight: 500; }
+  .pl.done .pl-m a { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--accent); }
+  .mk:empty { display: none; }
+  .pl.here, .pl.nxt { background: color-mix(in srgb, var(--accent) 8%, transparent); border-color: transparent; }
+  .pl.here .mk, .pl.nxt .mk { display: inline-block; justify-self: start; font: 600 11.5px/1 var(--sans); letter-spacing: .04em; text-transform: uppercase; color: var(--btn-fg); background: var(--grad); padding: 4px 8px; border-radius: 99px; margin-bottom: 4px; }
+  .pl.here .mk::before { content: "You are here"; }
+  .pl.nxt .mk::before { content: "Next lesson"; }
+  .oth { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .oth .card { padding: 16px 18px; gap: 4px; }
+  .oth h3 { font-size: 17px; }
+  @media (max-width: 700px) {
+    .pstats { grid-template-columns: repeat(2, auto); gap: 14px 0; }
+    .pstats div:nth-child(2) { border: 0; }
+    .next { flex-direction: column; align-items: stretch; }
+    .next .btn { justify-content: center; }
+    .pls { padding-left: 0; }
+    .pl { grid-template-columns: auto 1fr; }
+    .pl > .badge { grid-column: 2; justify-self: start; }
+  }
+</style>

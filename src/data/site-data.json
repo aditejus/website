@@ -6,41 +6,41 @@
   "mega-1": {
    "key": "mega-1",
    "title": "AI for Beginners (No Code): Understand and Use AI",
-   "udemyStatus": "in_review",
-   "udemyUrl": null,
-   "udemyReferral": null,
+   "udemyStatus": "live",
+   "udemyUrl": "https://www.udemy.com/course/ai-for-beginners-no-code-understand-and-use-ai/",
+   "udemyReferral": "https://www.udemy.com/course/ai-for-beginners-no-code-understand-and-use-ai/?referralCode=B94151CD9A3BCEC69E57",
    "premiere": null
   },
   "mega-llm": {
    "key": "mega-llm",
    "title": "LLMs for Beginners (No Code): How AI Apps Really Work",
-   "udemyStatus": "in_review",
-   "udemyUrl": null,
-   "udemyReferral": null,
+   "udemyStatus": "live",
+   "udemyUrl": "https://www.udemy.com/course/llms-for-beginners-no-code-how-ai-apps-really-work/",
+   "udemyReferral": "https://www.udemy.com/course/llms-for-beginners-no-code-how-ai-apps-really-work/?referralCode=E968825844826BDCA3F3",
    "premiere": null
   },
   "mega-rag": {
    "key": "mega-rag",
    "title": "RAG for Beginners (No Code): Make AI Answer From Your Files",
-   "udemyStatus": "in_review",
-   "udemyUrl": null,
-   "udemyReferral": null,
+   "udemyStatus": "live",
+   "udemyUrl": "https://www.udemy.com/course/rag-for-beginners-no-code-make-ai-answer-from-your-files/",
+   "udemyReferral": "https://www.udemy.com/course/rag-for-beginners-no-code-make-ai-answer-from-your-files/?referralCode=7306A7AB378488160184",
    "premiere": null
   },
   "mega-agents": {
    "key": "mega-agents",
    "title": "AI Agents for Beginners (No Code): How Agents Really Work",
-   "udemyStatus": "in_review",
-   "udemyUrl": null,
-   "udemyReferral": null,
+   "udemyStatus": "live",
+   "udemyUrl": "https://www.udemy.com/course/ai-agents-for-beginners-no-code-how-agents-really-work/",
+   "udemyReferral": "https://www.udemy.com/course/ai-agents-for-beginners-no-code-how-agents-really-work/?referralCode=578FB8F76C0199F01DBF",
    "premiere": null
   },
   "mega-prod": {
    "key": "mega-prod",
    "title": "Production AI for Beginners (No Code): Run AI for Real Users",
-   "udemyStatus": "in_review",
-   "udemyUrl": null,
-   "udemyReferral": null,
+   "udemyStatus": "live",
+   "udemyUrl": "https://www.udemy.com/course/production-ai-for-beginners-no-code-run-ai-for-real-users/",
+   "udemyReferral": "https://www.udemy.com/course/production-ai-for-beginners-no-code-run-ai-for-real-users/?referralCode=5E8D7B0AC90C6FFF7FF7",
    "premiere": null
   },
   "langchain-builder": {
@@ -790,6 +790,117 @@
        "publishAt": null,
        "premiere": null,
        "course": "mega-1"
+      }
+     ]
+    },
+    {
+     "id": "t00-m05-everyday-safety",
+     "title": "Everyday AI Safety",
+     "course": null,
+     "lessons": [
+      {
+       "id": "f-safe-voice-clone",
+       "title": "Voice-Clone Fraud: Family Code Words and Call-Backs",
+       "level": "beginner",
+       "outcome": "Set a family code word and a call-back rule that defeat voice-clone scam calls",
+       "format": "video",
+       "minutes": 9,
+       "prerequisites": [
+        "f-deepfakes-scams"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "f-safe-fact-check",
+       "title": "Fact-Check Viral AI Images and Videos With Free Tools",
+       "level": "beginner",
+       "outcome": "Trace a viral image or clip to its source with reverse search and content credentials",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-deepfakes-scams"
+       ],
+       "tools": [
+        {
+         "name": "Google Lens",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "f-safe-what-not-to-paste",
+       "title": "What Not to Paste Into AI: A Privacy Checklist",
+       "level": "beginner",
+       "outcome": "Redact personal, client and company data before you paste anything into a chatbot",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-privacy-data"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "f-safe-copyright-basics",
+       "title": "Copyright Basics: Who Owns AI-Made Work?",
+       "level": "intermediate",
+       "outcome": "Decide when you can use, sell or claim AI-made text, images and music",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "f-safe-what-not-to-paste"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
       }
      ]
     }
@@ -3230,6 +3341,248 @@
        "course": "py-for-ai"
       }
      ]
+    },
+    {
+     "id": "t03-m05-data-sql-ai",
+     "title": "Data and SQL With AI",
+     "course": "py-for-ai",
+     "lessons": [
+      {
+       "id": "dsql-clean-sheets",
+       "title": "Clean and Explore Messy Spreadsheets With AI",
+       "level": "intermediate",
+       "outcome": "Clean a messy sheet and get five checked insights from it with an AI assistant",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "u-ai-excel-sheets"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "py-for-ai"
+      },
+      {
+       "id": "dsql-pandas-assistant",
+       "title": "pandas With an AI Assistant: Ask, Check, Run",
+       "level": "intermediate",
+       "outcome": "Have AI write pandas code, then verify every number it reports",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "py-pandas",
+        "dsql-clean-sheets"
+       ],
+       "tools": [
+        {
+         "name": "pandas",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Google Colab",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "py-for-ai"
+      },
+      {
+       "id": "dsql-text-to-sql",
+       "title": "Text-to-SQL: Ask Your Database in Plain English",
+       "level": "intermediate",
+       "outcome": "Turn plain-English questions into safe, read-only SQL and check the results",
+       "format": "video",
+       "minutes": 15,
+       "prerequisites": [
+        "dsql-pandas-assistant"
+       ],
+       "tools": [
+        {
+         "name": "SQLite",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "DuckDB",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "OpenAI API",
+         "tags": [
+          "paid"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "py-for-ai"
+      },
+      {
+       "id": "dsql-db-agent",
+       "title": "Build a Chat-With-Your-Database Agent",
+       "level": "intermediate",
+       "outcome": "Build an agent that inspects tables, writes SQL, retries on errors and explains answers",
+       "format": "video",
+       "minutes": 18,
+       "prerequisites": [
+        "dsql-text-to-sql",
+        "llm-tool-calling"
+       ],
+       "tools": [
+        {
+         "name": "LangChain",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "SQLite",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Ollama",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "py-for-ai"
+      },
+      {
+       "id": "dsql-ai-dashboards",
+       "title": "AI-Built Dashboards in Streamlit and Looker Studio",
+       "level": "intermediate",
+       "outcome": "Generate a working dashboard from a dataset and a one-paragraph brief",
+       "format": "video",
+       "minutes": 15,
+       "prerequisites": [
+        "dsql-pandas-assistant"
+       ],
+       "tools": [
+        {
+         "name": "Streamlit",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "pandas",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Looker Studio",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "py-for-ai"
+      },
+      {
+       "id": "dsql-project",
+       "title": "Project: Sales Insights Assistant",
+       "level": "intermediate",
+       "outcome": "Ship an assistant that answers sales questions from a database with charts",
+       "format": "project",
+       "minutes": 35,
+       "prerequisites": [
+        "dsql-db-agent",
+        "dsql-ai-dashboards"
+       ],
+       "tools": [
+        {
+         "name": "DuckDB",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Streamlit",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini API",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "py-for-ai"
+      }
+     ]
     }
    ]
   },
@@ -3989,6 +4342,203 @@
          "name": "Ollama",
          "tags": [
           "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-apis"
+      }
+     ]
+    },
+    {
+     "id": "t04-m06-ship-ai-app",
+     "title": "Ship an AI App",
+     "course": "llm-apis",
+     "lessons": [
+      {
+       "id": "ship-nextjs-frontend",
+       "title": "Next.js Front End for Your LLM Backend",
+       "level": "intermediate",
+       "outcome": "Connect a Next.js page to a Python LLM backend with typed requests",
+       "format": "video",
+       "minutes": 16,
+       "prerequisites": [
+        "llm-messages",
+        "py-fastapi"
+       ],
+       "tools": [
+        {
+         "name": "Next.js",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Vercel AI SDK",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "FastAPI",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-apis"
+      },
+      {
+       "id": "ship-streaming-ui",
+       "title": "Streaming Chat UI: Tokens, Stop and Retry",
+       "level": "intermediate",
+       "outcome": "Stream tokens into a chat UI with stop, retry and error states",
+       "format": "video",
+       "minutes": 15,
+       "prerequisites": [
+        "ship-nextjs-frontend",
+        "llm-streaming"
+       ],
+       "tools": [
+        {
+         "name": "Vercel AI SDK",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Next.js",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-apis"
+      },
+      {
+       "id": "ship-auth",
+       "title": "Add Login and Per-User Limits to Your AI App",
+       "level": "intermediate",
+       "outcome": "Add sign-in and a daily per-user request limit so nobody burns your API budget",
+       "format": "video",
+       "minutes": 15,
+       "prerequisites": [
+        "ship-nextjs-frontend"
+       ],
+       "tools": [
+        {
+         "name": "Supabase",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Next.js",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-apis"
+      },
+      {
+       "id": "ship-free-deploy",
+       "title": "Deploy Your AI App on Free Tiers, No Card Needed",
+       "level": "intermediate",
+       "outcome": "Put the front end and backend online on free tiers with secrets kept safe",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "ship-auth"
+       ],
+       "tools": [
+        {
+         "name": "Vercel",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Render / Railway",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Hugging Face Spaces",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "llm-apis"
+      },
+      {
+       "id": "ship-project",
+       "title": "Project: Ship a Public AI Study Helper",
+       "level": "intermediate",
+       "outcome": "Launch a logged-in, streaming AI study helper at a public URL",
+       "format": "project",
+       "minutes": 40,
+       "prerequisites": [
+        "ship-streaming-ui",
+        "ship-free-deploy"
+       ],
+       "tools": [
+        {
+         "name": "Next.js",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "FastAPI",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Gemini API",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Git + GitHub",
+         "tags": [
           "free"
          ]
         }
@@ -5952,6 +6502,24 @@
        "publishAt": null,
        "premiere": null,
        "course": "mega-agents"
+      },
+      {
+       "id": "ag-tool-calling-explained",
+       "title": "Tool Calling Explained (No Code)",
+       "level": "beginner",
+       "outcome": "Explain how a model asks for a tool, your app runs it and the result comes back",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "ag-tools-touch"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
       }
      ]
     },
@@ -11756,6 +12324,38 @@
        "publishAt": null,
        "premiere": "2027-03-06",
        "course": "llm-finetune"
+      },
+      {
+       "id": "tr-model-merging",
+       "title": "Model Merging With mergekit: SLERP, TIES, DARE",
+       "level": "advanced",
+       "outcome": "Merge two fine-tunes into one model on a free GPU and test that it improved",
+       "format": "video",
+       "minutes": 18,
+       "prerequisites": [
+        "tr-export-serve"
+       ],
+       "tools": [
+        {
+         "name": "mergekit",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Google Colab",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
       }
      ]
     },
@@ -12474,6 +13074,46 @@
         "ml-transformer-code"
        ],
        "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "gpt-from-scratch"
+      },
+      {
+       "id": "ml-interpretability",
+       "title": "Interpretability Basics: Look Inside a Model",
+       "level": "advanced",
+       "outcome": "Inspect attention and activations in a small model to see what drives an answer",
+       "format": "video",
+       "minutes": 18,
+       "prerequisites": [
+        "ml-self-attention"
+       ],
+       "tools": [
+        {
+         "name": "TransformerLens",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "PyTorch",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        },
+        {
+         "name": "Hugging Face Transformers",
+         "tags": [
+          "open-source",
+          "free"
+         ]
+        }
+       ],
        "status": "coming_soon",
        "youtubeId": null,
        "youtubeVisibility": null,
@@ -15300,6 +15940,2811 @@
      ]
     }
    ]
+  },
+  {
+   "id": "t16-ai-for-your-role",
+   "n": 16,
+   "title": "AI for Your Role",
+   "description": "Practical AI paths for students, teachers, small business owners, marketers, finance and HR/operations teams (free tools first), plus an advanced strategy module for leaders.",
+   "modules": [
+    {
+     "id": "t16-m01-students",
+     "title": "AI for Students",
+     "course": "ai-tools-work",
+     "lessons": [
+      {
+       "id": "r-stu-study-buddy",
+       "title": "Study With AI Without Cheating Yourself",
+       "level": "beginner",
+       "outcome": "Set up AI as a tutor that quizzes and explains instead of writing for you",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-stu-flashcards",
+       "title": "Turn Lecture Notes Into Flashcards and Quizzes",
+       "level": "beginner",
+       "outcome": "Convert a week of notes into flashcards, a practice quiz and a summary",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "r-stu-study-buddy"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-stu-research",
+       "title": "Research Assignments With AI and Real Citations",
+       "level": "intermediate",
+       "outcome": "Find, read and cite real sources, and catch invented references",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-stu-study-buddy"
+       ],
+       "tools": [
+        {
+         "name": "Perplexity",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-stu-project",
+       "title": "Project: Build Your Exam Revision Kit",
+       "level": "intermediate",
+       "outcome": "Build a personal revision kit for one subject: notes, quizzes and a study plan",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-stu-flashcards",
+        "r-stu-research"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      }
+     ]
+    },
+    {
+     "id": "t16-m02-teachers",
+     "title": "AI for Teachers",
+     "course": "ai-tools-work",
+     "lessons": [
+      {
+       "id": "r-tch-lesson-plans",
+       "title": "Lesson Plans and Worksheets in Minutes With AI",
+       "level": "beginner",
+       "outcome": "Draft a lesson plan, worksheet and answer key for any topic and grade",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva AI",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-tch-feedback",
+       "title": "Faster, Fairer Feedback on Student Work",
+       "level": "intermediate",
+       "outcome": "Use a rubric prompt to draft feedback you check and personalise",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-tch-lesson-plans"
+       ],
+       "tools": [
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-tch-class-rules",
+       "title": "Set Classroom AI Rules Students Will Follow",
+       "level": "intermediate",
+       "outcome": "Write clear AI-use rules and assignments that are hard to outsource",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "r-tch-lesson-plans"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      }
+     ]
+    },
+    {
+     "id": "t16-m03-small-business",
+     "title": "AI for Small Business Owners",
+     "course": "ai-tools-work",
+     "lessons": [
+      {
+       "id": "r-smb-first-week",
+       "title": "AI for Small Business: Your First Week",
+       "level": "beginner",
+       "outcome": "Pick three daily tasks to hand to free AI tools this week",
+       "format": "video",
+       "minutes": 10,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Gemini",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva AI",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-smb-customer-replies",
+       "title": "Answer Customer Messages Faster With AI",
+       "level": "beginner",
+       "outcome": "Build a reply library and tone guide for WhatsApp, email and reviews",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "r-smb-first-week"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-smb-catalog",
+       "title": "Product Photos, Descriptions and Posts With AI",
+       "level": "beginner",
+       "outcome": "Create catalogue photos, descriptions and social posts for ten products",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-smb-first-week"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT image generation",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva AI",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-smb-automate-project",
+       "title": "Project: Automate Orders and Follow-Ups",
+       "level": "intermediate",
+       "outcome": "Log orders to a sheet and send follow-up messages automatically",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-smb-customer-replies"
+       ],
+       "tools": [
+        {
+         "name": "n8n",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "Zapier",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      }
+     ]
+    },
+    {
+     "id": "t16-m04-marketing-content",
+     "title": "AI for Marketing and Content",
+     "course": "ai-tools-work",
+     "lessons": [
+      {
+       "id": "r-mkt-content-calendar",
+       "title": "A Month of Content From One Brief",
+       "level": "beginner",
+       "outcome": "Turn one campaign brief into a 30-day content calendar with drafts",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "p-prompting-basics"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Canva AI",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-mkt-brand-voice",
+       "title": "Keep Your Brand Voice With a Custom Assistant",
+       "level": "intermediate",
+       "outcome": "Build a custom assistant that writes in your brand voice every time",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-mkt-content-calendar"
+       ],
+       "tools": [
+        {
+         "name": "Custom GPTs / Gems / Claude Projects",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-mkt-research",
+       "title": "Keyword and Audience Research With AI",
+       "level": "intermediate",
+       "outcome": "Map audience questions and search keywords, then check them against real data",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "r-mkt-content-calendar"
+       ],
+       "tools": [
+        {
+         "name": "Perplexity",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-mkt-repurpose-project",
+       "title": "Project: Repurpose One Video Into 10 Posts",
+       "level": "intermediate",
+       "outcome": "Turn one long video into clips, captions, a blog post and a newsletter",
+       "format": "project",
+       "minutes": 30,
+       "prerequisites": [
+        "r-mkt-brand-voice"
+       ],
+       "tools": [
+        {
+         "name": "Descript",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "CapCut",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      }
+     ]
+    },
+    {
+     "id": "t16-m05-finance-accounting",
+     "title": "AI for Finance and Accounting",
+     "course": "ai-tools-work",
+     "lessons": [
+      {
+       "id": "r-fin-reconcile",
+       "title": "Reconcile and Clean Ledgers With AI",
+       "level": "beginner",
+       "outcome": "Match, flag and clean ledger entries with AI help and formula checks",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "u-ai-excel-sheets"
+       ],
+       "tools": [
+        {
+         "name": "Microsoft Excel",
+         "tags": [
+          "paid"
+         ]
+        },
+        {
+         "name": "Google Sheets",
+         "tags": [
+          "free"
+         ]
+        },
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-fin-mis-reports",
+       "title": "Monthly MIS Reports and Commentary With AI",
+       "level": "intermediate",
+       "outcome": "Draft variance commentary for a monthly report and verify every figure",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-fin-reconcile"
+       ],
+       "tools": [
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Microsoft Excel",
+         "tags": [
+          "paid"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-fin-controls",
+       "title": "Use AI in Finance Safely: Checks and Audit Trail",
+       "level": "intermediate",
+       "outcome": "Set review steps and a simple log so AI-assisted work passes an audit",
+       "format": "video",
+       "minutes": 11,
+       "prerequisites": [
+        "r-fin-mis-reports",
+        "f-safe-what-not-to-paste"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      }
+     ]
+    },
+    {
+     "id": "t16-m06-hr-operations",
+     "title": "AI for HR and Operations",
+     "course": "ai-tools-work",
+     "lessons": [
+      {
+       "id": "r-hr-hiring",
+       "title": "Job Descriptions, Screening and Interviews With AI",
+       "level": "beginner",
+       "outcome": "Write a fair job description, screening rubric and interview questions",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "f-what-is-llm"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Claude",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-hr-policy-bot",
+       "title": "An HR Policy Q&A Assistant From Your Handbook",
+       "level": "intermediate",
+       "outcome": "Let staff ask questions of your handbook and get cited answers",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-hr-hiring"
+       ],
+       "tools": [
+        {
+         "name": "NotebookLM",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Custom GPTs / Gems / Claude Projects",
+         "tags": [
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      },
+      {
+       "id": "r-ops-sops",
+       "title": "Write SOPs and Automate Ops Checklists",
+       "level": "intermediate",
+       "outcome": "Turn a messy process into an SOP and an automated checklist",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "r-hr-hiring"
+       ],
+       "tools": [
+        {
+         "name": "ChatGPT",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "Power Automate",
+         "tags": [
+          "freemium"
+         ]
+        },
+        {
+         "name": "n8n",
+         "tags": [
+          "open-source",
+          "freemium"
+         ]
+        }
+       ],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": "ai-tools-work"
+      }
+     ]
+    },
+    {
+     "id": "t16-m07-leaders",
+     "title": "AI Strategy for Leaders",
+     "course": null,
+     "lessons": [
+      {
+       "id": "lead-ai-roi",
+       "title": "AI ROI: Costs, Savings and Real Payback",
+       "level": "advanced",
+       "outcome": "Build a one-page ROI case with honest costs, savings and payback time",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "f-ai-work-tasks"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "lead-pick-use-cases",
+       "title": "Pick Your First AI Use Cases: A Scoring Grid",
+       "level": "advanced",
+       "outcome": "Score candidate use cases on value, risk, data and effort, and pick three",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "lead-ai-roi"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "lead-build-vs-buy",
+       "title": "Build vs Buy vs Partner for AI",
+       "level": "advanced",
+       "outcome": "Choose build, buy or partner for a use case with a clear checklist",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "lead-pick-use-cases"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "lead-team-skills",
+       "title": "AI Skills for Your Team: Who Learns What",
+       "level": "advanced",
+       "outcome": "Map the AI skills each role needs and plan training for the quarter",
+       "format": "video",
+       "minutes": 12,
+       "prerequisites": [
+        "lead-pick-use-cases"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "lead-rollout",
+       "title": "Roll Out AI: Pilots, Change and Adoption",
+       "level": "advanced",
+       "outcome": "Run a pilot, handle resistance and turn early wins into team habits",
+       "format": "video",
+       "minutes": 14,
+       "prerequisites": [
+        "lead-team-skills",
+        "fr-gov-policy"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      },
+      {
+       "id": "lead-measure-impact",
+       "title": "Measure AI Impact: KPIs, Baselines, Reviews",
+       "level": "advanced",
+       "outcome": "Set baselines and KPIs, then run a monthly review that drives decisions",
+       "format": "video",
+       "minutes": 13,
+       "prerequisites": [
+        "lead-rollout"
+       ],
+       "tools": [],
+       "status": "coming_soon",
+       "youtubeId": null,
+       "youtubeVisibility": null,
+       "publishAt": null,
+       "premiere": null,
+       "course": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tools": [
+  {
+   "key": "a2a",
+   "name": "Agent2Agent (A2A) protocol",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "adk",
+   "name": "Google Agent Development Kit (ADK)",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "ai4bharat",
+   "name": "AI4Bharat models",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "aisdk",
+   "name": "Vercel AI SDK",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "anthropic_api",
+   "name": "Anthropic API",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "apps_script",
+   "name": "Google Apps Script",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "assemblyai",
+   "name": "AssemblyAI",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "autoawq",
+   "name": "AWQ / GPTQ tools",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "autoevals",
+   "name": "autoevals (Braintrust scorers library)",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "autogen",
+   "name": "AutoGen / AG2",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "axolotl",
+   "name": "Axolotl",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "azure_openai",
+   "name": "Azure OpenAI",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "bedrock",
+   "name": "AWS Bedrock",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "bge",
+   "name": "BGE embeddings / rerankers",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "bnb",
+   "name": "bitsandbytes",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "bolt",
+   "name": "Bolt",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "braintrust",
+   "name": "Braintrust",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "browser_use",
+   "name": "browser-use",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "bs4",
+   "name": "Beautiful Soup",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "canva",
+   "name": "Canva AI",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "capcut",
+   "name": "CapCut",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "cf_gateway",
+   "name": "Cloudflare AI Gateway",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "chatgpt",
+   "name": "ChatGPT",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "chatgpt_img",
+   "name": "ChatGPT image generation",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "chatterbox",
+   "name": "Chatterbox TTS",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "chroma",
+   "name": "Chroma",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "claude",
+   "name": "Claude",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "claude_agent_sdk",
+   "name": "Claude Agent SDK",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "claudecode",
+   "name": "Claude Code",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "cloudrun",
+   "name": "Google Cloud Run",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "codex",
+   "name": "OpenAI Codex",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "cohere",
+   "name": "Cohere Embed + Rerank",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "colab",
+   "name": "Google Colab",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "colbert",
+   "name": "ColBERT / RAGatouille",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "comet",
+   "name": "Perplexity Comet",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "comfyui",
+   "name": "ComfyUI",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "computer_use_api",
+   "name": "Computer-use APIs (Anthropic / OpenAI)",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "copilot",
+   "name": "Microsoft Copilot",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "copilot_studio",
+   "name": "Microsoft Copilot Studio",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "crewai",
+   "name": "CrewAI",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "cursor",
+   "name": "Cursor",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "datasets",
+   "name": "Hugging Face Datasets",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "deepeval",
+   "name": "DeepEval",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "deepgram",
+   "name": "Deepgram",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "deepseek",
+   "name": "DeepSeek chat",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "deepspeed",
+   "name": "DeepSpeed / FSDP",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "descript",
+   "name": "Descript",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "dify",
+   "name": "Dify",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "docker",
+   "name": "Docker",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "docling",
+   "name": "Docling",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "dotenv",
+   "name": "python-dotenv",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "dspy",
+   "name": "DSPy",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "elastic",
+   "name": "Elasticsearch",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "elevenlabs",
+   "name": "ElevenLabs",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "excel",
+   "name": "Microsoft Excel",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "exotel",
+   "name": "Exotel",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "faiss",
+   "name": "FAISS",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "fastapi",
+   "name": "FastAPI",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "fasterwhisper",
+   "name": "faster-whisper",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "fireflies",
+   "name": "Fireflies.ai",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "firefly",
+   "name": "Adobe Firefly",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "florence",
+   "name": "Florence-2",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "flowise",
+   "name": "Flowise",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "flux",
+   "name": "FLUX (open weights)",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "gamma",
+   "name": "Gamma",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "garak",
+   "name": "garak",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "gemini",
+   "name": "Gemini",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "gemini_api",
+   "name": "Gemini API",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "geminicli",
+   "name": "Gemini CLI",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "gguf",
+   "name": "GGUF / llama.cpp quantize",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "gha",
+   "name": "GitHub Actions",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "ghcopilot",
+   "name": "GitHub Copilot",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "git",
+   "name": "Git + GitHub",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "gpts",
+   "name": "Custom GPTs / Gems / Claude Projects",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "gpucloud",
+   "name": "GPU clouds (RunPod, Lambda, Vast.ai, E2E Networks)",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "gradio",
+   "name": "Gradio",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "graphrag",
+   "name": "Microsoft GraphRAG",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "grok",
+   "name": "Grok",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "groq",
+   "name": "Groq",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "guardrails_ai",
+   "name": "Guardrails AI",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "haystack",
+   "name": "Haystack",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "heygen",
+   "name": "HeyGen",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "hf_hub",
+   "name": "Hugging Face Hub",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "hf_inference",
+   "name": "Hugging Face Inference Providers",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "hf_spaces",
+   "name": "Hugging Face Spaces",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "hf_transformers",
+   "name": "Hugging Face Transformers",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "ideogram",
+   "name": "Ideogram",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "imagen",
+   "name": "Google Imagen (in Gemini)",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "inspect_ai",
+   "name": "Inspect (UK AI Security Institute)",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "instructor",
+   "name": "Instructor",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "jupyter",
+   "name": "JupyterLab",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "k8s",
+   "name": "Kubernetes",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "kaggle",
+   "name": "Kaggle Notebooks",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "kling",
+   "name": "Kling",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "kokoro",
+   "name": "Kokoro TTS",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "lambda",
+   "name": "AWS Lambda",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "lancedb",
+   "name": "LanceDB",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "langchain",
+   "name": "LangChain",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "langflow",
+   "name": "Langflow",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "langfuse",
+   "name": "Langfuse",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "langgraph",
+   "name": "LangGraph",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "langsmith",
+   "name": "LangSmith",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "lechat",
+   "name": "Mistral Le Chat",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "leonardo",
+   "name": "Leonardo.ai",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "letta",
+   "name": "Letta",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "lightrag",
+   "name": "LightRAG",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "litellm",
+   "name": "LiteLLM",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "livekit",
+   "name": "LiveKit Agents",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "llamacpp",
+   "name": "llama.cpp",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "llamafactory",
+   "name": "LLaMA-Factory",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "llamaguard",
+   "name": "Llama Guard",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "llamaindex",
+   "name": "LlamaIndex",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "llamaparse",
+   "name": "LlamaParse",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "lm_eval",
+   "name": "lm-evaluation-harness",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "lmstudio",
+   "name": "LM Studio",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "lovable",
+   "name": "Lovable",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "ltx",
+   "name": "LTX-Video",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "m365copilot",
+   "name": "Microsoft 365 Copilot",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "make",
+   "name": "Make",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "mastra",
+   "name": "Mastra",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "mcp",
+   "name": "Model Context Protocol (MCP) SDKs",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "mcp_inspector",
+   "name": "MCP Inspector",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "mem0",
+   "name": "Mem0",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "mergekit",
+   "name": "mergekit",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "metaai",
+   "name": "Meta AI",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "midjourney",
+   "name": "Midjourney",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "milvus",
+   "name": "Milvus / Zilliz",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "modal",
+   "name": "Modal",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "mongo_vs",
+   "name": "MongoDB Atlas Vector Search",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "msaf",
+   "name": "Microsoft Agent Framework / Semantic Kernel",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "n8n",
+   "name": "n8n",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "nanogpt",
+   "name": "nanoGPT-style code",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "nemo_guard",
+   "name": "NeMo Guardrails",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "neo4j",
+   "name": "Neo4j",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "nomic",
+   "name": "nomic-embed",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "notebooklm",
+   "name": "NotebookLM",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "numpy",
+   "name": "NumPy",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "ollama",
+   "name": "Ollama",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "openai_agents",
+   "name": "OpenAI Agents SDK",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "openai_api",
+   "name": "OpenAI API",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "openai_emb",
+   "name": "OpenAI embeddings",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "openai_evals",
+   "name": "OpenAI Evals (open-source framework + Evals API)",
+   "tags": [
+    "open-source",
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "openmodels",
+   "name": "Open-weight models (Llama, Qwen, Gemma, Mistral, DeepSeek)",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "openrouter",
+   "name": "OpenRouter",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "opensearch",
+   "name": "OpenSearch",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "otel",
+   "name": "OpenTelemetry (GenAI conventions)",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "otter",
+   "name": "Otter.ai",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "pandas",
+   "name": "pandas",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "peft",
+   "name": "Hugging Face PEFT",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "perplexity",
+   "name": "Perplexity",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "pgvector",
+   "name": "pgvector (Postgres)",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "phoenix",
+   "name": "Arize Phoenix",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pika",
+   "name": "Pika",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "pinecone",
+   "name": "Pinecone",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "pipecat",
+   "name": "Pipecat",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "playwright",
+   "name": "Playwright",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "playwright_mcp",
+   "name": "Playwright MCP",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "plivo",
+   "name": "Plivo",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "portkey",
+   "name": "Portkey",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "power_automate",
+   "name": "Power Automate",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "presidio",
+   "name": "Microsoft Presidio",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "promptfoo",
+   "name": "promptfoo",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pyannote",
+   "name": "pyannote.audio",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pydantic",
+   "name": "Pydantic",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pydanticai",
+   "name": "PydanticAI",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pymupdf",
+   "name": "PyMuPDF",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pyrit",
+   "name": "PyRIT",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pytest",
+   "name": "pytest",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "python",
+   "name": "Python",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "pytorch",
+   "name": "PyTorch",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "qdrant",
+   "name": "Qdrant",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "qwenchat",
+   "name": "Qwen Chat",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "qwenvl",
+   "name": "Qwen-VL",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "ragas",
+   "name": "RAGAS",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "ragflow",
+   "name": "RAGFlow",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "rank_bm25",
+   "name": "rank-bm25",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "realtime_api",
+   "name": "Realtime speech APIs (OpenAI Realtime / Gemini Live)",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "redis",
+   "name": "Redis vector search",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "redis_cache",
+   "name": "Redis (semantic cache)",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "render",
+   "name": "Render / Railway",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "replit",
+   "name": "Replit",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "requests",
+   "name": "requests / httpx",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "retell",
+   "name": "Retell AI",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "runway",
+   "name": "Runway",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "sarvam",
+   "name": "Sarvam AI",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "sbert",
+   "name": "sentence-transformers",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "sdxl",
+   "name": "Stable Diffusion",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "sglang",
+   "name": "SGLang",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "sheets",
+   "name": "Google Sheets",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "sklearn",
+   "name": "scikit-learn",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "smolagents",
+   "name": "smolagents",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "sora",
+   "name": "OpenAI Sora",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "streamlit",
+   "name": "Streamlit",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "suno",
+   "name": "Suno",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "supabase",
+   "name": "Supabase",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "synthesia",
+   "name": "Synthesia",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "temporal",
+   "name": "Temporal (durable execution)",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "tgi",
+   "name": "Text Generation Inference",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "tiktoken",
+   "name": "tiktoken / tokenizers",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "together",
+   "name": "Together AI",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "torchtune",
+   "name": "torchtune",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "trl",
+   "name": "Hugging Face TRL",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "trulens",
+   "name": "TruLens",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "twilio",
+   "name": "Twilio",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "udio",
+   "name": "Udio",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "unsloth",
+   "name": "Unsloth",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "unstructured",
+   "name": "Unstructured",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "uv",
+   "name": "uv",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "v0",
+   "name": "v0",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "vapi",
+   "name": "Vapi",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "veo",
+   "name": "Google Veo",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "vertex",
+   "name": "Google Vertex AI",
+   "tags": [
+    "paid"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "vllm",
+   "name": "vLLM",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "voyage",
+   "name": "Voyage AI embeddings",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "vscode",
+   "name": "VS Code",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "wan",
+   "name": "Wan video models",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "wandb",
+   "name": "Weights & Biases",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "weaviate",
+   "name": "Weaviate",
+   "tags": [
+    "open-source",
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "whisper",
+   "name": "Whisper",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "wsl",
+   "name": "WSL",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "xgboost",
+   "name": "XGBoost",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "yolo",
+   "name": "Ultralytics YOLO",
+   "tags": [
+    "open-source"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "zapier",
+   "name": "Zapier",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "zep",
+   "name": "Zep",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "sqlite",
+   "name": "SQLite",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "duckdb",
+   "name": "DuckDB",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "nextjs",
+   "name": "Next.js",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "vercel",
+   "name": "Vercel",
+   "tags": [
+    "freemium"
+   ],
+   "pricing": null
+  },
+  {
+   "key": "transformerlens",
+   "name": "TransformerLens",
+   "tags": [
+    "open-source",
+    "free"
+   ],
+   "pricing": "free / self-host (compute costs apply)"
+  },
+  {
+   "key": "google_lens",
+   "name": "Google Lens",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free"
+  },
+  {
+   "key": "looker_studio",
+   "name": "Looker Studio",
+   "tags": [
+    "free"
+   ],
+   "pricing": "free"
   }
  ]
 }

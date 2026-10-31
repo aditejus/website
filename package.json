@@ -6,7 +6,7 @@
   "scripts": {
     "sync": "node scripts/sync-data.mjs",
     "dev": "astro dev",
-    "build": "node scripts/fetch-thumbs.mjs && astro build && node scripts/postbuild.mjs && node scripts/seo-check.mjs",
+    "build": "node scripts/fetch-thumbs.mjs && astro build && pagefind --site dist --output-subdir pagefind && node scripts/postbuild.mjs && node scripts/seo-check.mjs",
     "preview": "astro preview",
     "seo-check": "node scripts/seo-check.mjs",
     "thumbs": "node scripts/fetch-thumbs.mjs"
@@ -19,7 +19,8 @@
     "astro": "^7.4.4"
   },
   "devDependencies": {
-    "js-yaml": "^5.5.0"
+    "js-yaml": "^5.5.0",
+    "pagefind": "^1.4.0"
   },
   "engines": {
     "node": ">=22.23.4"

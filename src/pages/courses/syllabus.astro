@@ -1,22 +1,26 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LessonRow from '../../components/LessonRow.astro';
-import { tracks, lessons, stats, fmtDate, courseByKey } from '../../lib/data';
+import { tracks, lessons, stats, fmtDate, courseByKey, FORMATS, formatLabel } from '../../lib/data';
 const byTrack = new Map(tracks.map((t) => [t.id, lessons.filter((l) => l.track === t.id)]));
 ---
-<Base crumbs={[['Courses','/courses/'],['Full syllabus','/courses/syllabus/']]} title="Full syllabus" description={`All ${stats.lessons} lessons of the ADITEJUS AI curriculum across ${stats.tracks} tracks. Live lessons link to YouTube and Udemy; the rest are coming soon.`}>
+<Base search={false} crumbs={[['Courses','/courses/'],['Full syllabus','/courses/syllabus/']]} title="Full syllabus" description={`All ${stats.lessons} lessons of the ADITEJUS AI curriculum across ${stats.tracks} tracks. Live lessons link to YouTube and Udemy; the rest are coming soon.`}>
   <div class="wrap">
     <header class="ph">
       <h1>The full syllabus</h1>
       <p class="lede">{stats.lessons} lessons in {stats.tracks} tracks, from “what is AI” to training your own model. {stats.live} are free on YouTube today; the rest say Coming soon until they go live.</p>
       <p class="faint" style="margin-top:12px">Curriculum v{stats.version}, {fmtDate(stats.curriculumDate)}.</p>
     </header>
-    <form class="filters" id="sf" onsubmit="return false" aria-label="Filter lessons">
-      <label>Search<input type="search" name="q" placeholder="Lesson, tool or topic"></label>
+    <form class="filters" id="sf" action="/courses/syllabus/" method="get" aria-label="Filter lessons">
+      <label class="fq">Find<input type="search" name="q" placeholder="Lesson, tool or topic"></label>
+      <label>Track<select name="track"><option value="">All tracks</option>{tracks.map((t) => <option value={t.id}>{t.n}. {t.title}</option>)}</select></label>
       <label>Level<select name="level"><option value="">All levels</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label>
-      <label>Status<select name="live"><option value="">All lessons</option><option value="1">Live now</option></select></label>
-      <p class="faint" id="sc" role="status" aria-live="polite"></p>
+      <label>Format<select name="format"><option value="">All formats</option>{FORMATS.map((f) => <option value={f}>{formatLabel(f)}</option>)}</select></label>
+      <label>Tools<select name="tools"><option value="">Free or paid</option><option value="free">Free tools only</option><option value="paid">Needs a paid tool</option></select></label>
+      <label>Status<select name="status"><option value="">Any status</option><option value="live">Live on YouTube</option><option value="soon">Coming soon</option><option value="udemy">On Udemy</option></select></label>
+      <div class="fx"><p class="faint" id="sc" role="status" aria-live="polite"></p><button class="btn sm ghost" type="reset" id="sr">Clear filters</button><noscript><button class="btn sm" type="submit">Apply</button></noscript></div>
     </form>
+    <p class="empty muted" id="se" hidden>No lesson matches these filters. <a href="/courses/syllabus/">Clear filters</a> or try the <a href="/search/">site search</a>.</p>
     <nav class="toc" aria-label="Tracks">{tracks.map((t) => <a href={`#${t.id}`}>{t.n}. {t.title}</a>)}</nav>
     {tracks.map((t) => (
       <section class="trk" id={t.id}>
@@ -34,14 +38,18 @@ const byTrack = new Map(tracks.map((t) => [t.id, lessons.filter((l) => l.track =
 </Base>
 <script is:inline>
 (function(){
-  var f=document.getElementById('sf'),rows=[].slice.call(document.querySelectorAll('.lr')),sc=document.getElementById('sc');
+  var f=document.getElementById('sf'),rows=[].slice.call(document.querySelectorAll('.lr')),sc=document.getElementById('sc'),se=document.getElementById('se');
+  var K=['q','track','level','format','tools','status'];
   rows.forEach(function(r){r._t=r.textContent.toLowerCase()});
-  function run(){var q=f.q.value.trim().toLowerCase(),lv=f.level.value,lv2=f.live.value,n=0;
-    rows.forEach(function(r){var ok=(!q||r._t.indexOf(q)>-1)&&(!lv||r.dataset.level===lv)&&(!lv2||r.dataset.live===lv2);r.hidden=!ok;if(ok)n++});
+  var p=new URLSearchParams(location.search);K.forEach(function(k){if(p.get(k)&&f[k])f[k].value=p.get(k)});
+  if(f.status.value==='live'||p.get('live')==='1')f.status.value='live';
+  function run(){var q=f.q.value.trim().toLowerCase(),v={},n=0,any=false;K.forEach(function(k){v[k]=f[k].value;if(v[k])any=true});
+    rows.forEach(function(r){var d=r.dataset,ok=(!q||r._t.indexOf(q)>-1)&&(!v.track||d.track===v.track)&&(!v.level||d.level===v.level)&&(!v.format||d.format===v.format)&&(!v.tools||d.tools===v.tools)&&(!v.status||(v.status==='udemy'?d.udemy==='1':d.status===v.status));r.hidden=!ok;if(ok)n++});
     document.querySelectorAll('.mod').forEach(function(m){m.hidden=!m.querySelector('.lr:not([hidden])')});
     document.querySelectorAll('.trk').forEach(function(t){t.hidden=!t.querySelector('.mod:not([hidden])')});
-    sc.textContent=n+' lessons'}
-  f.addEventListener('input',run);run();
+    sc.textContent=n+(n===1?' lesson':' lessons')+(any?' match':'');se.hidden=n>0;document.getElementById('sr').hidden=!any;
+    var o=new URLSearchParams();K.forEach(function(k){if(v[k])o.set(k,v[k])});history.replaceState(null,'',(o.toString()?'?'+o:location.pathname)+location.hash)}
+  f.addEventListener('input',run);f.addEventListener('change',run);f.addEventListener('reset',function(){setTimeout(run,0)});f.addEventListener('submit',function(e){e.preventDefault()});run();
 })();
 </script>
 <style>
@@ -57,6 +65,11 @@ const byTrack = new Map(tracks.map((t) => [t.id, lessons.filter((l) => l.track =
   .mod h3 a { display: block; font: 400 14px var(--disp); letter-spacing: 0; margin-top: 2px; }
   .ll { list-style: none; padding: 0; }
   [hidden] { display: none !important; }
-  #sc { margin-left: auto; align-self: center; }
-  @media (max-width: 700px) { .filters label, .filters input, .filters select { width: 100%; } }
+  .filters { position: sticky; top: 64px; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .filters select { max-width: 210px; }
+  .fq input { width: 220px; }
+  .fx { display: flex; gap: 10px; align-items: center; margin-left: auto; }
+  .empty { margin: 24px 0; }
+  @media (max-width: 1100px) { .filters { position: static; } }
+  @media (max-width: 700px) { .filters { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } .filters label, .filters input, .filters select, .fq input { width: 100%; max-width: none; } .fq, .fx { grid-column: 1 / -1; } .fx { margin-left: 0; justify-content: space-between; } }
 </style>

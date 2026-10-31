@@ -1,20 +1,24 @@
 ---
-import { type Lesson, levelLabel, ytUrl, fmtDate, udemyFor, lessonPath } from '../lib/data';
-const { l } = Astro.props as { l: Lesson };
+import { type Lesson, levelLabel, ytUrl, fmtDate, udemyFor, lessonPath, toolTier, lessonStatus, trackById } from '../lib/data';
+const { l, showTrack = false } = Astro.props as { l: Lesson; showTrack?: boolean };
 const udemy = udemyFor(l);
 const fmt = l.format === 'video' ? '' : l.format[0].toUpperCase() + l.format.slice(1);
+const tier = toolTier(l);
+const status = lessonStatus(l);
 ---
-<li class="lr" id={l.id} data-level={l.level} data-live={l.live ? '1' : '0'}>
+<li class="lr" id={l.id} data-level={l.level} data-live={l.live ? '1' : '0'} data-track={l.track} data-format={l.format}
+    data-tools={tier} data-status={status} data-udemy={udemy ? '1' : '0'}>
   <div class="lr-main">
     <a class="lr-t" href={lessonPath(l.id)}>{l.title}</a>
     <span class="lr-o">{l.outcome}</span>
+    {showTrack && <span class="faint">Track {l.trackN}: {trackById.get(l.track)!.title}</span>}
   </div>
   <div class="lr-meta">
-    <span class="faint">{levelLabel(l.level)}{fmt && `, ${fmt}`}, {l.minutes} min</span>
+    <span class="faint">{levelLabel(l.level)}{fmt && `, ${fmt}`}, {l.minutes} min{tier === 'paid' ? ', paid tool' : ''}</span>
     {l.live && l.youtubeId
       ? <a class="badge live" href={ytUrl(l.youtubeId)}>Watch free</a>
       : <span class="badge">{l.publishAt && l.youtubeVisibility === 'scheduled' ? `Coming ${fmtDate(l.publishAt)}` : 'Coming soon'}</span>}
-    {l.course && (udemy ? <a class="badge udemy" href={udemy.href}>Udemy</a> : <span class="badge">Udemy: coming soon</span>)}
+    {l.course && (udemy ? <a class="badge udemy" href={udemy.href}>Enroll on Udemy</a> : <span class="badge">Udemy: coming soon</span>)}
   </div>
 </li>
 <style>
