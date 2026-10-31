@@ -14,22 +14,25 @@ const stages = roadmaps.map((r) => {
       <div class="top"><b>{i + 1}</b><span class="faint">{s.steps.length} steps, {s.lessons} lessons</span></div>
       <h3>{s.title}</h3>
       <p class="muted">{s.goal}</p>
-      <ul>{s.tracks.map((t) => <li><a href={`/courses/syllabus/#${t.id}`}><span class="n">{t.n}</span>{t.title}</a></li>)}</ul>
+      <ul>{s.tracks.map((t) => <li><a href={`/courses/syllabus/#${t.id}`}><span class="n">{String(t.n).padStart(2, '0')}</span>{t.title}</a></li>)}</ul>
       <a class="btn sm" href={`/roadmaps/#${s.id}`}>{s.title} checklist</a>
     </article>
   ))}
 </div>
 <style>
-  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 2px solid var(--text); }
-  .stage { padding: 24px 28px 32px 0; display: flex; flex-direction: column; gap: 10px; }
-  .stage + .stage { padding-left: 28px; border-left: 1px solid var(--line); }
-  .top { display: flex; justify-content: space-between; align-items: baseline; }
-  .top b { font: 900 56px/1 var(--disp); color: var(--faint); letter-spacing: -.04em; }
-  .stage h3 { font: 900 32px/1 var(--disp); letter-spacing: -.03em; }
-  .stage ul { list-style: none; padding: 0; margin: 8px 0 12px; border-top: 1px solid var(--line); }
-  .stage li a { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); text-decoration: none; font: 500 15px/1.35 var(--disp); }
-  .stage li a:hover { color: var(--a2); }
-  .stage .n { color: var(--faint); min-width: 20px; }
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .stage { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 26px 24px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-2); overflow: hidden; }
+  .stage::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--grad); opacity: calc(.35 + var(--k, 0) * .3); }
+  .stage:nth-child(1) { --k: 0; } .stage:nth-child(2) { --k: 1; } .stage:nth-child(3) { --k: 2; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .top b { font: 600 12.5px var(--mono); color: var(--accent); letter-spacing: .04em; }
+  .top b::before { content: "Stage "; }
+  .stage h3 { font: 750 28px/1.05 var(--disp); letter-spacing: -.03em; }
+  .stage > p { font-size: 15px; }
+  .stage ul { list-style: none; padding: 0; margin: 10px 0 18px; }
+  .stage li a { display: flex; gap: 12px; padding: 9px 0; border-top: 1px solid var(--line); text-decoration: none; font: 500 14.5px/1.35 var(--sans); transition: color .15s; }
+  .stage li a:hover { color: var(--accent); }
+  .stage .n { font-family: var(--mono); font-size: 12.5px; color: var(--faint); min-width: 20px; padding-top: 1px; }
   .stage .btn { align-self: flex-start; margin-top: auto; }
-  @media (max-width: 900px) { .stages { grid-template-columns: 1fr; } .stage, .stage + .stage { padding: 24px 0 28px; border-left: 0; border-bottom: 1px solid var(--line); } }
+  @media (max-width: 900px) { .stages { grid-template-columns: 1fr; } }
 </style>

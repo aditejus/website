@@ -1,7 +1,7 @@
 ---
 // Placeholder: no backend yet. TODO(creator): pick the email tool (free tier first), then point the form at it.
 ---
-<section class="blk"><div class="wrap news">
+<section class="blk"><div class="wrap"><div class="news panel">
   <div><h2>Friday, in your inbox.</h2><p class="muted" style="margin-top:12px">Plus whatever went live that week. Unsubscribe in one click.</p></div>
   <form class="nl" action="#" method="post" novalidate>
     <label class="sr" for="nl-email">Email address</label>
@@ -9,14 +9,15 @@
     <button class="btn fill" type="submit">Join the newsletter</button>
     <p class="nl-msg faint" role="status" hidden>Sign-up opens soon. Nothing was sent or stored.</p>
   </form>
-</div></section>
+</div></div></section>
 <script is:inline>
 document.querySelectorAll('form.nl').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();f.querySelector('.nl-msg').hidden=false})});
 </script>
 <style>
-  .news { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .news { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: clamp(28px, 4vw, 44px); position: relative; overflow: hidden; isolation: isolate; }
+  .news::before { content: ""; position: absolute; right: -10%; top: -80%; width: 55%; height: 200%; z-index: -1; background: radial-gradient(closest-side, var(--glow), transparent); }
   form { display: flex; gap: 10px; flex-wrap: wrap; }
-  input { flex: 1 1 220px; }
+  input { flex: 1 1 220px; height: 46px; }
   .nl-msg { flex-basis: 100%; }
-  @media (max-width: 860px) { .news { grid-template-columns: 1fr; gap: 24px; } }
+  @media (max-width: 860px) { .news { grid-template-columns: 1fr; gap: 20px; } }
 </style>

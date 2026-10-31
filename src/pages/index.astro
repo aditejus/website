@@ -3,30 +3,37 @@ import Base from '../layouts/Base.astro';
 import Atlas from '../components/Atlas.astro';
 import VideoCard from '../components/VideoCard.astro';
 import StageCards from '../components/StageCards.astro';
+import CourseCard from '../components/CourseCard.astro';
 import Newsletter from '../components/Newsletter.astro';
-import { stats, latestLive, fmtDate, ytUrl, levelLabel, lessonPath } from '../lib/data';
+import { stats, latestLive, fmtDate, levelLabel, lessonPath, courses } from '../lib/data';
 
 const live = latestLive();
 const feat = live.find((l) => l.youtubeId);
 const recent = live.filter((l) => l !== feat).slice(0, 4);
+const featured = courses.filter((c) => c.lessons.length > 0 || c.udemyLink).slice(0, 6);
 ---
 <Base title="ADITEJUS" description={`Learn to build real AI: agents, RAG and automation. ${stats.lessons} lessons across ${stats.tracks} tracks, free to start on YouTube, with Udemy certificate courses.`}
   jsonld={{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'ADITEJUS', url: 'https://aditejus.com/' }}>
   <div class="wrap">
     <section class="hero">
-      <h1>Every lesson you need to build real AI.</h1>
-      <div class="row">
-        <p class="lede"><strong>{stats.lessons} lessons across {stats.tracks} tracks</strong>, from what an LLM is to training your own. Free on YouTube, with certificate courses on Udemy. Pick a goal and follow the route.</p>
-        <div class="ctas"><a class="btn fill" href="/roadmaps/">Plan my route</a><a class="btn" href="/courses/">See every course</a></div>
+      <h1>Every lesson you need<br class="br"> to build real AI.</h1>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="lede"><strong>{stats.lessons} lessons across {stats.tracks} tracks</strong>, from what an LLM is to training your own. Free on YouTube, with certificate courses on Udemy.</p>
+          <div class="ctas"><a class="btn fill" href="/roadmaps/">Plan my route</a><a class="btn" href="/courses/">Browse courses</a></div>
+        </div>
+        <dl class="mini">
+            <div><dt>Live free on YouTube</dt><dd>{stats.live}</dd></div>
+            <div><dt>Udemy courses live</dt><dd>{stats.udemyLive}</dd></div>
+            <div><dt>Build-along projects</dt><dd>{stats.projects}</dd></div>
+        </dl>
+        <div class="hero-map"><Atlas /></div>
       </div>
     </section>
-    <Atlas />
-  </div>
 
-  <div class="wrap">
     {feat && (
       <section class="blk">
-        <div class="sh"><h2>New this week.</h2><p>The latest free lesson. No sign-up, nothing to pay.</p></div>
+        <div class="sh"><h2>New this week</h2><p>The latest free lesson. No sign-up, nothing to pay.</p></div>
         <VideoCard l={feat} />
         {recent.length > 0 && (
           <ul class="recent">
@@ -37,56 +44,80 @@ const recent = live.filter((l) => l !== feat).slice(0, 4);
     )}
 
     <section class="blk">
-      <div class="sh"><h2>Beginner, builder, pro.</h2><p>One path in three stages. Each stage lists the tracks it draws from; every course page shows what comes before and after.</p></div>
+      <div class="sh"><h2>Beginner, builder, pro</h2><p>One path in three stages. Each stage lists the tracks it draws from, and every course page shows what comes before and after.</p></div>
       <StageCards />
     </section>
 
-    <section class="sec">
-      <div><h2>The Academy.</h2><p class="aside">A monthly membership for people who want to build alongside us. The basics stay free.</p></div>
-      <div>
-        <div class="pillars">
-          <div><h3>Build-along projects</h3><p>One full project a month, code in the members repo.</p></div>
-          <div><h3>Monthly live workshop</h3><p>A practical build and open Q&amp;A.</p></div>
-          <div><h3>Project resources</h3><p>Templates, checklists and roadmaps.</p></div>
-          <div><h3>Industry insights</h3><p>How companies run AI in production, sourced and dated.</p></div>
-          <div><h3>Learning community</h3><p>Show your build, ask for help, keep going.</p></div>
+    <section class="blk">
+      <div class="sh"><h2>Courses</h2><p>Every course is free on YouTube lesson by lesson, with a Udemy version that adds assignments and a certificate.</p></div>
+      <div class="cards">{featured.map((c) => <CourseCard c={c} />)}</div>
+      <div class="ctas"><a class="btn" href="/courses/">All {courses.length} courses</a><a class="btn ghost" href="/courses/syllabus/">Full syllabus</a></div>
+    </section>
+
+    <section class="blk">
+      <div class="academy panel">
+        <div class="ac-copy">
+          <h2>The Academy</h2>
+          <p class="muted">A monthly membership for people who want to build alongside us. Members get more depth; the basics stay free.</p>
+          <a class="btn fill" href="/academy/">How the Academy works</a>
         </div>
-        <a class="btn" href="/academy/">How the Academy works</a>
+        <ul class="pillars">
+          <li><h3>Build-along projects</h3><p>One full project a month, code in the members repo.</p></li>
+          <li><h3>Monthly live workshop</h3><p>A practical build and open Q&amp;A.</p></li>
+          <li><h3>Project resources</h3><p>Templates, checklists and roadmaps.</p></li>
+          <li><h3>Industry insights</h3><p>How companies run AI in production, sourced and dated.</p></li>
+          <li><h3>Learning community</h3><p>Show your build, ask for help, keep going.</p></li>
+        </ul>
       </div>
     </section>
 
-    <section class="sec">
-      <div><h2>Counted, not claimed.</h2></div>
+    <section class="blk">
+      <div class="sh"><h2>Counted, not claimed</h2><p>Recounted from the published curriculum every time this site builds. <a href="/courses/syllabus/">See every lesson</a>.</p></div>
       <div class="nums">
         <div><b>{stats.lessons}</b><span>lessons in the syllabus</span></div>
         <div><b>{stats.live}</b><span>live free on YouTube</span></div>
         <div><b>{stats.udemyLive}</b><span>Udemy courses live</span></div>
         <div><b>{stats.udemyReview}</b><span>Udemy courses in review</span></div>
-        <small>From the published curriculum, v{stats.version}, {fmtDate(stats.curriculumDate)}. Recounted every time the site builds. <a href="/courses/syllabus/">See every lesson</a>.</small>
       </div>
+      <p class="faint" style="margin-top:14px">Curriculum v{stats.version}, {fmtDate(stats.curriculumDate)}.</p>
     </section>
   </div>
   <Newsletter />
 </Base>
 <style>
-  .hero { padding: clamp(40px, 7vw, 104px) 0 40px; }
-  .hero h1 { font-size: clamp(48px, 9.4vw, 148px); max-width: 12ch; }
-  .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 40px; align-items: end; }
-  .row .lede { margin-top: 0; }
-  .row .ctas { justify-self: end; margin-top: 0; }
-  @media (max-width: 820px) { .row { grid-template-columns: 1fr; gap: 8px; } .row .ctas { justify-self: start; margin-top: 24px; } }
-  .recent { list-style: none; padding: 0; margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0 24px; }
-  .recent li { display: grid; gap: 4px; padding: 14px 0; border-top: 1px solid var(--line); }
-  .recent a { text-decoration: none; font: 700 17px/1.3 var(--disp); }
-  .recent a:hover { color: var(--a2); }
-  .pillars { columns: 2; column-gap: 48px; margin-bottom: 16px; }
-  .pillars div { break-inside: avoid; padding-bottom: 22px; }
-  .pillars h3 { font-size: 19px; }
-  .pillars p { color: var(--muted); font-size: 16px; }
-  @media (max-width: 640px) { .pillars { columns: 1; } }
-  .nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
-  .nums b { font: 900 clamp(44px, 6vw, 88px)/.9 var(--disp); letter-spacing: -.05em; display: block; }
-  .nums span { font: 500 15px/1.35 var(--disp); color: var(--muted); display: block; margin-top: 10px; }
-  .nums small { grid-column: 1 / -1; color: var(--faint); font-size: 14px; }
-  @media (max-width: 820px) { .nums { grid-template-columns: 1fr 1fr; } }
+  .hero { padding: clamp(32px, 4.5vw, 56px) 0 0; }
+  .hero h1 { font-size: clamp(38px, 5.4vw, 74px); max-width: none; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7.4fr); grid-template-areas: "copy map" "mini map"; grid-template-rows: auto 1fr; gap: 0 clamp(28px, 4vw, 56px); margin-top: clamp(24px, 3vw, 36px); align-items: start; }
+  .hero-copy { grid-area: copy; } .mini { grid-area: mini; } .hero-map { grid-area: map; min-width: 0; }
+  .hero-copy .lede { margin-top: 4px; }
+  .mini { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0; margin-top: 36px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .mini div { padding-right: 22px; margin-right: 22px; border-right: 1px solid var(--line); }
+  .mini div:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  .mini dt { font: 500 12.5px/1.3 var(--sans); color: var(--faint); max-width: 11ch; }
+  .mini dd { font: 750 28px/1 var(--disp); letter-spacing: -.03em; margin-top: 8px; }
+  @media (max-width: 1000px) { .hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "map" "mini"; gap: 28px; } .br { display: none; } .mini { margin-top: 0; } }
+  @media (max-width: 520px) { .hero-copy .lede { font-size: 16.5px; } .mini div { padding-right: 14px; margin-right: 14px; } .mini dd { font-size: 24px; } }
+
+  .recent { list-style: none; padding: 0; margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .recent li { display: grid; gap: 6px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .recent a { text-decoration: none; font: 650 15.5px/1.35 var(--sans); }
+  .recent a:hover { color: var(--accent); }
+  @media (max-width: 900px) { .recent { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .recent { grid-template-columns: 1fr; } }
+
+  .academy { display: grid; grid-template-columns: 4fr 7fr; gap: 48px; padding: clamp(28px, 4vw, 48px); position: relative; overflow: hidden; isolation: isolate; }
+  .academy::before { content: ""; position: absolute; left: -10%; bottom: -60%; width: 60%; height: 120%; z-index: -1; background: radial-gradient(closest-side, var(--glow), transparent); }
+  .ac-copy { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .ac-copy .btn { margin-top: 10px; }
+  .pillars { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+  .pillars li { padding: 14px 0; border-top: 1px solid var(--line); }
+  .pillars h3 { font-size: 16.5px; }
+  .pillars p { color: var(--muted); font-size: 15px; margin-top: 4px; }
+  @media (max-width: 860px) { .academy { grid-template-columns: 1fr; gap: 24px; } .pillars { grid-template-columns: 1fr; } }
+
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-1); }
+  .nums div { background: var(--surface); padding: 26px 24px; }
+  .nums b { font: 750 clamp(36px, 4.4vw, 56px)/1 var(--disp); letter-spacing: -.04em; display: block; }
+  .nums span { font: 500 14px/1.35 var(--sans); color: var(--muted); display: block; margin-top: 10px; }
+  @media (max-width: 760px) { .nums { grid-template-columns: 1fr 1fr; } }
 </style>

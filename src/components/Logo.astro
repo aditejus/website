@@ -1,0 +1,18 @@
+---
+// Official ADITEJUS emblem (gold, from kit/brand) + wordmark: "ADI" in ivory/ink, "TEJUS" in gold.
+import '@fontsource/cinzel/latin-600.css';
+const { href = '/', size = 'md' } = Astro.props as { href?: string; size?: 'md' | 'sm' };
+---
+<a class={`logo ${size}`} href={href} aria-label="ADITEJUS home">
+  <img class="mark" src="/brand/emblem-96.png" alt="" width="48" height="48" decoding="async">
+  <span class="wm"><span class="ink">ADI</span><span class="acc">TEJUS</span></span>
+</a>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .mark { width: 34px; height: 34px; filter: drop-shadow(0 2px 8px rgba(230, 185, 84, .25)); }
+  .wm { font: 600 18px/1 var(--brand); letter-spacing: .16em; padding-top: 2px; }
+  .ink { color: var(--text); }
+  .acc { background: var(--grad-v); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sm .mark { width: 28px; height: 28px; }
+  .sm .wm { font-size: 16px; }
+</style>

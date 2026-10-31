@@ -12,9 +12,10 @@
     "thumbs": "node scripts/fetch-thumbs.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
     "@fontsource-variable/red-hat-display": "^5.3.0",
-    "@fontsource-variable/source-serif-4": "^5.3.1",
-    "@fontsource/red-hat-mono": "^5.3.0",
+    "@fontsource/cinzel": "^5.3.0",
     "astro": "^7.4.4"
   },
   "devDependencies": {
